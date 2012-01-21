@@ -1,3 +1,3 @@
-This is an Invexp project code-source on Github.
+<b> This is an Invexp project code-source on Github. </b>
 
-Author: Egor Kolotaev
+<i> Author: Egor Kolotaev </i>
