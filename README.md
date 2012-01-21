@@ -3,5 +3,5 @@
 
 
 ``` html
-<i> Author: Egor Kolotaev </i>
+Author: Egor Kolotaev
 ```
