@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Подключение JavaScript</title>
+<script src="jscripts/jquery-1.3.2.min.js" type="text/javascript"></script>
+<script src="jscripts/forall.js" type="text/javascript"></script>
+<!--[if lt IE 8]>
+<script src="jscripts/ie.js" type="text/javascript"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="css/style.css" type="text/css"/>
+<link rel="stylesheet" href="css/js-instructions.css" type="text/css"/>
+ 
+</head>
+
+<body>
+<!-- Wrapper till footer -->
+<div id="wrapper"> 
+
+<!-- Head wrapper -->
+<div id="headwrap">
+<img src="pics/logo.gif" class="logo" alt="InvExp" />    
+
+
+<!-- Header -->
+<div id="header">
+
+<!-- Menu --> 
+<ul id="menu">
+	<li><a href="#">Файл</a></li>
+	<li>
+		<a href="#">Счет</a>
+	</li>
+	<li>
+		<a href="#">Инфо</a>
+	</li>
+	<li>
+		<a href="#">Вход</a>
+	</li>
+</ul> 
+<!-- END Menu -->   
+
+<!-- Search Block --> 
+<div class="search"> 
+<form method="get" action="smth.php">
+<div> 
+<input class="field" type="text" value="go!" /> 
+<input class="button" type="submit" value="" />
+</div>
+</form> 
+</div> 
+<!-- END Search Block --> 
+
+
+</div>        
+<!-- END Header --> 
+
+
+<!-- Status --> 
+<div id="status">
+<noscript><p>
+Подключите JavaScript! Следуйте указаниям инструкции
+</p></noscript>
+</div>
+<!-- END Status --> 
+</div>
+<!-- END Head wrapper --> 
+
+<!-- Container for side and main -->
+<div id="container">
+ 
+<!-- Side block -->
+<div id="sideblock">
+<div id="firstpane" class="menu_list">
+<p class="menu_headjshelp"><a href="../index.html">На главную</a></p>		
+<p class="menu_headjshelp"><a href="#ie">Internet Explorer</a></p>		
+<p class="menu_headjshelp"><a href="#opera">Opera </a></p>
+<p class="menu_headjshelp"><a href="#ff">Mozilla Firefox</a></p>
+<p class="menu_headjshelp"><a href="#chrome">Google Chrome</a></p>
+<p class="menu_headjshelp"><a href="#nn">Netscape Navigator</a></p>	
+<p class="menu_headjshelp"><a href="#other">Другие</a></p>	
+</div>
+</div>
+<!--END Side block -->
+
+<!-- Main area. The top level -->
+<div id="main">
+
+<!-- Block for calculations and info --> 
+<div id="infojshelp">
+
+<h3>Что такое сценарии JavaScript<br/>и как включить их поддержку в браузере</h3>
+
+<p><strong>JavaScript</strong> это язык сценариев, позволяющих сделать 
+интернет-страницу интерактивной, т.е. "умеющей общаться" с пользователем. 
+</p>
+      
+	  <p><strong>Сценарии JavaScript</strong> загружаются с интернет-сайта на 
+      компьютер пользователя и выполняются на нем. Как и любой другой файл, загружаемый с незнакомого 
+      сайта, сценарий JavaScript может содержать исполняемый код, способный 
+      навредить пользователю – например, открыть несанкционированный доступ к 
+      его конфиденциальной информации. Именно поэтому в браузерах предусмотрена 
+      возможность отключения выполнения сценариев JavaScript.
+	  </p>
+
+<p>Однако, учитывая что JavaScript в той или иной степени используют 
+сегодня почти все сайты, выключение поддержки JavaScrip в браузере сильно 
+ограничивает возможности браузера и лишает пользователя возможности использовать
+многие интерактивные возможности предлагаемые современными сайтами.</p>
+
+<p><span><strong>ВНИМАНИЕ!</strong><br/>С выключенной поддержкой 
+JavaScript данный сайт вообще работать не будет (так-как представляет собой веб-приложение)!</span></p>
+      
+	  <h4><a name="ie"></a>Включение поддержки JavaScript в браузерах Microsoft Internet Explorer</h4>
+	  
+    <ol>
+        <li>Войдите в меню "Сервис" ("Tools") навигационной панели 
+        Microsoft Internet Explorer, а затем выберите пункт "Свойства 
+        обозревателя" ("Internet Options") . 
+		</li>
+        <li>Выберите закладку "Безопасность" ("Security") .<br/><br/>
+		<div><img src="pics/jsinstructions/js_ie6.jpg" alt="IE Безопасность" /></div><br/>
+		</li>
+        <li>Нажмите на кнопку "Другой" </li>
+        <li>В окне параметры безопасности найдите настройки сценариев и разрешите 
+        <b>"Выполнять сценарии приложений Java"</b><br/><br/><div><img 
+        src="pics/jsinstructions/js_ie6-2.jpg"  alt="IE Выполнять сценарии приложений Java" /></div><br/>
+        </li>
+		<li>В том же окне найти параметры безопасности элементов ActiveX и 
+        модулей подключения, разрешить <b>"Выполнять сценарии элементов ActiveX, 
+        помеченных как безопасные"</b><br/><br/><div><img  
+        src="pics/jsinstructions/js_ie6-3.jpg" alt="IE Выполнять сценарии элементов ActiveX" /></div><br/>
+		</li>
+        <li>Для сохранения настроек нажмите кнопку <b>"OK"</b>.
+		</li>
+	</ol>
+
+<h4><a name="opera"></a>Включение поддержки JavaScript в браузере Opera 10</h4>
+
+Чтобы включить JavaScript нажмите F12 (или щелкните левой кнопкой мыши по изображению буквы "О" 
+в красном прямоугольнике в левом верхнем углу экрана, затем выберите пункт "Настройки -> 
+Быстрые настройки"). Поставьте галочку перед надписью "Включить JavaScript".
+<br/>
+<div><img src="pics/jsinstructions/opera10_javascript.jpg" alt="Opera 10 JavaScript"/></div><br/>
+Второй способ. Нажмите Ctr+F12 (или также щелкните левой кнопкой мыши по изображению буквы "О" в 
+красном прямоугольнике в левом верхнем углу экрана, затем выберите пункт "Настройки -> Общие настройки..."). В появившемся диалоговом окне выберите вкладку "Содержимое" и отметьте влажком пункт "Включить JavaScript". Нажмите кнопку "ОК".
+<br/><br/>
+<div><img src="pics/jsinstructions/opera10_javascript_big.gif" alt="Opera 10 JavaScript"/></div> 
+
+
+<h4><a name="ff"></a>Включение поддержки JavaScript в браузере Mozilla Firefox </h4> 
+
+В верхнем меню браузера Mozilla Firefox щелкните по вкладке "Инструменты" и 
+выберите пункт меню "Настройки...". В появившемся диалоговом окне выберите вкладку 
+"Содержимое" и отметьте влажком пункт "Использовать JavaScript". Нажмите кнопку "ОК".
+<br/><br/>
+<div><img src="pics/jsinstructions/firefox3.6_javascript.gif" alt="Mozilla Firefox - JavaScript" /></div> 
+
+<h4><a name="chrome"></a>Включение поддержки JavaScript в браузере Google Chrome</h4>
+ 
+В браузере Google Chrome щелкните по кнопке с изображением гаечного ключа в правом верхнем углу экрана 
+(меню "Настройка и управление Google Chrome"). Выберите пункт меню "Параметры" и откройте вкладку 
+"Расширенные". В появившемся диалоговом нажмите кнопку "Настройки содержания...". 
+В появившемся новом диалоговом окне выберите вкладку "JavaScript" и отметьте пункт 
+"Разрешить всем сайтам использовать JavaScript (рекомендуется)". При желании вы также 
+можете настроить в этом окне исключения для выборочной блокировки JavaScript для некоторый сайтов. 
+Нажмите кнопку "Закрыть" в этом окне и предыдущем.
+<br/><br/>
+<div><img src="pics/jsinstructions/google_chrome_param.gif" alt="Google Chrome - Параметры"/></div> 
+<br/>
+<div><img src="pics/jsinstructions/google_chrome_javascript.gif" alt="Google Chrome - JavaScript"/></div> 
+
+<h4><a name="nn"></a>Включение поддержки JavaScript в браузере Netscape Navigator 9</h4> 
+
+В верхнем меню браузера Netscape Navigator щелкните по вкладке "Инструменты" и 
+выберите пункт меню "Настройки..." В появившемся диалоговом окне выберите вкладку 
+"Содержимое" и отметьте влажком пункт "Использовать JavaScript". Нажмите кнопку "ОК".
+<br/><br/>
+<div><img src="pics/jsinstructions/netscape9_javascript.gif" alt="Netscape Navigator - JavaScript"/></div> 
+
+<h4><a name="other"></a>Включение поддержки JavaScript в браузерах, не указанных в данном руководстве</h4> 
+
+Включение JavaScript в браузере, не указанном в данном руководстве не представляет собой сложности, 
+так как все остальные браузеры используют движок одного из вышеприведенных обозревателей. Если у Вас возникли трудности с подключением 
+JavaScript, обратитесь на сайт поддержки вашего браузера.
+<br/><br/>
+
+</div>
+<!-- END Block for calculations & info -->
+
+</div>  
+<!-- END Main area. The top level -->
+
+</div>
+<!-- END Container for side and main -->
+
+</div>
+<!-- END Wrapper till footer -->
+
+<!-- Basement:)--> 
+<div id="footer"> 
+<p>Egor Kolotaev &copy; 2011 - 2012</p>
+</div> 
+<!-- END Basement:)-->      
+</body>
+</html>

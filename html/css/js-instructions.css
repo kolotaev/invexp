@@ -1,0 +1,49 @@
+.menu_headjshelp {
+padding: 5px 15px;
+cursor: pointer;
+position: relative;
+margin-left: 5px;
+font-weight: bold;
+background:  rgb(206,222,224) url(../pics/menu-plus.gif) center left no-repeat;
+}
+
+.menu_headjshelp a {
+text-decoration:none;
+color: black;
+}
+
+#infojshelp {
+margin: 5px;
+padding: 25px 15px;
+border: 1px solid rgb(191,191,191);
+}
+
+#infojshelp h3 {
+text-align: center; 
+color: rgb(85, 111, 115); 
+font-family: Arial, Verdana, Helvetica; 
+}
+
+#infojshelp h4 { 
+color: rgb(115, 93, 85); 
+font-family: Arial, Verdana, Helvetica;
+border-top: solid 2px rgb(64, 64, 64);
+margin: 10px 0px;
+text-align: center;
+padding-top: 20px;
+}
+
+#infojshelp p {
+text-indent: 15px;
+margin: 10px 5px;
+}
+
+#infojshelp img {
+display:block; 
+margin:0 auto;
+padding: 50px 0px;
+}
+
+#infojshelp ol {
+margin-left: 40px;
+}
