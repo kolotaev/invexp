@@ -1,4 +1,7 @@
 
-# This is an Invexp project code-source on Github. 
+## This is an Invexp project code-source on Github. 
 
-## Author: Egor Kolotaev
+
+``` html
+<i> Author: Egor Kolotaev </i>
+```
