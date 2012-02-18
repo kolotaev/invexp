@@ -1,18 +1,30 @@
 <?php
+// script 
+if (@$_GET['act'] === 'crdb') { echo "crdb";}
+// end of script
 
-$user = 'root';
-$pass = 'vertrigo';
-$db = 'invexp1';
-$host = 'localhost';
 
+// Class that performs all business logic
+class Serv {
+
+private $user = 'root';
+private $pass = 'vertrigo';
+private $db = 'invexp1';
+private $host = 'localhost';
+
+function db () {
+
+echo "MySQL connection.... <br>";
 mysql_connect ($host, $user, $pass)
  or die ("Could not connect");
  
+echo "MySQL creating DB.... <br>";
 @mysql_query ("CREATE DATABASE $db".mysql_error());
 
+echo "MySQL selecting DB.... <br>";
 mysql_select_db($db)
 	or die ("Error".mysql_error());
-	
+
 // ************* Actions **********
 
 // Clear table
@@ -38,5 +50,35 @@ mysql_query ('CREATE TABLE IF NOT EXISTS goe (
 			pass TEXT NOT NULL
 			)')
 	or die ("Error".mysql_error());
-	
+
+
+}
+}
+// end of class
 ?>
+
+
+
+<html>
+<head>
+<style type="text/css">
+body {
+text-align: center;
+}
+
+a {
+display: block;
+margin: 10px;
+}
+</style>
+</head>
+<body>
+
+<a href="db.php?act=crdb"> Create DataBase </a> 
+<a href="db.php"> Create Table </a>
+<a href="db.php"> Drop/Clear Table</a>
+<a href="db.php"> db </a>
+<a href="db.php"> Exit GET </a>
+
+</body>
+</html>
