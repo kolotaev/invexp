@@ -1,6 +1,7 @@
 <?php
 // script 
 $a = new Serv();
+
 if (@$_GET['act'] === 'drop-db') { $a->drop('', true); } 
 if (@$_GET['act'] === 'create-db') { $a->create(); } 
 if (@$_GET['act'] === 'create-users') { $a->usersT(); } 
@@ -35,8 +36,10 @@ public function drop ($name='', $db=false) {
 		mysql_query ("DROP DATABASE $this->db".mysql_error());
 	}
 	else {
+		mysql_select_db($this->db)
+		or die ("Error".mysql_error());
 		echo "MySQL Dropping Table \"$name\".... <br>";
-		mysql_query ('DROP TABLE $name');
+		mysql_query ("DROP TABLE IF EXISTS $name".mysql_error());
 	}
 }
 
@@ -46,6 +49,9 @@ public function create () {
 }
 
 public function usersT () {
+	mysql_select_db($this->db)
+	or die ("Error".mysql_error());
+	
 	echo "MySQL Creating table USERS.... <br>";
 	mysql_query ('CREATE TABLE IF NOT EXISTS users (
 			id INT AUTO_INCREMENT PRIMARY KEY,
