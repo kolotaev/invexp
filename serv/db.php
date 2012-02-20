@@ -1,4 +1,7 @@
 <?php
+/*
+This is some service tool script.
+*/
 // script 
 $a = new Serv();
 
