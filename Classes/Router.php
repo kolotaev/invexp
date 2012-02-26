@@ -89,6 +89,7 @@ Class Router {
  }
  
  // Clear $REQUEST $GET $COOKIE from 'route' element and putting into our registry
+ // Deprecated
  private function request_to_reg () {
 	$globaldata = array();
 	$globaldata = $_REQUEST;

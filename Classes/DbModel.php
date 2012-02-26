@@ -11,7 +11,8 @@ class DbModel {
 	
 	
 	public function __construct() {
-	 $conf = Registry::get('config');
+	 $this->reg = Registry::getInstance();
+	 $conf = $this->reg->get('config');
 	 $this->host = $conf->dbhost;
 	 $this->user = $conf->dbuser;
 	 $this->pass = $conf->dbpass;
