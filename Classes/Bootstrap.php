@@ -15,7 +15,7 @@ class Bootstrap {
   $template = new Template();
   $this->reg->set('template', $template);
 
-  // Загружаем router
+  // Load router
   $router = new Router();
   $this->reg->set('router', $router);
 

@@ -82,7 +82,7 @@ Class Router {
         }
         
 		// Clear controller variable
-        $this->request_to_reg();
+        //$this->request_to_reg();
  
         // Run action
         $controller->$action();
@@ -91,24 +91,24 @@ Class Router {
  // Clear $REQUEST $GET $COOKIE from 'route' element and putting into our registry
  // Deprecated
  private function request_to_reg () {
-	$globaldata = array();
-	$globaldata = $_REQUEST;
-	array_shift($globaldata);
-	$this->registry->set('requestdata',$globaldata);
-   
-	$globaldata = array();
-	$globaldata = $_GET;
-	array_shift($globaldata);
-	$this->registry->set('getdata',$globaldata);
-   
-	$globaldata = array();
-	$globaldata = $_POST;
-	$this->registry->set('postdata',$globaldata);
-   
-	$globaldata = array();
-	$globaldata = $_COOKIE;
-	$this->registry->set('cookiedata',$globaldata);
- }
+    $globaldata = array();
+    $globaldata = $_REQUEST;
+    array_shift($globaldata);
+    $this->registry->set('requestdata',$globaldata);
+
+    $globaldata = array();
+    $globaldata = $_GET;
+    array_shift($globaldata);
+    $this->registry->set('getdata',$globaldata);
+
+    $globaldata = array();
+    $globaldata = $_POST;
+    $this->registry->set('postdata',$globaldata);
+
+    $globaldata = array();
+    $globaldata = $_COOKIE;
+    $this->registry->set('cookiedata',$globaldata);
+}
 
 }
 
