@@ -1,45 +1,44 @@
 <?php
 
 Class Template {
- 
- private $registry;
- private $vars = array();
 
- function __construct() {
-	$this->registry = Registry::getInstance();
- }
- 
- function set($varname, $value, $overwrite=false) {
+    private $reg;
+    private $vars = array();
+
+    function __construct() {
+        $this->reg = Registry::getInstance();
+    }
+
+    function set($varname, $value, $overwrite = false) {
         if (isset($this->vars[$varname]) == true AND $overwrite == false) {
-                trigger_error ('Unable to set var `' . $varname . '`. Already set, and overwrite not allowed.', E_USER_NOTICE);
-                return false;
+            trigger_error('Unable to set var `' . $varname . '`. Already set, and overwrite not allowed.', E_USER_NOTICE);
+            return false;
         }
 
         $this->vars[$varname] = $value;
         return true;
- }
+    }
 
- function remove($varname) {
+    function remove($varname) {
         unset($this->vars[$varname]);
         return true;
- }
- 
- function show($name) {
-        $path = site_path . 'templates' . DIRSEP . $name . '.php';
+    }
+
+    function show($name) {
+        $path = SITE_PATH . 'Templates' . DIRSEP . $name . '.php';
 
         if (file_exists($path) === false) {
-                trigger_error ('Template `' . $name . '` does not exist.', E_USER_NOTICE);
-                return false;
+            trigger_error('Template `' . $name . '` does not exist.', E_USER_NOTICE);
+            return false;
         }
 
         // Load variables
         foreach ($this->vars as $key => $value) {
-                $$key = $value;  // Creates variables, available in different template-views
+            $$key = $value; // Creates variables, available in different template-views
         }
 
-        include ($path);                
- }
+        include ($path);
+        return true;
+    }
 
 }
-
-?>

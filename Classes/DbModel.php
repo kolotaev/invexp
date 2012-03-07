@@ -11,13 +11,7 @@ class DbModel {
 	
 	
 	public function __construct() {
-	 $this->reg = Registry::getInstance();
-	 $conf = $this->reg->get('config');
-	 $this->host = $conf->dbhost;
-	 $this->user = $conf->dbuser;
-	 $this->pass = $conf->dbpass;
-	 $this->db = $conf->dbname;
-	 $this->connect();
+
 	}
 
 	private function connect(){

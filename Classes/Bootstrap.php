@@ -2,29 +2,30 @@
 
 class Bootstrap {
 
- private $reg;
- 
- public function __construct ($cnfg) {
-	$this->reg = Registry::getInstance();
-	$this->reg->set('config',  $cnfg);
- }
- 
- public function run() {
+    private $reg;
 
-  // View
-  $template = new Template();
-  $this->reg->set('template', $template);
+    public function __construct($cnfg) {
+        $this->reg = Registry::getInstance();
+        $this->reg['config'] = $cnfg;
+    }
 
-  // Load router
-  $router = new Router();
-  $this->reg->set('router', $router);
+    public function run() {
 
-  // Controller
-  $router->setPath(site_path . 'Controllers');
-  $router->delegate();
- 
- }
+        // View
+        $template = new Template();
+        $this->reg['Template'] = $template;
+
+        // Model (BeanFactory)
+        $this->reg['BeanFactory'] = new BeanFactory();
+
+        // Load router
+        $router = new Router();
+        $this->reg['router'] = $router;
+
+        // Controller
+        $router->setPath(SITE_PATH . 'Controllers');
+        $router->delegate();
+
+    }
 
 }
-
-?>

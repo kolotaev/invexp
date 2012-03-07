@@ -12,4 +12,3 @@ class ControllerExit extends ControllerBase {
 	}
 	 
 }
-?>

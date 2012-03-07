@@ -2,7 +2,7 @@
 
 class BeanFactory
 {
-    public static function build($params)
+    public function build($params)
     {
         $params = explode('.', $params);
 
@@ -14,16 +14,19 @@ class BeanFactory
         $class_name = str_replace('.', DIRSEP, $params);
 
         $filename = strtolower($class_name) . '.php';
-        $file = site_path . 'Beans' . DIRSEP . $filename;
-        var_dump($file);
+        $file = SITE_PATH . 'Beans' . DIRSEP . $filename;
 
         // include the file
-        if (file_exists($file) == false) {
+        if (file_exists($file) === false) {
             return false;
         }
         require_once ($file);
 
+
         // build and return new instance of a required class
+        switch ($type) {
+            case 'a': {}
+        }
         return new $class();
 
     }

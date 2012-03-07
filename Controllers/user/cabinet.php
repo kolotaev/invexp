@@ -12,4 +12,3 @@ class ControllerCabinet extends ControllerBase {
 	}
 	 
 }
-?>

@@ -1,11 +1,12 @@
 <?php
-class Config {
 
-	public $dbhost = 'localhost';
-	public $dbuser = 'root';
-	public $dbpass = 'vertrigo';
-	public $dbname = 'invexp1';
+$config = array (
+    'host' => 'localhost',
+    'mysql' => array (
+        'user' => 'root',
+        'pass' => 'vertrigo',
+        'db' => 'invexp1',
+    ),
+);
 
-}
 
-?>
