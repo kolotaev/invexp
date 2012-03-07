@@ -10,10 +10,8 @@ class ControllerLogin extends ControllerBase {
 	//$this->registry->get('template')->set('first_name', $_SESSION['xml']);
 	
 	//$a = BeanFactory::build("XBean");
-	$a = BeanFactory::build("Beans_X");
+	$a = BeanFactory::build("as.xmls.collate.xml");
 	$a->test();
-	$b = new Beans_XBean();
-	$b->test();
 	$this->registry->get('template')->show('users/login-form');
 	}
 	 

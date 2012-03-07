@@ -1,0 +1,13 @@
+All classes for DB should be written like this:
+
+
+// Model classes
+ Mongo.Users.Fired.mng
+
+ Where
+ Fired is table (entity)
+ .mng is 'extension' (the type of data model, e.g. xml, mysql,mongodb etc.)
+ Mongo.Users are directories and subdirectories
+
+
+

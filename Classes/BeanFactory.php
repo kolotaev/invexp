@@ -2,12 +2,29 @@
 
 class BeanFactory
 {
-    public static function build($type)
+    public static function build($params)
     {
-        $class = $type . 'Bean';
-        if (!class_exists($class)) {
-            throw new Exception('Missing format class.');
+        $params = explode('.', $params);
+
+        // define type and class of a required model
+        $type = array_pop($params);
+        $class = $params[count($params)-1];
+
+        $params = implode('.', $params);
+        $class_name = str_replace('.', DIRSEP, $params);
+
+        $filename = strtolower($class_name) . '.php';
+        $file = site_path . 'Beans' . DIRSEP . $filename;
+        var_dump($file);
+
+        // include the file
+        if (file_exists($file) == false) {
+            return false;
         }
-        return new $class;
+        require_once ($file);
+
+        // build and return new instance of a required class
+        return new $class();
+
     }
 }
