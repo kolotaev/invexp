@@ -19,6 +19,3 @@ define ('SITE_PATH', $SITE_PATH);
 // Run main starter
 $bootstrap = new Bootstrap($config);
 $bootstrap->run();
-
-$s = mysql_connect('localhost', 'root', 'vertrigo');
-var_dump(mysql_thread_id($s));

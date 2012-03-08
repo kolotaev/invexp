@@ -2,25 +2,32 @@
 
 // Todo: maybe to reduce functionality
 class BeanFactory {
+
+    private $reg;
     private $type;
     private $class;
+
+    private $mysqlc;
+
+    public function __construct() {
+        $this->reg = Registry::getInstance();
+    }
 
     public function build($params) {
         // require_once the file of a requested file
         $this->load($params);
 
         // build and return new instance of a required class
-        /**
         switch ($this->type) {
             case 'mysql':
-
+                $this->mysqlConnect();
                 break;
             case 'xml':
                 break;
             default:
                 throw new Exception("Please, specify correct type of model");
         }
-        **/
+
         return new $this->class();
     }
 
@@ -49,11 +56,31 @@ class BeanFactory {
 
     private function mysqlConnect() {
 
+        if (!$this->mysqlc) {
+            $conf = $this->reg['config'];
 
+            $host = $conf['mysql']['host'];
+            $user = $conf['mysql']['user'];
+            $pass = $conf['mysql']['pass'];
+            $db = $conf['mysql']['db'];
+
+            $this->mysqlc = mysql_connect($host, $user, $pass);
+            if (!mysql_select_db($db))
+                throw new Exception("Can't connect DB " . mysql_error());
+        }
+
+    }
+
+    private function mysqlClose() {
+        mysql_close($this->mysqlc);
     }
 
     private function xmlConnect() {
 
+    }
+
+    public function __destruct() {
+        $this->mysqlClose();
     }
 
 }
