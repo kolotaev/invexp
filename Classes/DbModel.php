@@ -14,18 +14,18 @@ class DbModel {
 
 	}
 
-	private function connect(){
-	 mysql_connect($this->host, $this->user, $this->pass);
-	 if(!mysql_select_db($this->db))
-	 throw new Exception('Не могу подключиться к БД'.mysql_error());
-	}
+    private function connect(){
+        mysql_connect($this->host, $this->user, $this->pass);
+        if(!mysql_select_db($this->db))
+            throw new Exception("Can't connect to DB ".mysql_error());
+    }
 
 	 public function act() {
 	 
-	 $q = mysql_query("SELECT login FROM users");
-     $w = mysql_result($q, 0);
-	 
-	 return $w;
+	 $q =          mysql_query("SELECT login FROM users");
+         $w = mysql_result($q, 0);
+
+         return $w;
 	  
 	  
 	 }

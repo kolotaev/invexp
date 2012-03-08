@@ -1,8 +1,8 @@
 <?php
 
 $config = array (
-    'host' => 'localhost',
     'mysql' => array (
+        'host' => 'localhost',
         'user' => 'root',
         'pass' => 'vertrigo',
         'db' => 'invexp1',
