@@ -80,7 +80,9 @@ class BeanFactory {
     }
 
     public function __destruct() {
-        $this->mysqlClose();
+        if ($this->mysqlc) {
+            $this->mysqlClose();
+        }
     }
 
 }

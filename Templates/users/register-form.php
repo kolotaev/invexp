@@ -1,10 +1,3 @@
-<? 
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");// дата в прошлом
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); // всегда модифицируется
-header("Cache-Control: no-store, no-cache, must-revalidate");// HTTP/1.1
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");// HTTP/1.0 
-?>
 <!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -46,8 +39,9 @@ $(document).ready(function() {
 		if (umail == '') { d=0;  $(".umailaddon").text("Введите e-mail"); }
 		else if (!match) { d=0; $(".umailaddon").text("Неверный формат e-mail"); }
 			else { d=1; $(".umailaddon").text(""); }
-	});		
+	});
 
+<? echo $warning_box; ?>
 });
 </script>
 </head>
@@ -70,7 +64,7 @@ $(document).ready(function() {
 <img src="/html/pics/icons/register.gif" alt="register" /> 
 Зарегистрируйтесь в приложении
 </p>
-<form action="/user/register/checklogin" method="get" class="form">
+<form action="/user/register/createAccount" method="get" class="form">
 
 <table class="common">
 <tr>

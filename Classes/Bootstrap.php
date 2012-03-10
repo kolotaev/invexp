@@ -13,7 +13,7 @@ class Bootstrap {
 
         // View
         $template = new Template();
-        $this->reg['Template'] = $template;
+        $this->reg['template'] = $template;
 
         // Model (BeanFactory)
         $this->reg['BeanFactory'] = new BeanFactory();
