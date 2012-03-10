@@ -17,7 +17,7 @@ class ControllerRegister extends ControllerBase {
     public function createAccount() {
         if ($this->validate()) {
             $this->insertNewUser();
-            $this->gotoCabinet();
+            $this->redirect('/user/cabinet');
         }
         else {
             $this->template->warningBox('Извините, но данные заполнены неверно или не полностью');
@@ -56,8 +56,9 @@ class ControllerRegister extends ControllerBase {
         }
     }
 
-    private function gotoCabinet() {
-        header('Location: /user/cabinet');
+    private function redirect($url) {
+        header("Location: $url");
+        exit;
     }
 
 
