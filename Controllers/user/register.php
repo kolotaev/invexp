@@ -11,14 +11,13 @@ class ControllerRegister extends ControllerBase {
     public function index() {
         //session_start();
         //$this->registry->get('template')->set('first_name', $_SESSION['xml']);
-        $this->template->warningBox('Извините, но данные заполнены неверно или не полностью');
         $this->template->show('users/register-form');
     }
 
     public function createAccount() {
         if ($this->validate()) {
             $this->insertNewUser();
-            $this->template->show('users/register-form');
+            $this->gotoCabinet();
         }
         else {
             $this->template->warningBox('Извините, но данные заполнены неверно или не полностью');
@@ -42,6 +41,10 @@ class ControllerRegister extends ControllerBase {
         return true;
     }
 
+    private function checkLoginAndEmail() {
+
+    }
+
     private function insertNewUser() {
         try {
             $this->User->newUser();
@@ -51,6 +54,10 @@ class ControllerRegister extends ControllerBase {
             $this->template->show('errors/error');
             return false;
         }
+    }
+
+    private function gotoCabinet() {
+        header('Location: /user/cabinet');
     }
 
 

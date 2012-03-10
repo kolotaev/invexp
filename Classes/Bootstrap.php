@@ -11,6 +11,9 @@ class Bootstrap {
 
     public function run() {
 
+        //Utils
+        $this->utils();
+
         // View
         $template = new Template();
         $this->reg['template'] = $template;
@@ -26,6 +29,10 @@ class Bootstrap {
         $router->setPath(SITE_PATH . 'Controllers');
         $router->delegate();
 
+    }
+
+    private function utils() {
+        session_start();
     }
 
 }

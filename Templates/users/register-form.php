@@ -41,7 +41,7 @@ $(document).ready(function() {
 			else { d=1; $(".umailaddon").text(""); }
 	});
 
-<? echo $warning_box; ?>
+<? echo @$warning_box; ?>
 });
 </script>
 </head>

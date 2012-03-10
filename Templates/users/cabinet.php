@@ -35,7 +35,7 @@
 <td class="inp">???????</td>
 </tr>
 <tr>
-<td class="lab">Список проектов</td>
+<td class="lab">Проекты</td>
 <td class="inp">
 <ol>
 <li>????</li>
