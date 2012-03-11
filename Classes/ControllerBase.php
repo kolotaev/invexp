@@ -12,6 +12,12 @@ abstract Class ControllerBase {
         $this->template = $this->registry['template'];
     }
 
+    protected function redirect($url) {
+        header("Location: $url");
+        exit;
+    }
+
     abstract public function index();
+
 
 }

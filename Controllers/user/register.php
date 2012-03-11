@@ -17,6 +17,7 @@ class ControllerRegister extends ControllerBase {
     public function createAccount() {
         if ($this->validate()) {
             $this->insertNewUser();
+            $this->authorize();
             $this->redirect('/user/cabinet');
         }
         else {
@@ -56,10 +57,7 @@ class ControllerRegister extends ControllerBase {
         }
     }
 
-    private function redirect($url) {
-        header("Location: $url");
-        exit;
+    private function authorize() {
+        if (!isset($_SESSION['auth'])) $_SESSION['auth'] = 'ok';
     }
-
-
 }
