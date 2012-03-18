@@ -45,15 +45,15 @@ Class Template {
     // type <? echo $warning_box; > inside the $(document).ready(function() { }
     public function warningBox($msg) {
         $this->vars['warning_box'] = <<<EOD
-            $("body").append('<div id="veil"></div>');
-            $("#info div").append('<div class="warningbox"></div>');
-            $("#info div.warningbox").append('<div class="capture"> Предупреждение! </div>');
-            $("#info div.warningbox").append('<div class="message"> $msg </div>');
-            $("#info div.warningbox").append('<button class="okbutton"> OK </button>');
-            $(".okbutton").click(function(){
-                $("#info div.warningbox").remove();
-                $("#veil").remove();
-                });
+$("body").append('<div id="veil"></div>');
+$("#info div").append('<div class="warningbox"></div>');
+$("#info div.warningbox").append('<div class="capture"> Предупреждение! </div>');
+$("#info div.warningbox").append('<div class="message"> $msg </div>');
+$("#info div.warningbox").append('<button class="okbutton"> OK </button>');
+$(".okbutton").click(function(){
+$("#info div.warningbox").remove();
+$("#veil").remove();
+});
 EOD;
     }
 
