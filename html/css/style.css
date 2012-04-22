@@ -258,7 +258,7 @@ body {
     list-style-position: inside;
 }
 
-/* here warningboxes */
+/* here warningboxes that are used in javascript LightBox() function */
 #veil {
     position: fixed;
     top: 0;

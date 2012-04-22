@@ -15,13 +15,13 @@ if (@$_GET['act'] === 'create-users') {
     $a->usersT();
 }
 if (@$_GET['act'] === 'drop-users') {
-    $a->drop(users);
+    $a->drop("users");
 }
 if (@$_GET['act'] === 'create-projects') {
     $a->projectsT();
 }
 if (@$_GET['act'] === 'drop-projects') {
-    $a->drop(projects);
+    $a->drop("projects");
 }
 
 // end of script
