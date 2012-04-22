@@ -3,7 +3,7 @@ $(document).ready(function() {
 // Remove search  'go!'
 $(".field").focus(function(){
  $(this).css("color","black").attr("value", "");
-})
+});
 $(".field").blur(function(){
  $(this).css("color","rgb(170,170,170)").attr("value", "go!");
 });

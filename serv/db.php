@@ -113,14 +113,19 @@ class Serv {
             text-align: center;
             font-size: 20px;
         }
-
+        h1 {
+            color: red;
+            text-align: center;
+            font-size: 24px;
+            margin: 15px 100px;
+            border: 1px solid red;
+        }
         a {
             display: block;
             margin: 10px;
             color: green;
             font-size: 14px;
         }
-
         .exit {
             color: red;
             font-size: 16px;
@@ -132,6 +137,7 @@ class Serv {
 </head>
 <body>
 
+<h1> MySQL </h1>
 <a href="db.php?act=create-db"> Create DataBase </a>
 <a href="db.php?act=drop-db"> Drop DataBase </a>
 <a href="db.php?act=create-users"> Create USERS tb </a>
