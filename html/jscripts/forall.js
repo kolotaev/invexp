@@ -36,12 +36,13 @@ $(document).ready(function () {
 
 
 // LightBox for all kind of warnings
-function LightBox(capt, msg) {
+function LightBox(msg, capt) {
+    capt = capt || 'Ошибка!';
     var capture = '<div class="capture">' + capt + '</div>';
     var message = '<div class="message">' + msg + '</div>';
 
     $("body").append('<div id="veil"></div>');
-    $("#info div").append('<div class="warningbox"></div>');
+    $("#info").append('<div class="warningbox"></div>');
     $("#info div.warningbox").append(capture);
     $("#info div.warningbox").append(message);
     $("#info div.warningbox").append('<button class="okbutton"> OK </button>');

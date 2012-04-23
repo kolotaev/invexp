@@ -258,6 +258,10 @@ body {
     list-style-position: inside;
 }
 
+#info ol ol li {
+    margin-left: 20px;
+}
+
 /* here warningboxes that are used in javascript LightBox() function */
 #veil {
     position: fixed;
@@ -331,6 +335,12 @@ body {
 
 #info div.textmessage p {
     padding: 5px 0px;
+}
+
+#info div.textmessage p.formula-explain {
+    padding: 5px 0px;
+    margin-left: 50px;
+    text-indent: 0px;
 }
 
 #info p.textlast {
@@ -411,6 +421,32 @@ body {
     background: #F0F0F0;
     padding: 5px;
     outline: 1px solid rgb(141, 184, 190);
+}
+
+#info div.left-about {
+    width: 150px;
+    text-align: center;
+    border: 1px solid rgb(141, 184, 190);
+    padding: 10px;
+    margin-right: 50px;
+    margin-bottom: 15px;
+    font: bold italic 110% arial;
+}
+
+#info div.right-about {
+    qfloat: right;
+    border: 1px solid rgb(141, 184, 190);
+    padding: 10px;
+    margin-left: 50px;
+    margin-bottom: 15px;
+}
+
+/* Begin Simple decorations */
+.bigtopmargin {
+    margin-top: 20px;
+}
+.cleares {
+    float: none;
 }
 
 /* End main area for information */

@@ -19,7 +19,7 @@
 <!-- Block for calculations and info --> 
 <!-- INSERT DATA HERE -->
 <div id="info">
-<div class="shadow"> </div>
+
 <p class="title">
 <img src="/html/pics/icons/exit.gif" alt="register" /> 
 Выход из приложения
