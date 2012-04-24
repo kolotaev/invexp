@@ -110,7 +110,7 @@ n – сумма количества  периодов.
 
 
 <p class="textlast">
-<a href="/info/howto" > Следующая статья -> </a>
+<a href="/info/howto" > Следующая статья -&gt </a>
 </p>
 </div>
 

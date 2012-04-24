@@ -127,7 +127,7 @@
    
 
 <p class="textlast">
-<a href="/info/evaluation" > Следующая статья -> </a>
+<a href="/info/evaluation" > Следующая статья -&gt </a>
 </p>
 </div>
 
