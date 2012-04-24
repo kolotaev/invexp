@@ -1,12 +1,9 @@
 <?php
 
 abstract class BeanBase {
+    protected  $conn = NULL;
 
-    abstract public function __destruct();
-
-    abstract public function getdata();
-    abstract public function setdata();
-    abstract public function updatedata();
-    abstract public function deletedata();
-
+    public function setConnection($connection) {
+        $this->conn = $connection;
+    }
 }

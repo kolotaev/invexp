@@ -1,4 +1,5 @@
 <?php
+//phpinfo();
 /*
 This is some service tool script.
 */

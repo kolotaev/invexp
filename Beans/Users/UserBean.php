@@ -1,6 +1,6 @@
 <?php
 
-class UserBean {
+class UserBean extends BeanBase {
 
     public function newUser() {
 
@@ -9,9 +9,16 @@ class UserBean {
         $pass = md5($_REQUEST['upass']);
         $date = date("Y-m-d");
 
-        $statement = "INSERT INTO Users(login, email, pass, reg_date) VALUES ('$login','$mail','$pass', '$date')";
-        $statement = mysql_real_escape_string($statement);
-        mysql_query($statement);
+        $insert = array(
+            '_id' => $login,
+            'login' => $login,
+            'email' => $mail,
+            'password' => $pass,
+            'reg_date' => $date,
+        );
+
+        //var_dump($this->conn);
+        $this->conn->users->save($insert);
 
     }
 

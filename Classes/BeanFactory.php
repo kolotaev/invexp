@@ -8,6 +8,8 @@ class BeanFactory {
     private $class;
 
     private $mysqlc;
+    private $mongoc;
+    private $table;
 
     public function __construct() {
         $this->reg = Registry::getInstance();
@@ -21,18 +23,20 @@ class BeanFactory {
         switch ($this->type) {
             case 'mysql':
                 $this->mysqlConnect();
+                return new $this->class();
                 break;
-            case 'xml':
+            case 'mongo':
+                $this->mongoConnect();
+                $mongoCollection = new $this->class();
+                $mongoCollection->setConnection($this->table);
+                return $mongoCollection;
                 break;
             default:
                 throw new Exception("Please, specify correct type of model");
         }
-
-        return new $this->class();
     }
 
     private function load($params) {
-
         $params = explode('.', $params);
 
         // define type and class of a required model
@@ -51,11 +55,9 @@ class BeanFactory {
         }
         require_once ($file);
         return true;
-
     }
 
     private function mysqlConnect() {
-
         if (!$this->mysqlc) {
             $conf = $this->reg['config'];
 
@@ -68,20 +70,39 @@ class BeanFactory {
             if (!mysql_select_db($db))
                 throw new Exception("Can't connect DB " . mysql_error());
         }
-
     }
 
     private function mysqlClose() {
         mysql_close($this->mysqlc);
     }
 
-    private function xmlConnect() {
+    // ToDo: Create good connection variants from config
+    private function mongoConnect() {
+        if (!$this->mongoc) {
+            $conf = $this->reg['config'];
 
+            $host = $conf['mongo']['host'];
+            $user = $conf['mongo']['user'];
+            $pass = $conf['mongo']['pass'];
+            $db = $conf['mongo']['db'];
+
+            $this->mongoc = new Mongo();
+            $this->table = $this->mongoc->$db;
+            if (!$this->table)
+                throw new Exception("Can't connect to MongoDB table \"$table \"");
+        }
+    }
+
+    private function mongoClose() {
+        $this->mongoc->close();
     }
 
     public function __destruct() {
         if ($this->mysqlc) {
             $this->mysqlClose();
+        }
+        if ($this->mongoc) {
+            $this->mongoClose();
         }
     }
 

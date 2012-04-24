@@ -1,7 +1,7 @@
 <?php
 class ControllerRegister extends ControllerBase {
 
-    private $User;
+    private $User; // Instatnce of UserBean class
 
     public function __construct() {
         parent::__construct();
@@ -30,7 +30,7 @@ class ControllerRegister extends ControllerBase {
     // Private functions (validation and etc.)
 
     private function getModels() {
-        $this->User = $this->beanfactory->build("users.userbean.mysql");
+        $this->User = $this->beanfactory->build("users.userbean.mongo");
     }
 
     private function validate() {
@@ -55,6 +55,7 @@ class ControllerRegister extends ControllerBase {
             $this->template->show('errors/error');
             return false;
         }
+        return true;
     }
 
     private function authorize() {
