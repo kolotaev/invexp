@@ -40,8 +40,6 @@ $(document).ready(function() {
 		else if (!match) { d=0; $(".umailaddon").text("Неверный формат e-mail"); }
 			else { d=1; $(".umailaddon").text(""); }
 	});
-
-<? echo @$warning_box; ?>
 });
 </script>
 </head>
@@ -64,7 +62,7 @@ $(document).ready(function() {
 <img src="/html/pics/icons/register.gif" alt="register" /> 
 Зарегистрируйтесь в приложении
 </p>
-<form action="/user/register/createAccount" method="get" class="form">
+<form action="/user/register/createAccount" method="post" class="form">
 
 <table class="common">
 <tr>

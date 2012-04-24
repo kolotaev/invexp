@@ -169,7 +169,7 @@ body {
     padding: 10px 0px;
 }
 
-#status noscript {
+#status noscript, .warning {
     color: red;
     font-weight: bold;
 }

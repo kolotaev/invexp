@@ -25,7 +25,7 @@ class BeanFactory {
                 $this->mysqlConnect();
                 return new $this->class();
                 break;
-            case 'mongo':
+            case 'mg':
                 $this->mongoConnect();
                 $mongoCollection = new $this->class();
                 $mongoCollection->setConnection($this->table);

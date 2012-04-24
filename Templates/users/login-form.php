@@ -32,7 +32,7 @@ $(document).ready(function() {
 <img src="/html/pics/icons/enter.gif" alt="enter" />  
 Войдите в приложение
 </p>
-<form action="/user/register/checklogin" method="post" class="form">
+<form action="/user/login/checkLogin" method="post" class="form">
 
 <table class="entercommon">
 <tr>

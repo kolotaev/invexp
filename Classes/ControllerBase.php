@@ -3,8 +3,10 @@
 abstract Class ControllerBase {
 
     protected $registry;
-    protected $beanfactory;
+    private $beanfactory;
     protected $template;
+
+    abstract public function index();
 
     public function __construct() {
         $this->registry = Registry::getInstance();
@@ -17,7 +19,22 @@ abstract Class ControllerBase {
         exit;
     }
 
-    abstract public function index();
+    protected function checkAuth() {
+        $session_login = '';
+        if (isset($_SESSION['auth'])) {
+            $session_login = $_SESSION['auth'];
+            return $session_login;
+        }
+        else return $session_login;
+    }
 
+    public function showErrorPage($err, $type='') {
+        $this->template->set('errormessage', $err);
+        $this->template->show('errors/error');
+    }
+
+    protected function getModel(&$to, $from) {
+        $to = $this->beanfactory->build($from);
+    }
 
 }

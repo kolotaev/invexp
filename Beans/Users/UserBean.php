@@ -3,7 +3,6 @@
 class UserBean extends BeanBase {
 
     public function newUser() {
-
         $login = $_REQUEST['ulogin'];
         $mail = $_REQUEST['umail'];
         $pass = md5($_REQUEST['upass']);
@@ -16,9 +15,18 @@ class UserBean extends BeanBase {
             'password' => $pass,
             'reg_date' => $date,
         );
-
-        //var_dump($this->conn);
         $this->conn->users->save($insert);
+    }
+
+    public function getUserInfo($id) {
+        $info = array();
+        $query = array('_id' => $id);
+        $info = $this->conn->uresrs->find($query);
+        if (isset($info)) return $info;
+        else return false;
+    }
+
+    public function checkUser() {
 
     }
 

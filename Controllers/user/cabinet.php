@@ -1,14 +1,12 @@
 <?php
 class ControllerCabinet extends ControllerBase {
 
-	public function initmodel() {
-	$this->model = new DbModel();
-	} 
-	
 	public function index() {
-	//session_start();
-	//$this->registry->get('template')->set('first_name', $_SESSION['xml']);
-	$this->registry->get('template')->show('users/cabinet');
+        if ($this->checkAuth() === '') {
+            $this->template->set('warning', "Необходима авторизация!");
+            $this->template->show('users/login-form');
+        }
+        $this->template->show('users/cabinet');
 	}
 	 
 }
