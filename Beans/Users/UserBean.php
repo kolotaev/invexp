@@ -1,6 +1,7 @@
 <?php
 
-class UserBean extends BeanBase {
+class UserBean extends BeanBase
+{
 
     public function newUser() {
         $login = $_REQUEST['ulogin'];
@@ -18,12 +19,23 @@ class UserBean extends BeanBase {
         $this->conn->users->save($insert);
     }
 
-    public function getUserInfo($id) {
-        $info = array();
+    // returns an array of data-info for this user;
+    public function getAllUserInfo($id) {
         $query = array('_id' => $id);
-        $info = $this->conn->uresrs->find($query);
-        if (isset($info)) return $info;
-        else return false;
+        $cursor = $this->conn->users->find($query);
+        if (isset($cursor)) {
+            return $cursor->getNext();
+        }
+        else throw new Exception("The User exists not");
+    }
+
+    public function getUserField($id, $field) {
+        $query = array($field => array('_id' => $id));
+        $cursor = $this->conn->users->find($query);
+        if (isset($cursor)) {
+            return $cursor->getNext();
+        }
+        else throw new Exception("The User or Requested field exists not");
     }
 
     public function checkUser() {

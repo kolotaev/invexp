@@ -1,5 +1,6 @@
 <?php
-class ControllerRegister extends ControllerBase {
+class ControllerRegister extends ControllerBase
+{
 
     private $User; // Instance of UserBean class
 
@@ -9,7 +10,12 @@ class ControllerRegister extends ControllerBase {
     }
 
     public function index() {
-        $this->template->show('users/register-form');
+        if (isset($_SESSION['auth'])) {
+            $this->template->show('users/cabinet');
+        }
+        else {
+            $this->template->show('users/register-form');
+        }
     }
 
     public function createAccount() {
@@ -19,7 +25,7 @@ class ControllerRegister extends ControllerBase {
             $this->redirect('/user/cabinet');
         }
         else {
-            $this->template->set('warning','Извините, но данные заполнены неверно или не полностью');
+            $this->template->set('warning', 'Извините, но данные заполнены неверно или не полностью');
             $this->template->show('users/register-form');
         }
     }
@@ -52,6 +58,6 @@ class ControllerRegister extends ControllerBase {
     }
 
     private function authorize() {
-        if($this->checkAuth() === '') $_SESSION['auth'] = $_REQUEST['ulogin'];
+        if ($this->getAuth() === '') $_SESSION['auth'] = $_REQUEST['ulogin'];
     }
 }

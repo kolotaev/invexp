@@ -19,13 +19,25 @@ abstract Class ControllerBase {
         exit;
     }
 
-    protected function checkAuth() {
+
+    protected function getAuth() {
         $session_login = '';
         if (isset($_SESSION['auth'])) {
             $session_login = $_SESSION['auth'];
             return $session_login;
         }
         else return $session_login;
+    }
+
+
+    public function checkAuthAndGo($url) {
+        if (isset($_SESSION['auth'])) {
+            $this->template->show($url);
+        }
+        else {
+            $this->template->set('warning', "Необходима авторизация!");
+            $this->template->show('users/login-form');
+        }
     }
 
     public function showErrorPage($err, $type='') {

@@ -13,7 +13,7 @@ if (version_compare(phpversion(), '5.1.0', '<') == true) {
 define ('DIRSEP', DIRECTORY_SEPARATOR);
 
 // Get the site path
-$SITE_PATH = realpath(dirname(__FILE__) . DIRSEP . '.' . DIRSEP);
+$SITE_PATH = realpath(dirname(__FILE__) . DIRSEP . '.' . DIRSEP) . DIRSEP;
 define ('SITE_PATH', $SITE_PATH);
 
 // Run main starter
