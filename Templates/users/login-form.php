@@ -37,11 +37,11 @@ $(document).ready(function() {
 <table class="entercommon">
 <tr>
 <td class="lab"><label for="ulogin">Ваш логин</label></td>
-<td class="inp"><input type="input" id="ulogin"/></td>
+<td class="inp"><input type="input" id="ulogin" name="ulogin" /></td>
 </tr>
 <tr>
 <td class="lab"><label for="upass">Ваш пароль</label></td>
-<td class="inp"><input type="password" id="upass"/></td>
+<td class="inp"><input type="password" id="upass" name="upass" /></td>
 </tr>
 </table>
 
