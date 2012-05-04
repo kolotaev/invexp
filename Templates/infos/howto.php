@@ -30,7 +30,7 @@
 To Do ...
 
 <p class="textlast">
-<a href="/info/author" > Следующая статья -&gt </a>
+<a href="/info/author" > Следующая статья -&gt; </a>
 </p>
 </div>
 

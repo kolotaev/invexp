@@ -90,7 +90,7 @@ Email: <a href="mailto:ekolotaev@gmail.com?subject=Make InvExp better">ekolotaev
 
 
 <p class="textlast">
-<a href="/info/invest" > Следующая статья -&gt </a>
+<a href="/info/invest" > Следующая статья -&gt; </a>
 </p>
 </div>
 

@@ -30,10 +30,12 @@ class UserBean extends BeanBase
     }
 
     public function getUserField($id, $field) {
-        $query = array($field => array('_id' => $id));
+        $query = array('_id' => $id);
         $cursor = $this->conn->users->find($query);
         if (isset($cursor)) {
-            return $cursor->getNext();
+            $cursor = iterator_to_array($cursor);
+
+            return $cursor[$id][$field];
         }
         else throw new Exception("The User or Requested field exists not");
     }

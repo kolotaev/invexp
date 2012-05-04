@@ -62,7 +62,7 @@
 </p>
 
 <p class="textlast">
-<a href="/info/classify" > Следующая статья -&gt </a>
+<a href="/info/classify" > Следующая статья -&gt; </a>
 </p>
 </div>
 
