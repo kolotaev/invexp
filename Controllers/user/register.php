@@ -11,7 +11,7 @@ class ControllerRegister extends ControllerBase
 
     public function index() {
         if (isset($_SESSION['auth'])) {
-            $this->template->show('users/cabinet');
+            $this->redirect('/user/cabinet/show');
         }
         else {
             $this->template->show('users/register-form');
@@ -20,9 +20,10 @@ class ControllerRegister extends ControllerBase
 
     public function createAccount() {
         if ($this->validate()) {
+            $this->checkLoginAndEmail();
             $this->insertNewUser();
             $this->authorize();
-            $this->redirect('/user/cabinet');
+            $this->redirect('/user/cabinet/show');
         }
         else {
             $this->template->set('warning', 'Извините, но данные заполнены неверно или не полностью');
@@ -43,7 +44,15 @@ class ControllerRegister extends ControllerBase
     }
 
     private function checkLoginAndEmail() {
-
+        $income_login = $_REQUEST['ulogin'];
+        $income_email = $_REQUEST['umail'];
+        $if_login_exists = $this->User->fieldExists('_id', $income_login);
+        $if_email_exists = $this->User->fieldExists('_id', $income_email);
+        if ($if_login_exists || $if_email_exists) {
+            $this->template->set('warning', "Такой логин или email уже существует!");
+            $this->template->show('users/register-form');
+            exit;
+        }
     }
 
     private function insertNewUser() {

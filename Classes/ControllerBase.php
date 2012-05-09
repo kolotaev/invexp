@@ -30,13 +30,15 @@ abstract Class ControllerBase {
     }
 
 
-    public function checkAuthAndGo($url) {
+    public function checkAuthAndGo($url='') {
         if (isset($_SESSION['auth'])) {
-            $this->template->show($url);
+            if ($url !== '') $this->redirect($url);
         }
         else {
-            $this->template->set('warning', "Необходима авторизация!");
-            $this->template->show('users/login-form');
+            $_SESSION['action-to-login'] = '/'. $_REQUEST['route'];
+            // deleted cause shows 2 pages
+            //$this->template->set('warning', "Необходима авторизация!");
+            $this->redirect('/user/login');
         }
     }
 

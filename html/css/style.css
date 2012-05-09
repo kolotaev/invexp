@@ -248,6 +248,11 @@ body {
 
 #info a {
     color: #739398;
+    border: none;
+}
+
+#info a img{
+    border: none;
 }
 
 #info a:visited {
@@ -272,6 +277,10 @@ body {
     height: 100%;
     z-index: 500;
     opacity: 0.3;
+}
+
+.wrong {
+    color: red;
 }
 
 .warningbox {
@@ -307,11 +316,15 @@ body {
 }
 
 .warningbox .okbutton {
-    width: 50px;
-    width: 50px;
-    background: #F0F0F0;
+    width: 70px;
+    margin: 0px 4px;
+    background: white;
     border: 1px solid rgb(141, 184, 190);
     font: bold 13px Arial;
+}
+.warningbox .okbutton:hover {
+    background: #F0F0F0;
+    outline: 1px solid rgb(141, 184, 190);
 }
 
 /* end warningboxes */
@@ -365,6 +378,10 @@ body {
     margin: 0% 25%;
 }
 
+#info .form .tools img{
+    margin: 10px;
+}
+
 .warn {
     color: #FF0040;
 }
@@ -393,6 +410,7 @@ body {
 
 #info td.lab {
     width: 25%;
+    font-weight: bold;
 }
 
 #info td.inp {
@@ -400,11 +418,26 @@ body {
     text-align: center;
 }
 
+#info td.inp-left {
+    width: 50%;
+    text-align: left;
+    padding-left: 20px;
+}
+
 #info td.addon {
     width: 25%;
 }
 
 #info td input {
+    width: 70%;
+}
+
+#info td textarea {
+    width: 70%;
+    max-width: 70%;
+}
+
+#info td select {
     width: 70%;
 }
 

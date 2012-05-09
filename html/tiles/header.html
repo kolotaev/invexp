@@ -1,21 +1,27 @@
 <!-- Head wrapper -->
 <div id="headwrap">
-<a href="/index.html">
-    <img src="/html/pics/logo.gif" class="logo" alt="InvExp" />
-</a>
+<img src="/html/pics/logo.gif" class="logo" alt="InvExp" />
 
 <!-- Header -->
 <div id="header">
 
-<!-- Menu --> 
+<!-- Menu -->
 <ul id="menu">
-	<li><a href="#">Файл</a></li>
+	<li>
+        <a href="#">Файл</a>
+        <ul>
+            <li><a href="/projects/project">Открыть проект</a></li>
+            <li><a href="/projects/project/newProjectForm">Новый проект</a></li>
+            <li><a href="/projects/project/exportHtml">Экспорт HTML</a></li>
+            <li><a href="/projects/project/delete">Удалить проект</a></li>
+        </ul>
+    </li>
 	<li>
 		<a href="#">Счет</a>
 		<ul>
-			<li><a href="ogo.php">№1</a></li>
-			<li><a href="#">Устроить файл</a></li>
-			<li><a href="#">Счет-фактура</a></li>
+            <li><a href="ogo.php">№1</a></li>
+            <li><a href="#">Устроить файл</a></li>
+            <li><a href="#">Счет-фактура</a></li>
 		</ul>
 	</li>
 	<li>
@@ -31,32 +37,33 @@
 	<li>
 		<a href="#">Вход</a>
 		<ul>
+            <li><a href="/index.html">На главную</a></li>
 			<li><a href="/user/login">Войти</a></li>
 			<li><a href="/user/register">Регистрация</a></li>
 			<li><a href="/user/cabinet">Кабинет пользователя</a></li>
 			<li><a href="/user/exit">Выйти из приложения</a></li>
 		</ul>
 	</li>
-</ul> 
-<!-- END Menu -->   
+</ul>
+<!-- END Menu -->
 
-<!-- Search Block --> 
-<div class="search"> 
+<!-- Search Block -->
+<div class="search">
 <form method="get" action="smth.php">
-<div> 
-<input class="field" type="text" value="go!" /> 
+<div>
+<input class="field" type="text" value="go!" />
 <input class="button" type="submit" value="" />
 </div>
-</form> 
-</div> 
-<!-- END Search Block --> 
+</form>
+</div>
+<!-- END Search Block -->
 
 
-</div>        
-<!-- END Header --> 
+</div>
+<!-- END Header -->
 
 
-<!-- Status --> 
+<!-- Status -->
 <div id="status">
 <p class="warning">
 <? echo @$warning; ?>
@@ -66,6 +73,6 @@
 <a href="/html/noscript instructions.html"> Как включить? </a>
 </p></noscript>
 </div>
-<!-- END Status --> 
+<!-- END Status -->
 </div>
 <!-- END Head wrapper --> 

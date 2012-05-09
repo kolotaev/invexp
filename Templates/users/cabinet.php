@@ -3,6 +3,41 @@
 <head>
 <title>Кабинет пользователя</title>
 <? include_once('html/tiles/head-basic.html'); ?>
+    <script type="text/javascript">
+        function changeEmail(){
+            var capture = '<div class="capture">E-mail</div>';
+            var message = '<div class="message">Введите новый email</div>';
+
+            $("body").append('<div id="veil"></div>');
+            $("#info").append('<div class="warningbox"></div>');
+            $("#info div.warningbox").append(capture);
+            $("#info div.warningbox").append(message);
+            $("#info div.warningbox .message").append('<div><br/><input type="input" id="newemail" name="newemail" /></div>');
+            $("#info div.warningbox").append('<button class="okbutton"> OK </button>');
+            $("#info div.warningbox").append('<button class="okbutton"> Отмена </button>');
+
+            $("#newemail").focus(function() {
+                $("div.wrong").remove();
+            });
+            $(".okbutton").eq(0).click(function () {
+                $("div.wrong").remove();
+                var email = $("#newemail").val();
+                var match = /^[a-zA-Z0-9_\.\-]+\@([a-zA-Z0-9\-]+\.)+[a-zA-Z0-9]{2,4}$/.test(email);
+                if (!match) { $("#info div.warningbox .message").append("<div class='wrong'>Это не email!</div>") }
+                else {
+                    $("td.inp-left").eq(1).load("/user/cabinet/newEmail", { newemail: email });
+                    $("#info div.warningbox").remove();
+                    $("#veil").remove();
+                }
+            });
+            $(".okbutton").eq(1).click(function () {
+                $("#info div.warningbox").remove();
+                $("#veil").remove();
+            });
+        }
+        function uploadFile() {
+        }
+    </script>
 </head>
 
 <body>
@@ -24,31 +59,43 @@
 Кабинет пользователя 
 </p>
 <div class="form">
-
 <table class="cabinetinfotable">
 <tr>
 <td class="lab">Логин</td>
-<td class="inp">????????</td>
+<td class="inp-left"><? echo @$login; ?></td>
 </tr>
 <tr>
 <td class="lab">E-mail</td>
-<td class="inp">???????</td>
+<td class="inp-left"><? echo @$email; ?></td>
 </tr>
 <tr>
 <td class="lab">Проекты</td>
-<td class="inp">
+<td class="inp-left">
 <ol>
-<li>????</li>
-<li>????</li>
+<?
+    if (empty($projects)) echo "Проектов пока нет";
+    else {
+    foreach ($projects as $key => $pr){
+            $pr_id = $project_ids[$key];
+            echo "<li ><a href='?project-open=$project_ids=$pr_id'>$pr</a></li>";
+        }
+    }
+?>
 </ol>
 </td>
 </tr>
 <tr>
 <td class="lab">Файлы</td>
-<td class="inp">???????</td>
+<td class="inp-left"><? echo @$files; ?></td>
 </tr>
 </table>
+    <div class="tools">
+        <a href="#"><img src="/html/pics/actions/ch-email.gif" alt="change email" onclick="changeEmail()" /></a>
+        <a href="/projects/project/newProjectForm"><img src="/html/pics/actions/new-project.gif" alt="new project" /></a>
+        <a href="#"><img src="/html/pics/actions/upload-file.gif" alt="upload file" onclick="uploadFile()"/></a>
+    </div>
 </div>
+
 
 </div>
 <!-- END Block for calculations & info -->

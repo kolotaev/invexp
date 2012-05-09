@@ -1,17 +1,26 @@
 <?php
 
-class ProjectBean {
+class ProjectBean extends ProjectsBeanBase
+{
+    public function newProject() {
+        $name = $_REQUEST['pname'];
+        $periods = $_REQUEST['nperiods'];
+        $curr1 = $_REQUEST['curr1'];
+        $curr2 = $_REQUEST['curr2'];
+        $description = $_REQUEST['description'];
+        $user = $_SESSION['auth'];
 
-    public function newUser() {
+        $bones = Bones::getBones();
+        $bones['_id'] = "$name@$user";
+        $bones['name'] = $name;
+        $bones['currency1'] = $curr1;
+        $bones['currency2'] = $curr2;
+        $bones['description'] = $description;
+        $bones['user'] = $user;
+        $bones['creation_date'] = date("Y-m-d");
 
-        $login = $_REQUEST['ulogin'];
-        $mail = $_REQUEST['umail'];
-        $pass = $_REQUEST['upass'];
-        $date = date("Y-m-d");
-
-        $statement = "INSERT INTO Users(login, email, pass, reg_date) VALUES ('$login','$mail','$pass', '$date')";
-        mysql_query($statement);
-
+        $this->id = "$name@$user";
+        //$_SESSION['project'] = "$name@$user";
+        $this->pr->save($bones);
     }
-
 }

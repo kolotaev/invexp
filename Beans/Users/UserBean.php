@@ -15,6 +15,7 @@ class UserBean extends BeanBase
             'email' => $mail,
             'password' => $pass,
             'reg_date' => $date,
+            'last_project' => '',
         );
         $this->conn->users->save($insert);
     }
@@ -34,10 +35,22 @@ class UserBean extends BeanBase
         $cursor = $this->conn->users->find($query);
         if (isset($cursor)) {
             $cursor = iterator_to_array($cursor);
-
             return $cursor[$id][$field];
         }
         else throw new Exception("The User or Requested field exists not");
+    }
+
+    public function fieldExists($key, $value_to_find) {
+        $cursor = $this->conn->users->find(array(), array($key => 1));
+        foreach($cursor as $doc) {
+            if ($doc[$key] == $value_to_find) return true;
+        }
+        return false;
+    }
+
+    public function updateField($id, $field, $newValue){
+        $query = array('$set' => array($field => $newValue));
+        $this->conn->users->update(array('_id'=>$id), $query);
     }
 
     public function checkUser() {
