@@ -14,6 +14,9 @@ abstract class ControllerProjectsBase extends ControllerBase
                 $this->redirect('/projects/project/newProjectForm');
             else $this->redirect('/user/cabinet');
         }
+        elseif($_SESSION['project'] == 'fake_null'){
+            $this->redirect('/projects/project');
+        }
         else {
             if ($url !== '') $this->redirect($url);
         }

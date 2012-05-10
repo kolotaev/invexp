@@ -23,7 +23,7 @@ $cursor = $collection->find();
 foreach ($cursor as $obj) {
     echo $obj["title"] . "\n";
 }
-phpinfo();
+//phpinfo();
 $a=7;
 $b=3;
 
@@ -91,4 +91,10 @@ return true;
 while (!feof($f)) {
 //echo fgets($f)."<br>";
 }*/
-?>
+
+$e = "пофывпо оппо опопо";
+$e = urlencode($e);
+echo $e;
+echo "<br>";
+$e= urldecode($e);
+echo $e;

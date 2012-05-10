@@ -23,4 +23,9 @@ class ProjectBean extends ProjectsBeanBase
         //$_SESSION['project'] = "$name@$user";
         $this->pr->save($bones);
     }
+
+    public function deleteProject($id) {
+        $query = array('_id' => $id);
+        $this->pr->remove($query);
+    }
 }

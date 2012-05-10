@@ -3,8 +3,16 @@
 <head>
 <title>Открыть проект</title>
 <? include_once('html/tiles/head-basic.html'); ?>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.form a').click(function(){
+                var y = $(this).parent().children("span").html();
+                $('form input').attr("value", y);
+                $("form").submit();
+            });
+        });
+    </script>
 </head>
-
 <body>
 <!-- Wrapper till footer -->
 <div id="wrapper">
@@ -20,12 +28,12 @@
 <!-- INSERT DATA HERE -->
 <div id="info">
 <p class="title">
-<img src="/html/pics/icons/propeller.gif" alt="cabinet" />
+<img src="/html/pics/icons/propeller.gif" alt="open" />
 Открыть проект
 </p>
 <div class="form">
+<form action="/projects/project/open" method="post">
 <table class="cabinetinfotable">
-
 <tr>
 <td class="inp lab">Проекты</td>
 </tr>
@@ -37,15 +45,16 @@
     else {
         foreach ($projects as $key => $pr){
             $pr_id = $project_ids[$key];
-            echo "<li ><a href='?project-open=$project_ids=$pr_id'>$pr</a></li>";
+            echo "<li><a href='#'>$pr</a></br><span style='display: none;'>$pr_id</span></li>";
         }
+        echo "<input type='hidden' name='pid' value='' />" ;
     }
     ?>
 </ol>
 </td>
 </tr>
-
 </table>
+</form>
     <div class="tools">
         <a href="/projects/project/newProjectForm"><img src="/html/pics/actions/new-project.gif" alt="new project" /></a>
     </div>

@@ -38,6 +38,15 @@
         function uploadFile() {
         }
     </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('ol a').click(function(){
+                var y = $(this).parent().children("span").html();
+                $('form input').attr("value", y);
+                $("form").submit();
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -72,15 +81,16 @@
 <td class="lab">Проекты</td>
 <td class="inp-left">
 <ol>
-<?
+    <?
     if (empty($projects)) echo "Проектов пока нет";
     else {
-    foreach ($projects as $key => $pr){
+        foreach ($projects as $key => $pr){
             $pr_id = $project_ids[$key];
-            echo "<li ><a href='?project-open=$project_ids=$pr_id'>$pr</a></li>";
+            echo "<li><a href='#'>$pr</a></br><span style='display: none;'>$pr_id</span></li>";
         }
+        echo "<input type='hidden' name='pid' value='' />" ;
     }
-?>
+    ?>
 </ol>
 </td>
 </tr>
@@ -89,6 +99,9 @@
 <td class="inp-left"><? echo @$files; ?></td>
 </tr>
 </table>
+    <form action="/projects/project/open" method="post">
+        <input type='hidden' name='pid' value='' />
+    </form>
     <div class="tools">
         <a href="#"><img src="/html/pics/actions/ch-email.gif" alt="change email" onclick="changeEmail()" /></a>
         <a href="/projects/project/newProjectForm"><img src="/html/pics/actions/new-project.gif" alt="new project" /></a>

@@ -1,12 +1,11 @@
 <?php
-class ControllerProject extends ControllerProjectsBase
+class ControllerProject extends ControllerBase
 {
-    //private $User; // Instance of UserBean class
+    private $Model; // Instance of ProjectBean class
 
     public function __construct() {
-        $this->checkAuthAndGo();
         parent::__construct();
-        $this->getModel("users.projectbean.mg");
+        $this->getModel($this->Model, "users.projectbean.mg");
     }
 
     public function index() {
@@ -16,10 +15,14 @@ class ControllerProject extends ControllerProjectsBase
     }
 
     public function open() {
-
+        $pid = $_REQUEST['pid'];
+        $_SESSION['project'] = $pid;
+        $this->template->set('project_name', $this->Model->getField('name'));
+        $this->template->show('project/project-main');
     }
 
     public function show() {
+        $this->checkAuthAndGo();
         $login = $_SESSION['auth'];
 
         $projects = $this->Model->getFieldInRelation('name', 'user', $login);
@@ -30,6 +33,7 @@ class ControllerProject extends ControllerProjectsBase
     }
 
     public function newProjectForm() {
+        $this->checkAuthAndGo();
         $this->template->show('project/new-project');
     }
 
@@ -59,6 +63,18 @@ class ControllerProject extends ControllerProjectsBase
             return false;
         }
         return true;
+    }
+
+    public function remove() {
+        if (isset($_SESSION['project']))
+            $id = $_SESSION['project'];
+        else
+            $id ='';
+        $this->Model->deleteProject($id);
+        $_SESSION['project'] = 'fake_null';
+        $this->template->set('warning', 'Проект удален');
+        $this->show();
+        $this->template->show('project/open');
     }
 
     private function authProject() {

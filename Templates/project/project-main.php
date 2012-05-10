@@ -1,17 +1,13 @@
 <!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Войти в приложение</title>
+<title><? echo $project_name ?></title>
 <? include_once('html/tiles/head-basic.html'); ?>
-<script>
-$(document).ready(function() {
-	$(".form").submit(function() {
-		login = $("#ulogin").val();
-		pass = $("#upass").val();
-		if ( (login == '') | (pass == '')) return false;
-	});
-});
-</script>
+    <style type="text/css">
+        .form a img {
+            margin: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,27 +25,22 @@ $(document).ready(function() {
 <!-- INSERT DATA HERE -->
 <div id="info">
 <p class="title">
-<img src="/html/pics/icons/enter.gif" alt="enter" />  
-Войдите в приложение
+<img src="/html/pics/icons/propeller.gif" alt="preface" />
+<? echo $project_name ?>
 </p>
-<form action="/user/login/checkLogin" method="post" class="form">
-
-<table class="entercommon">
-<tr>
-<td class="lab"><label for="ulogin">Ваш логин</label></td>
-<td class="inp"><input type="input" id="ulogin" name="ulogin" /></td>
-</tr>
-<tr>
-<td class="lab"><label for="upass">Ваш пароль</label></td>
-<td class="inp"><input type="password" id="upass" name="upass" /></td>
-</tr>
-</table>
-
+<div class="form">
 <div class="lastrow">
-<input type="submit" class="send" value="Войти"/>
+    <p>
+    <a href="/projects/project"><img src="/html/pics/icons/propeller.gif" alt="preface" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/propeller.gif" alt="preface" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/propeller.gif" alt="preface" /></a>
+    </p>
+    <p>
+    <a href="/projects/project"><img src="/html/pics/icons/propeller.gif" alt="preface" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/propeller.gif" alt="preface" /></a>
+    </p>
 </div>
-</form>
-
+</div>
 </div>
 <!-- END Block for calculations & info -->
 </div>  
