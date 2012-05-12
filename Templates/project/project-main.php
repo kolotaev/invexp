@@ -31,13 +31,13 @@
 <div class="form">
 <div class="lastrow">
     <p>
-    <a href="/projects/project"><img src="/html/pics/icons/tool-big.gif" alt="preface" /></a>
-    <a href="/projects/project"><img src="/html/pics/icons/world-big.gif" alt="preface" /></a>
-    <a href="/projects/project"><img src="/html/pics/icons/income-big.gif" alt="preface" /></a>
+    <a href="/projects/project/showPrefs"><img src="/html/pics/icons/tool-big.gif" alt="preface" title="Настройки" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/world-big.gif" alt="preface" title="Окружение" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/income-big.gif" alt="preface" title="Доходы" /></a>
     </p>
     <p>
-    <a href="/projects/project"><img src="/html/pics/icons/outcome-big.gif" alt="preface" /></a>
-    <a href="/projects/project"><img src="/html/pics/icons/effect-big.gif" alt="preface" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/outcome-big.gif" alt="preface" title="Расходы" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/effect-big.gif" alt="preface" title="Эффект" /></a>
     </p>
 </div>
 </div>

@@ -1,6 +1,5 @@
 <?php
-class ProjectsBeanBase extends BeanBase
-{
+class ProjectsBeanBase extends BeanBase {
     // the instance of 'projects' db connection
     protected $pr;
     protected $id;
@@ -43,19 +42,22 @@ class ProjectsBeanBase extends BeanBase
         else throw new Exception("The Project or Requested field exists not");
     }
 
-    public function getFieldInRelation($what, $where, $criteria){
+    public function getFieldInRelation($what, $where, $criteria) {
         $cursor = $this->pr->find(array($where => $criteria), array($what => 1));
         $cursor->sort(array("date" => 1));
         $result = array();
         //var_dump(iterator_to_array(($cursor)));
-        foreach($cursor as $doc){
+        foreach ($cursor as $doc) {
             $result[] = $doc[$what];
         }
         return $result;
     }
 
 
-    public function updateField($id, $field, $newValue) {
+    public function updateField($field, $newValue, $id = '') {
+        if ($id == '') {
+            $id = $this->id;
+        }
         $query = array('$set' => array($field => $newValue));
         $this->pr->update(array('_id' => $id), $query);
     }

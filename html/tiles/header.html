@@ -67,11 +67,18 @@
 <div id="status">
 <p class="warning">
 <? echo @$warning; ?>
+    <span id="project-status">
+        <? if(isset($_SESSION['project']) && $_SESSION['project'] !== '') {
+            echo "<img src='/html/pics/icons/project-status-mini.gif' alt='' />";
+            echo str_replace("@" . $_SESSION['auth'], '', $_SESSION['project']);
+        }?>
+    </span>
 </p>
 <noscript><p>
 У Вас отключён JavaScript! Приложение не будет работать корректно!
 <a href="/html/noscript instructions.html"> Как включить? </a>
 </p></noscript>
+
 </div>
 <!-- END Status -->
 </div>

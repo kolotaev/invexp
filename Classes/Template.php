@@ -41,6 +41,7 @@ Class Template {
         return true;
     }
 
+    // ToDo: Remove it. it's obsolete
     // Shows warning box on the page (in the paticular template
     // type <? echo $warning_box; > inside the $(document).ready(function() { }
     public function warningBox($msg) {

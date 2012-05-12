@@ -1,6 +1,5 @@
 <?php
-class ControllerProject extends ControllerBase
-{
+class ControllerProject extends ControllerBase {
     private $Model; // Instance of ProjectBean class
 
     public function __construct() {
@@ -15,10 +14,21 @@ class ControllerProject extends ControllerBase
     }
 
     public function open() {
-        $pid = $_REQUEST['pid'];
-        $_SESSION['project'] = $pid;
+        $this->checkAuthAndGo();
+        if (!isset($_REQUEST['pid']))
+            $this->redirect('/projects/project/show');
+        $_SESSION['project'] = $_REQUEST['pid'];
+        $this->Model->setProjectId($_REQUEST['pid']);
         $this->template->set('project_name', $this->Model->getField('name'));
         $this->template->show('project/project-main');
+    }
+
+    public function mainWindow() {
+        $this->checkAuthProjectAndGo();
+        $this->Model->setProjectId($_SESSION['project']);
+        $this->template->set('project_name', $this->Model->getField('name'));
+        $this->template->show('project/project-main');
+
     }
 
     public function show() {
@@ -37,11 +47,34 @@ class ControllerProject extends ControllerBase
         $this->template->show('project/new-project');
     }
 
+    public function showPrefs() {
+        $this->checkAuthProjectAndGo();
+        $this->Model->setProjectId($_SESSION['project']);
+        $data = array();
+        $data['periods'] = $this->Model->getField('periods');
+        $data['currency1'] = $this->Model->getField('currency1');
+        $data['currency2'] = $this->Model->getField('currency2');
+        $data['description'] = $this->Model->getField('description');
+        $this->template->set('data', $data);
+        $this->template->show('project/preferences');
+    }
+
+    // Fire-method
     public function createProject() {
         $this->checkProjectExists();
         $this->insertNewProject();
         $this->authProject();
         $this->redirect('/user/cabinet/show');
+    }
+
+    // Fire-method
+    public function updateProject(){
+        $this->Model->setProjectId($_SESSION['project']);
+        $this->Model->updateField('periods', $_REQUEST['nperiods']);
+        $this->Model->updateField('currency1', $_REQUEST['curr1']);
+        $this->Model->updateField('currency2', $_REQUEST['curr2']);
+        $this->Model->updateField('description', $_REQUEST['description']);
+        $this->redirect('/projects/project/showPrefs');
     }
 
     // ToDo: This functionality should be overlooked cause it's a 'hot-fix' style
@@ -69,9 +102,9 @@ class ControllerProject extends ControllerBase
         if (isset($_SESSION['project']))
             $id = $_SESSION['project'];
         else
-            $id ='';
+            $id = '';
         $this->Model->deleteProject($id);
-        $_SESSION['project'] = 'fake_null';
+        unset($_SESSION['project']);
         $this->template->set('warning', 'Проект удален');
         $this->show();
         $this->template->show('project/open');
@@ -80,5 +113,24 @@ class ControllerProject extends ControllerBase
     private function authProject() {
         $project_in_use = $_REQUEST['pname'] . '@' . $_SESSION['auth'];
         $_SESSION['project'] = $project_in_use;
+    }
+
+    private function checkAuthProjectAndGo($url = '') {
+        if (!isset($_SESSION['auth'])) {
+            $_SESSION['action-to-login'] = '/' . $_REQUEST['route'];
+            $this->redirect('/user/login');
+        }
+        elseif (!isset($_SESSION['project']) || $_SESSION['project'] === '') {
+            $_SESSION['action-to-login'] = '/' . $_REQUEST['route'];
+            if ($_SESSION['action-to-login'] != '/projects/project/newProjectForm')
+                $this->redirect('/projects/project/newProjectForm');
+            else $this->redirect('/user/cabinet');
+        }
+        elseif ($_SESSION['project'] == 'fake_null') {
+            $this->redirect('/projects/project');
+        }
+        else {
+            if ($url !== '') $this->redirect($url);
+        }
     }
 }

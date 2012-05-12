@@ -178,6 +178,18 @@ body {
     color: #404040;
 }
 
+#status span#project-status {
+    color: black;
+    font-size: 11px;
+    font-style: italic;
+    font-weight: normal;
+    position: relative;
+    left: 70%;
+}
+#status span#project-status img {
+    margin-right: 5px;
+}
+
 #container {
     width: 100%;
     padding-bottom: 54px;

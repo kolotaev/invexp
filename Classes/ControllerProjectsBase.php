@@ -8,7 +8,7 @@ abstract class ControllerProjectsBase extends ControllerBase
             $_SESSION['action-to-login'] = '/'. $_REQUEST['route'];
             $this->redirect('/user/login');
         }
-        elseif (!isset($_SESSION['project'])) {
+        elseif (!isset($_SESSION['project']) || $_SESSION['project'] === '') {
             $_SESSION['action-to-login'] = '/'. $_REQUEST['route'];
             if ($_SESSION['action-to-login'] != '/projects/project/newProjectForm')
                 $this->redirect('/projects/project/newProjectForm');

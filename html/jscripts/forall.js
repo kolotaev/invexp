@@ -34,6 +34,12 @@ $(document).ready(function () {
 
 // ------------------------------- End document ready -------------------------------------------- //
 
+// Clicks Sideblock menu on page load/reload (if needed)
+function clickSideblock(num){
+    $('#firstpane div.menu_body').eq(num).css("display", "block").addClass('vis');
+    $('#firstpane p.menu_head').eq(num).css({backgroundImage:"url(/html/pics/menu-minus.gif)"});
+}
+// end
 
 // LightBox for all kind of warnings
 function LightBox(msg, capt) {
@@ -68,3 +74,11 @@ function LightBox(msg, capt) {
  });
  </script>
  */
+
+ /*
+ var d = $("div.menu_body").eq(num).hasClass('vis');
+ if (!d) {
+ $('#firstpane p.menu_head').eq(num).click();
+ }
+ */
+

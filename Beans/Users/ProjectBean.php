@@ -2,6 +2,9 @@
 
 class ProjectBean extends ProjectsBeanBase
 {
+    public function __construct() {
+    }
+
     public function newProject() {
         $name = $_REQUEST['pname'];
         $periods = $_REQUEST['nperiods'];
@@ -13,6 +16,7 @@ class ProjectBean extends ProjectsBeanBase
         $bones = Bones::getBones();
         $bones['_id'] = "$name@$user";
         $bones['name'] = $name;
+        $bones['periods'] = $periods;
         $bones['currency1'] = $curr1;
         $bones['currency2'] = $curr2;
         $bones['description'] = $description;
