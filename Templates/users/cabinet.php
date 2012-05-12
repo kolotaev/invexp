@@ -103,9 +103,9 @@
         <input type='hidden' name='pid' value='' />
     </form>
     <div class="tools">
-        <a href="#"><img src="/html/pics/actions/ch-email.gif" alt="change email" onclick="changeEmail()" /></a>
-        <a href="/projects/project/newProjectForm"><img src="/html/pics/actions/new-project.gif" alt="new project" /></a>
-        <a href="#"><img src="/html/pics/actions/upload-file.gif" alt="upload file" onclick="uploadFile()"/></a>
+        <a href="#"><img src="/html/pics/actions/mail-action.gif" alt="change email" title="Изменить email" onclick="changeEmail()" /></a>
+        <a href="/projects/project/newProjectForm"><img src="/html/pics/actions/newstar.gif" alt="new project" title="Создать проект"/></a>
+        <a href="#"><img src="/html/pics/actions/uploadfile.gif" alt="upload file" title="Загрузить файл" onclick="uploadFile()"/></a>
     </div>
 </div>
 

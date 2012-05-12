@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><? echo $project_name ?></title>
+<title><? echo "- $project_name -" ?></title>
 <? include_once('html/tiles/head-basic.html'); ?>
     <style type="text/css">
         .form a img {
@@ -26,18 +26,18 @@
 <div id="info">
 <p class="title">
 <img src="/html/pics/icons/propeller.gif" alt="preface" />
-<? echo $project_name ?>
+<? echo "\" $project_name  \"" ?>
 </p>
 <div class="form">
 <div class="lastrow">
     <p>
-    <a href="/projects/project"><img src="/html/pics/icons/propeller.gif" alt="preface" /></a>
-    <a href="/projects/project"><img src="/html/pics/icons/propeller.gif" alt="preface" /></a>
-    <a href="/projects/project"><img src="/html/pics/icons/propeller.gif" alt="preface" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/tool-big.gif" alt="preface" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/world-big.gif" alt="preface" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/income-big.gif" alt="preface" /></a>
     </p>
     <p>
-    <a href="/projects/project"><img src="/html/pics/icons/propeller.gif" alt="preface" /></a>
-    <a href="/projects/project"><img src="/html/pics/icons/propeller.gif" alt="preface" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/outcome-big.gif" alt="preface" /></a>
+    <a href="/projects/project"><img src="/html/pics/icons/effect-big.gif" alt="preface" /></a>
     </p>
 </div>
 </div>

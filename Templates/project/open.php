@@ -56,7 +56,7 @@
 </table>
 </form>
     <div class="tools">
-        <a href="/projects/project/newProjectForm"><img src="/html/pics/actions/new-project.gif" alt="new project" /></a>
+        <a href="/projects/project/newProjectForm"><img src="/html/pics/actions/newstar.gif" title="Создать проект" alt="new project" /></a>
     </div>
 </div>
 
