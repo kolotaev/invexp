@@ -3,10 +3,12 @@ class ControllerLogin extends ControllerBase
 {
 
     private $User; // Instance of UserBean class
+    private $Project; // Instance of ProjectBean class
 
     public function __construct() {
         parent::__construct();
         $this->getModel($this->User, "users.userbean.mg");
+        $this->getModel($this->Project, "users.projectbean.mg");
     }
 
     public function index() {
@@ -56,7 +58,11 @@ class ControllerLogin extends ControllerBase
     private function authorize() {
         $id = $_REQUEST['ulogin'];
         if ($this->getAuth() === '') $_SESSION['auth'] = $id;
-        $_SESSION['project'] = $this->User->getUserField($id, 'last_project');
+        $last_project = $this->User->getUserField($id, 'last_project');
+        if ($this->Project->fieldExists('_id', $last_project) == true)
+            $_SESSION['project'] = $this->User->getUserField($id, 'last_project');
+        else
+            unset($_SESSION['project']);
     }
 
 }

@@ -14,7 +14,7 @@ class ControllerExit extends ControllerBase
     }
 
     private function logout() {
-        if (isset($_SESSION['project']) && isset($_SESSION['auth'])) {
+        if (isset($_SESSION['project']) && $_SESSION['project'] !== '' && isset($_SESSION['auth'])) {
             $id = $_SESSION['auth'];
             $current_users_project = $_SESSION['project'];
             $this->User->updateField($id, 'last_project', $current_users_project);

@@ -19,3 +19,4 @@ define ('SITE_PATH', $SITE_PATH);
 // Run main starter
 $bootstrap = new Bootstrap($config);
 $bootstrap->run();
+var_dump($_SESSION);
