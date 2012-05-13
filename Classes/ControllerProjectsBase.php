@@ -3,7 +3,7 @@ abstract class ControllerProjectsBase extends ControllerBase
 {
     protected $Model; // Instance of any Bean, connected with Projects collection
 
-    public function checkAuthAndGo($url='') {
+    public function checkAuthProjectAndGo($url='') {
         if (!isset($_SESSION['auth'])) {
             $_SESSION['action-to-login'] = '/'. $_REQUEST['route'];
             $this->redirect('/user/login');

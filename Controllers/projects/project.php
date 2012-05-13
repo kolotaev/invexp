@@ -64,7 +64,7 @@ class ControllerProject extends ControllerBase {
         $this->checkProjectExists();
         $this->insertNewProject();
         $this->authProject();
-        $this->redirect('/user/cabinet/show');
+        $this->redirect('/projects/project/mainWindow');
     }
 
     // Fire-method

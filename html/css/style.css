@@ -390,6 +390,33 @@ body {
     margin: 0% 25%;
 }
 
+/* DataGrid for Ajax */
+#info .formdatagrid  {
+    qwidth: 100%;
+    qmargin: auto;
+    border: 1px solid rgb(141, 184, 190);
+    background: rgb(243, 243, 243);
+    padding: 20px;
+}
+#datagrid {
+    padding: 0px;
+    margin: 0px;
+    qoverflow: scroll;
+    qposition: relative;
+}
+#info #datagrid span {
+    display: inline-block;
+}
+#info #datagrid input {
+    margin-left: -5px;
+    margin-top: -5px;
+    border-collapse: collapse;
+    outline: none;
+    width: 70px;
+    position: relative;
+}
+/* End DataGrid */
+
 #info .form .tools img{
     margin: 10px;
 }

@@ -15,6 +15,7 @@ class ControllerCabinet extends ControllerBase
     }
 
     public function show() {
+        $this->checkAuthAndGo();
         $current_id = $_SESSION['auth'];
         $this->populateCabinetInfo($current_id);
         $this->template->show('users/cabinet');
