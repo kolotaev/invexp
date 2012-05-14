@@ -30,10 +30,38 @@ $(document).ready(function () {
     });
 // end
 
+    //Actions & behaviour of cells in DataGrid
+    $("#datagrid input.cell").blur(function(){
+        var data = $(this).val();
+        var match = /^([1-9]{0,1}|[0]{0,1})[0-9]*[,|\.]{0,1}[0-9]*$/.test(data);
+        var action = $(this).parents('form').attr("action");
+        var name = $(this).attr("name");
+        if (!match) {
+            LightBox("Неправильный формат!","Format");
+        }
+        $(this).val(s);
+    });
+    // end
+
+    // Decoration of cells in DataGrid
+    $("#info #datagrid input.cell").focus(function(){
+        $(this).css('background', '#fafafa');
+    });
+    $("#info #datagrid input.cell").blur(function(){
+        $(this).css('background', 'white');
+    });
+    // end
+
 });
 
 // ------------------------------- End document ready -------------------------------------------- //
 
+// Ajax function!
+function ajaxSend(action, send_data){
+    $.get(action, send_data);
+}
+
+//end
 // Clicks Sideblock menu on page load/reload (if needed)
 function clickSideblock(num){
     $('#firstpane div.menu_body').eq(num).css("display", "block").addClass('vis');

@@ -392,28 +392,24 @@ body {
 
 /* DataGrid for Ajax */
 #info .formdatagrid  {
-    qwidth: 100%;
-    qmargin: auto;
     border: 1px solid rgb(141, 184, 190);
     background: rgb(243, 243, 243);
-    padding: 20px;
+    padding: 20px 10px;
 }
 #datagrid {
     padding: 0px;
     margin: 0px;
-    qoverflow: scroll;
-    qposition: relative;
 }
 #info #datagrid span {
-    display: inline-block;
+    display: block;
 }
 #info #datagrid input {
     margin-left: -5px;
     margin-top: -5px;
     border-collapse: collapse;
+    border: solid 1px rgb(82, 136, 143);
     outline: none;
-    width: 70px;
-    position: relative;
+    background: white;
 }
 /* End DataGrid */
 
@@ -469,6 +465,7 @@ body {
 
 #info td input {
     width: 70%;
+    outline: none;
 }
 
 #info td textarea {

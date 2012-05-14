@@ -15,7 +15,7 @@ $(document).ready(function() {
 	$("#nperiods").blur(function () {
         periods_ok = false;
         nperiods = $(this).val();
-		var match = /^[0-9]+$/.test(nperiods);
+		var match = /^[1-9]{0,1}[0-9]$/.test(nperiods);
 		if (nperiods == '' || nperiods == 0) { $(".nperiodsaddon").text("Вводите количество");  }
 		else if (!match) { $(".nperiodsaddon").text("Вводите цифры"); }
 			else { $(".nperiodsaddon").text(""); periods_ok = true; }

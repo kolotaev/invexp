@@ -49,7 +49,7 @@
 
 <!-- Search Block -->
 <div class="search">
-<form method="get" action="smth.php">
+<form method="get" action="#">
 <div>
 <input class="field" type="text" value="go!" />
 <input class="button" type="submit" value="" />
@@ -67,12 +67,7 @@
 <div id="status">
 <p class="warning">
 <? echo @$warning; ?>
-    <span id="project-status">
-        <? if(isset($_SESSION['project']) && $_SESSION['project'] !== '') {
-            echo "<img src='/html/pics/icons/project-status-mini.gif' alt='' />";
-            echo str_replace("@" . $_SESSION['auth'], '', $_SESSION['project']);
-        }?>
-    </span>
+    <span id="project-status"><? echo @$project_icon; ?></span>
 </p>
 <noscript><p>
 У Вас отключён JavaScript! Приложение не будет работать корректно!

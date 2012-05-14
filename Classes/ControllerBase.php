@@ -47,6 +47,15 @@ abstract Class ControllerBase {
         $this->template->show('errors/error');
     }
 
+    public function displayProjectIcon(){
+        $icon = '';
+        if(isset($_SESSION['project']) && $_SESSION['project'] !== '') {
+            $icon = "<img src='/html/pics/icons/project-status-mini.gif' alt='' />";
+            $icon .= str_replace("@" . $_SESSION['auth'], '', $_SESSION['project']);
+        }
+        $this->template->set('project_icon', $icon);
+    }
+
     protected function getModel(&$to, $from) {
         $to = $this->beanfactory->build($from);
     }

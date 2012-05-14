@@ -5,14 +5,9 @@
 <? include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         $(document).ready(function() {
+
             clickSideblock(1);
 
-            var f = $('#datagrid p.row span').length;
-            var w;
-              if(f>5)  w = 100 + f*3;
-            w = w + '%';
-            $('body').css('width', w);
-            //window.alert(f);
         });
     </script>
 </head>
@@ -28,7 +23,7 @@
 <!-- Main area. The top level -->
 
 <div id="main">
-<!-- Block for calculations and info --> 
+<!-- Block for calculations and info -->
 <!-- INSERT DATA HERE -->
 <div id="info">
 
@@ -36,31 +31,23 @@
 <img src="/html/pics/icons/world.gif" alt="macro" />
 Макроэкономическое окружение
 </p>
-<form action="#" method="post" class="formdatagrid">
+<form action="/usr" method="post" class="formdatagrid">
 <div id="datagrid">
 <p class="row">
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-<span class="cell"><input type="input" /></span>
-
+<span class="cell">
+    <input type="input" name='hj' class="cell"/>
+    <input type="input" class="cell"/>
+    <input type="input" class="cell"/>
+    <input type="input" class="cell"/>
+    <input type="input" class="cell"/>
+</span>
 </p>
-
-
 </div>
 </form>
 
 </div>
 <!-- END Block for calculations & info -->
-</div>  
+</div>
 <!-- END Main area. The top level -->
 </div>
 <!-- END Container for side and main -->

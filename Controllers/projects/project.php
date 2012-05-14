@@ -5,6 +5,7 @@ class ControllerProject extends ControllerBase {
     public function __construct() {
         parent::__construct();
         $this->getModel($this->Model, "users.projectbean.mg");
+        $this->displayProjectIcon();
     }
 
     public function index() {

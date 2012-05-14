@@ -3,6 +3,11 @@ abstract class ControllerProjectsBase extends ControllerBase
 {
     protected $Model; // Instance of any Bean, connected with Projects collection
 
+    public function __construct(){
+        parent::__construct();
+        $this->displayProjectIcon();
+    }
+
     public function checkAuthProjectAndGo($url='') {
         if (!isset($_SESSION['auth'])) {
             $_SESSION['action-to-login'] = '/'. $_REQUEST['route'];
