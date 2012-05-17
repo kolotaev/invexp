@@ -27,6 +27,14 @@ abstract class ControllerProjectsBase extends ControllerBase
         }
     }
 
+    protected function getSettings($id){
+        $project = NULL;
+        $settings = array();
+        parent::getModel($project, "users.projectbean.mg");
+        $settings['n'] = $project->getField('periods', $id);
+        return $settings;
+    }
+
     protected function getModel($from) {
         parent::getModel($this->Model, $from);
     }

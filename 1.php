@@ -98,3 +98,24 @@ echo $e;
 echo "<br>";
 $e= urldecode($e);
 echo $e;
+=====================================================================
+<?
+echo <<<EOD
+<p class="row">
+<span>
+<input type="input" value="Показатель" class="side tophead" readonly />
+<input type="input" value="Значение" class="tophead" readonly />
+</span>
+</p>
+EOD;
+for($i=0; $i<$n; $i++){
+    echo <<<EOD
+<p class="row">
+<span>
+<input type="input" class="side"/>
+<input type="input" class="cell"/>
+</span>
+</p>
+EOD;
+}
+?>

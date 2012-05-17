@@ -403,14 +403,31 @@ body {
 #info #datagrid span {
     display: block;
 }
-#info #datagrid input {
+#info #datagrid input.cell, input.xcell, input.tophead, input.side, input.period {
     margin-left: -5px;
     margin-top: -5px;
     border-collapse: collapse;
     border: solid 1px rgb(82, 136, 143);
     outline: none;
     background: white;
+    padding: 1px;
+    padding-left: 2px;
 }
+
+#info #datagrid input.tophead {
+    text-align: center;
+    font-style: italic;
+}
+
+#info #datagrid input.side {
+    width: 200px;
+}
+
+#info #datagrid input.period {
+    width: 70px;
+    text-align: center;
+}
+
 /* End DataGrid */
 
 #info .form .tools img{

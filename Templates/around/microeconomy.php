@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Макроэкономическое окружение</title>
+<title>Микроэкономическое окружение</title>
 <? include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -28,8 +28,8 @@
 <div id="info">
 
 <p class="title">
-<img src="/html/pics/icons/world.gif" alt="macro" />
-Макроэкономическое окружение
+<img src="/html/pics/icons/radiant.gif" alt="micro" />
+Микроэкономическое окружение
 </p>
 <form action="/usr" method="post" class="formdatagrid">
 <div id="datagrid">
@@ -42,34 +42,35 @@
 </p>
 <p class="row">
 <span>
-<input type="input" value="Темп роста цен %" class="side" readonly/>
-<input type="input" name="prise_rise_temp" value="" class="cell"/>
+<input type="input" value="Амортизация" class="side" readonly/>
+<input type="input" name="amortization" value="" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Курс валюты" class="side" readonly/>
-<input type="input" name="currency_rate" value="" class="cell"/>
+<input type="input" value="Кредит (сумма)" class="side" readonly/>
+<input type="input" name="credit_volume" value="" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Ставка рефинансирования" class="side" readonly/>
-<input type="input" name="refinance_rate" value="" class="cell"/>
+<input type="input" value="% по кредиту" class="side" readonly/>
+<input type="input" name="credit_rate" value="" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="НДС" class="side" readonly/>
-<input type="input" name="nds_tax" value="" class="cell"/>
+<input type="input" value="Период кредитования" class="side" readonly/>
+<input type="input" name="credit_term" value="" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Налог на прибыль" class="side" readonly/>
-<input type="input" name="profit_tax" value="" class="cell"/>
+<input type="input" value="Собственные средства" class="side" readonly/>
+<input type="input" name="own_money" value="" class="cell"/>
 </span>
 </p>
+
 </div>
 </form>
 

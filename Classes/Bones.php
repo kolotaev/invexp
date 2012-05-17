@@ -13,11 +13,11 @@ class Bones
         'creation_date' => '',
 
         'around' => array(
-            'smth' => '',
+            'smth' => 'ok1',
         ),
 
         'workers' => array(
-            'smth' => '',
+            'smth' => 'ok2',
         ),
 
 

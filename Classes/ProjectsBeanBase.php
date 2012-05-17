@@ -19,6 +19,10 @@ class ProjectsBeanBase extends BeanBase {
         $this->pr = $this->conn->projects;
     }
 
+    public function getConnection(){
+        return $this->pr;
+    }
+
     // returns an array of data-info for this user;
     public function getAllFields($id) {
         $query = array('_id' => $id);
@@ -29,15 +33,23 @@ class ProjectsBeanBase extends BeanBase {
         else throw new Exception("The Project exists not");
     }
 
+    // Use it to get values of docs & subdocs of your collection
     public function getField($field, $id = '') {
         if ($id == '') {
             $id = $this->id;
         }
         $query = array('_id' => $id);
-        $cursor = $this->pr->find($query);
+        $cursor = $this->pr->find($query, array($field => 1));
         if (isset($cursor)) {
+            $subfields = explode('.', $field);
             $cursor = iterator_to_array($cursor);
-            return $cursor[$id][$field];
+            $cursor = $cursor[$id];
+            $i = 0;
+            while(is_array($cursor)){
+                $cursor = $cursor[$subfields[$i]];
+                $i++;
+            }
+            return $cursor;
         }
         else throw new Exception("The Project or Requested field exists not");
     }
@@ -52,7 +64,6 @@ class ProjectsBeanBase extends BeanBase {
         }
         return $result;
     }
-
 
     public function updateField($field, $newValue, $id = '') {
         if ($id == '') {
@@ -69,4 +80,35 @@ class ProjectsBeanBase extends BeanBase {
         }
         return false;
     }
+
+    //=========================
+    // Redundant
+    // ToDo: Maybe it's better to do this in model but it's hard seems to me at this time
+    public function setField($field, $value, $id = '') {
+        if ($id == '') {
+            $id = $this->id;
+        }
+        $where = array('_id' => $id);
+        $what = array('$set' => array($field => $value));
+        try {
+            $this->pr->update($where, $what);
+        }
+        catch(Exception $e){
+            throw new Exception($e);
+        }
+    }
+
+    public function qqqqqqqqgetField($field, $id = '') {
+        if ($id == '') {
+            $id = $this->id;
+        }
+        $query = array('_id' => $id);
+        $cursor = $this->pr->find($query);
+        if (isset($cursor)) {
+            $cursor = iterator_to_array($cursor);
+            return $cursor[$id][$field];
+        }
+        else throw new Exception("The Project or Requested field exists not");
+    }
+    // end ==========================
 }

@@ -32,23 +32,23 @@ $(document).ready(function () {
 
     //Actions & behaviour of cells in DataGrid
     $("#datagrid input.cell").blur(function(){
-        var data = $(this).val();
-        var match = /^([1-9]{0,1}|[0]{0,1})[0-9]*[,|\.]{0,1}[0-9]*$/.test(data);
-        var action = $(this).parents('form').attr("action");
-        var name = $(this).attr("name");
-        if (!match) {
-            LightBox("Неправильный формат!","Format");
+        var this_cell = $(this);
+        reviser(this_cell);
+    });
+    $("#datagrid input.cell").keypress(function(e){
+        if(e.keyCode == 13){
+            var this_cell = $(this);
+            reviser(this_cell);
         }
-        $(this).val(s);
     });
     // end
 
     // Decoration of cells in DataGrid
     $("#info #datagrid input.cell").focus(function(){
-        $(this).css('background', '#fafafa');
+        $(this).css('background-color', '#fafafa');
     });
     $("#info #datagrid input.cell").blur(function(){
-        $(this).css('background', 'white');
+        $(this).css('background-color', 'white');
     });
     // end
 
@@ -56,6 +56,19 @@ $(document).ready(function () {
 
 // ------------------------------- End document ready -------------------------------------------- //
 
+function reviser(cell){
+    var data = $(cell).val();
+    var match1 = /^[1-9][0-9]*[,|\.]{0,1}[0-9]*$/.test(data);
+    var match2 = /^[0]{0,1}[,|\.]{0,1}[0-9]*$/.test(data);
+    if (!match1 && !match2 && data != '') {
+        $(cell).attr('readonly', true);
+        LightBoxInput("Неверный формат!","Format", function(){$(cell).focus();});
+        $(cell).val('');
+    }
+    var action = $(cell).parents('form').attr("action");
+    var name = $(cell).attr("name");
+    //$(this).val(s);
+}
 // Ajax function!
 function ajaxSend(action, send_data){
     $.get(action, send_data);
@@ -70,7 +83,7 @@ function clickSideblock(num){
 // end
 
 // LightBox for all kind of warnings
-function LightBox(msg, capt) {
+function LightBox(msg, capt, callback) {
     capt = capt || 'Ошибка!';
     var capture = '<div class="capture">' + capt + '</div>';
     var message = '<div class="message">' + msg + '</div>';
@@ -83,6 +96,33 @@ function LightBox(msg, capt) {
     $(".okbutton").click(function () {
         $("#info div.warningbox").remove();
         $("#veil").remove();
+        if(callback != undefined){
+            callback();
+        }
+    });
+}
+// end
+
+// LightBox for input of warnings
+function LightBoxInput(msg, capt, callback) {
+    capt = capt || 'Ошибка!';
+    var capture = '<div class="capture">' + capt + '</div>';
+    var message = '<div class="message">' + msg + '</div>';
+    $('input.cell').attr('readonly', true);
+    $("body").append('<div id="veil"></div>');
+    $("#info").append('<div class="warningbox"></div>');
+    $("#info div.warningbox").append(capture);
+    $("#info div.warningbox").append(message);
+    $("#info div.message").prepend('<div><img src="/html/pics/icons/error2.gif" /></div>');
+    $("#info div.warningbox").append('<button class="okbutton"> OK </button>');
+    $("#info div .okbutton").focus();
+    $(".okbutton").click(function () {
+        $("#info div.warningbox").remove();
+        $("#veil").remove();
+        $('input.cell').attr('readonly', false);
+        if(callback != undefined){
+            callback();
+        }
     });
 }
 // end
