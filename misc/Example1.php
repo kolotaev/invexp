@@ -35,5 +35,5 @@
     $Test->Render("Naked.png");
 
 
-echo "<img src='Naked.png' />"
+echo ""
 ?>
