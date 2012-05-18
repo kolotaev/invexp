@@ -36,8 +36,8 @@
     <a href="/projects/income"><img src="/html/pics/icons/income-big.gif" alt="preface" title="Доходы" /></a>
     </p>
     <p>
-    <a href="/projects/project"><img src="/html/pics/icons/outcome-big.gif" alt="preface" title="Расходы" /></a>
-    <a href="/projects/project"><img src="/html/pics/icons/effect-big.gif" alt="preface" title="Эффект" /></a>
+    <a href="/projects/costs"><img src="/html/pics/icons/outcome-big.gif" alt="preface" title="Расходы" /></a>
+    <a href="/projects/effect"><img src="/html/pics/icons/effect-big.gif" alt="preface" title="Эффект" /></a>
     </p>
 </div>
 </div>

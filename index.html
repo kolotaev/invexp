@@ -16,128 +16,126 @@
 
 <body>
 <!-- Wrapper till footer -->
-<div id="wrapper"> 
+<div id="wrapper">
 
-<!-- Head wrapper -->
-<div id="headwrap">
-<img src="html/pics/logo.gif" class="logo" alt="InvExp" />
+    <!-- Head wrapper -->
+    <div id="headwrap">
+        <img src="/html/pics/logo.gif" class="logo" alt="InvExp" />
 
+        <!-- Header -->
+        <div id="header">
 
-<!-- Header -->
-<div id="header">
+            <!-- Menu -->
+            <ul id="menu">
+                <li>
+                    <a href="#">Файл</a>
+                    <ul>
+                        <li><a href="/projects/project">Открыть проект</a></li>
+                        <li><a href="/projects/project/newProjectForm">Новый проект</a></li>
+                        <li><a href="#">Экспорт HTML</a></li>
+                        <li><a href="/projects/project/remove">Удалить проект</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Счет</a>
+                    <ul>
+                        <li><a href="/projects/project/mainWindow">Проект</a></li>
+                        <li><a href="#">Таблица</a></li>
+                        <li><a href="#">Анализ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Инфо</a>
+                    <ul>
+                        <li><a href="/info/invest">Инвестиции</a></li>
+                        <li><a href="/info/classify">Классификация</a></li>
+                        <li><a href="/info/evaluation">Оценка</a></li>
+                        <li><a href="/info/howto">How To</a></li>
+                        <li><a href="/info/author">О приложении</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Вход</a>
+                    <ul>
+                        <li><a href="/index.html">На главную</a></li>
+                        <li><a href="/user/login">Войти</a></li>
+                        <li><a href="/user/register">Регистрация</a></li>
+                        <li><a href="/user/cabinet">Кабинет пользователя</a></li>
+                        <li><a href="/user/exit">Выйти из приложения</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- END Menu -->
 
-<!-- Menu --> 
-<ul id="menu">
-    <li>
-        <a href="#">Файл</a>
-        <ul>
-            <li><a href="/projects/project">Открыть проект</a></li>
-            <li><a href="/projects/project/new">Новый проект</a></li>
-            <li><a href="/projects/project/exportHtml">Экспорт HTML</a></li>
-            <li><a href="/projects/project/delete">Удалить проект</a></li>
-        </ul>
-    </li>
-	<li>
-		<a href="#">Счет</a>
-		<ul>
-			<li><a href="ogo.php">№1</a></li>
-			<li><a href="#">Устроить файл</a></li>
-			<li><a href="#">Счет-фактура</a></li>
-		</ul>
-	</li>
-	<li>
-		<a href="#">Инфо</a>
-        <ul>
-            <li><a href="/info/invest">Инвестиции</a></li>
-            <li><a href="/info/classify">Классификация</a></li>
-            <li><a href="/info/evaluation">Оценка инвестиций</a></li>
-            <li><a href="/info/howto">How To</a></li>
-            <li><a href="/info/author">О приложении</a></li>
-        </ul>
-	</li>
-	<li>
-		<a href="#">Вход</a>
-		<ul>
-			<li><a href="/user/login">Войти</a></li>
-			<li><a href="/user/register">Регистрация</a></li>
-			<li><a href="/user/cabinet">Кабинет пользователя</a></li>
-			<li><a href="/user/exit">Выйти из приложения</a></li>
-		</ul>
-	</li>
-</ul> 
-<!-- END Menu -->   
-
-<!-- Search Block --> 
-<div class="search"> 
-<form method="get" action="#">
-<div> 
-<input class="field" type="text" value="go!" /> 
-<input class="button" type="submit" value="" />
-</div>
-</form> 
-</div> 
-<!-- END Search Block --> 
-
-
-</div>        
-<!-- END Header --> 
+            <!-- Search Block -->
+            <div class="search">
+                <form method="get" action="#">
+                    <div>
+                        <input class="field" type="text" value="go!" />
+                        <input class="button" type="submit" value="" />
+                    </div>
+                </form>
+            </div>
+            <!-- END Search Block -->
 
 
-<!-- Status --> 
-<div id="status">
-<noscript><p>
-У Вас отключён JavaScript! Приложение не будет работать корректно!
-<a href="html/noscript instructions.html"> Как включить? </a>
-</p></noscript>
-</div>
-<!-- END Status --> 
-</div>
-<!-- END Head wrapper --> 
+        </div>
+        <!-- END Header -->
 
-<!-- Container for side and main -->
+
+        <!-- Status -->
+        <div id="status">
+            <p class="warning">
+                <? echo @$warning; ?>
+                <span id="project-status"><? echo @$project_icon; ?></span>
+            </p>
+            <noscript><p>
+                У Вас отключён JavaScript! Приложение не будет работать корректно!
+                <a href="/html/noscript instructions.html"> Как включить? </a>
+            </p></noscript>
+
+        </div>
+        <!-- END Status -->
+    </div>
+    <!-- END Head wrapper -->
+
+    <!-- Container for side and main -->
 <div id="container">
- 
-<!-- Side block -->
-<div id="sideblock">
-<div id="firstpane" class="menu_list">		
-<p class="menu_head">Проект</p>		
-<div class="menu_body">		
-<a href="#">Проект</a>         
-<a href="#">Форум</a>	         
-<a href="#">Блог</a>	         
-<a href="#">Контакты</a>	          
-<a href="#">О приложении</a>
-</div>		
-<p class="menu_head">Окружение</p>		
-<div class="menu_body">			
-<a href="#">Новости</a>         
-<a href="#">Статьи</a>         
-<a href="#">Закачки</a>			
-</div>		
-<p class="menu_head">Доходы</p>		
-<div class="menu_body">          
-<a href="#">Мои друзья</a>         
-<a href="#">Мои сообщения</a>         
-<a href="#">Мои файлы</a>		         
-<a href="#">Выйти</a>		       
-</div>  
-<p class="menu_head">Расходы</p>		
-<div class="menu_body">          
-<a href="#">Мои друзья</a>         
-<a href="#">Мои сообщения</a>         
-<a href="#">Мои файлы</a>		         
-<a href="#">Выйти</a>		       
-</div> 
-<p class="menu_head">Эффект</p>		
-<div class="menu_body">          
-<a href="#">Мои друзья</a>         
-<a href="#">Мои сообщения</a>         
-<a href="#">Мои файлы</a>		         
-<a href="#">Выйти</a>		       
-</div> 
-</div>
-</div>
-<!--END Side block -->
+
+    <!-- Side block -->
+    <div id="sideblock">
+        <div id="firstpane" class="menu_list">
+            <p class="menu_head">Проект</p>
+            <div class="menu_body">
+                <a href="/projects/project/mainWindow">Главная</a>
+                <a href="/projects/project/showPrefs">Настройки</a>
+            </div>
+            <p class="menu_head">Окружение</p>
+            <div class="menu_body">
+                <a href="/projects/around/showMacro">МакроЭкономика</a>
+                <a href="/projects/around/showMicro">МикроЭкономика</a>
+            </div>
+            <p class="menu_head">Доходы</p>
+            <div class="menu_body">
+                <a href="/projects/income/showProducts">Продукция</a>
+                <a href="/projects/income/showOther">Прочие</a>
+            </div>
+            <p class="menu_head">Расходы</p>
+            <div class="menu_body">
+                <a href="/projects/costs/showRent">Аренда</a>
+                <a href="/projects/costs/showPayment">Оплата труда</a>
+                <a href="/projects/costs/showMaterials">Материалы</a>
+                <a href="/projects/costs/showAdvertise">Реклама</a>
+                <a href="/projects/costs/showOther">Прочие</a>
+            </div>
+            <p class="menu_head">Эффект</p>
+            <div class="menu_body">
+                <a href="/projects/effect/showRentable">Рентабельность</a>
+                <a href="/projects/effect/showEfficiency">Эффективность</a>
+            </div>
+        </div>
+    </div>
+    <!--END Side block -->
 
 <!-- Main area. The top level -->
 <div id="main">

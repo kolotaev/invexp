@@ -400,10 +400,10 @@ body {
     padding: 0px;
     margin: 0px;
 }
-#info #datagrid span {
+#datagrid span {
     display: block;
 }
-#info #datagrid input.cell, input.xcell, input.tophead, input.side, input.period {
+#datagrid input.cell, input.xcell, input.tophead, input.side, input.period {
     margin-left: -5px;
     margin-top: -5px;
     border-collapse: collapse;
@@ -414,16 +414,16 @@ body {
     padding-left: 2px;
 }
 
-#info #datagrid input.tophead {
+#datagrid input.tophead {
     text-align: center;
     font-style: italic;
 }
 
-#info #datagrid input.side {
+#datagrid input.side {
     width: 200px;
 }
 
-#info #datagrid input.period {
+#datagrid input.period {
     width: 70px;
     text-align: center;
 }
