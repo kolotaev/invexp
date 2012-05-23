@@ -84,9 +84,12 @@ function ajaxSend(caller) {
     $.ajax({
         url:action,
         data:send_data,
-        dataType:"text",
+        dataType:"json",
         success:function (data) {
-            $(caller).attr('value', data);
+            $('#datagrid input[name="' + data.caller.cell + '"]').attr('name', data.caller.cell).val(data.caller.value);
+            if (data.dependent != undefined){
+                $('#datagrid input[name="' + data.dependent.cell + '"]').attr('name', data.dependent.cell).val(data.dependent.value);
+            }
         }
     });
 

@@ -31,7 +31,7 @@
 <img src="/html/pics/icons/coins.gif" alt="products" />
     Продукция
 </p>
-<form action="/usr" method="post" class="formdatagrid">
+<form action="/projects/income/save" method="post" class="formdatagrid">
 <div id="datagrid">
 
 <? echo <<<EOD
@@ -49,9 +49,9 @@ echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly/>
-<input type="input" name="" value="{$data['products']['volume']}" class="cell"/>
-<input type="input" class="cell"/>
-<input type="input" class="xcell" readonly/>
+<input type="input" name="income.products.volume.$i" value="{$data['volume'][$i]}" class="cell"/>
+<input type="input" name="income.products.price.$i" value="{$data['price'][$i]}" class="cell"/>
+<input type="input" name="income.products.sales_profit.$i" value="{$data['sales_profit'][$i]}" class="xcell" readonly/>
 </span>
 </p>
 EOD;

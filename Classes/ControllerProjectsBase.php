@@ -31,7 +31,14 @@ abstract class ControllerProjectsBase extends ControllerBase
         $to = $_REQUEST['cell'];
         $new_value = $_REQUEST['data'];
         $this->Model->updateField($to, $new_value);
-        echo $this->Model->getField($to);
+        $cell_data = $this->Model->getField($to);
+        $data = array(
+            'caller' => array(
+                'cell' => $to,
+                'value' => $cell_data,
+            )
+        );
+        echo json_encode($data);
     }
 
     protected function getSettings($id) {
