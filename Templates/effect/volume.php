@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Аренда и оборудование</title>
+<title>Объем</title>
 <? include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         $(document).ready(function() {
 
-            clickSideblock(3);
+            clickSideblock(4);
 
         });
     </script>
@@ -28,18 +28,22 @@
 <div id="info">
 
 <p class="title">
-<img src="/html/pics/icons/factory.gif" alt="rent" />
-    Аренда и оборудование
+<img src="/html/pics/icons/classify.gif" alt="effect" />
+    Объемы
 </p>
 
+<div class="formdatagrid">
+<h3>Чистая прибыль - Выручка</h3>
 <div id="datagrid">
-<table><tr><td><form>zekjhf</form></td><td><form>ejwhk</form></td></tr></table>
+<? echo $chart1; ?>
+<table>
+<tr>
+<td>
 <? echo <<<EOD
 <p class="row">
 <span>
 <input type="input" value="Период" class="period tophead" readonly />
-<input type="input" value="Стоимость аренды" class="tophead" readonly />
-<input type="input" value="Оборудование" class="tophead" readonly />
+<input type="input" value="Величина" class="tophead" />
 </span>
 </p>
 EOD;
@@ -48,15 +52,35 @@ echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly/>
-<input type="input" class="cell"/>
-<input type="input" class="cell"/>
+<input type="input" class="xcell" readonly />
 </span>
 </p>
 EOD;
 } ?>
+</td>
+<td>
+<? echo <<<EOD
 
+<p class="row">
+<span>
+<input type="input" value="Период" class="period tophead" readonly />
+<input type="input" value="Величина" class="tophead"  />
+</span>
+</p>
+EOD;
+for($i=1; $i<$n+1; $i++){
+echo <<<EOD
+<p class="row">
+<span>
+<input type="input" class="period" value="$i" readonly/>
+<input type="input" class="xcell" readonly/>
+</span>
+</p>
+EOD;
+} ?>
+</td></tr></table>
 </div>
-
+</div>
 
 </div>
 <!-- END Block for calculations & info -->

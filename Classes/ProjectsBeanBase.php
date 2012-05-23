@@ -39,13 +39,14 @@ class ProjectsBeanBase extends BeanBase {
             $id = $this->id;
         }
         $query = array('_id' => $id);
+        $subfields = explode('.', $field);
+        $field = preg_replace('/(.*)(\.\*$)/', '$1', $field);
         $cursor = $this->pr->find($query, array($field => 1));
         if (isset($cursor)) {
-            $subfields = explode('.', $field);
             $cursor = iterator_to_array($cursor);
             $cursor = $cursor[$id];
             $i = 0;
-            while(is_array($cursor)){
+            while(is_array($cursor) && $subfields[$i] !== '*'){
                 $cursor = $cursor[$subfields[$i]];
                 $i++;
             }
@@ -84,7 +85,7 @@ class ProjectsBeanBase extends BeanBase {
     //=========================
     // Redundant
     // ToDo: Maybe it's better to do this in model but it's hard seems to me at this time
-    public function setField($field, $value, $id = '') {
+    public function qqqqqqqqqqqqqsetField($field, $value, $id = '') {
         if ($id == '') {
             $id = $this->id;
         }

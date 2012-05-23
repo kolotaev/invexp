@@ -31,14 +31,19 @@
 <img src="/html/pics/icons/classify.gif" alt="effect" />
     Рентабельность
 </p>
-<form action="/usr" method="post" class="formdatagrid">
-<div id="datagrid">
 
+<div class="formdatagrid">
+<h3>Продукция - Продажи</h3>
+<div id="datagrid">
+<? echo $chart1; ?>
+<table>
+<tr>
+<td>
 <? echo <<<EOD
 <p class="row">
 <span>
 <input type="input" value="Период" class="period tophead" readonly />
-<input type="input" value="Сумма расходов" class="tophead" readonly />
+<input type="input" value="Сумма расходов" class="tophead" />
 </span>
 </p>
 EOD;
@@ -52,9 +57,30 @@ echo <<<EOD
 </p>
 EOD;
 } ?>
+</td>
+<td>
+<? echo <<<EOD
 
+<p class="row">
+<span>
+<input type="input" value="Период" class="period tophead" readonly />
+<input type="input" value="Сумма расходов" class="tophead" />
+</span>
+</p>
+EOD;
+for($i=1; $i<$n+1; $i++){
+echo <<<EOD
+<p class="row">
+<span>
+<input type="input" class="period" value="$i" readonly/>
+<input type="input" class="cell"/>
+</span>
+</p>
+EOD;
+} ?>
+</td></tr></table>
 </div>
-</form>
+</div>
 
 </div>
 <!-- END Block for calculations & info -->

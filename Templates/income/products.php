@@ -44,12 +44,12 @@
 </span>
 </p>
 EOD;
-for($i=1; $i<$n+1; $i++){
+for($i=1; $i<=$n; $i++){
 echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly/>
-<input type="input" class="cell"/>
+<input type="input" name="" value="{$data['products']['volume']}" class="cell"/>
 <input type="input" class="cell"/>
 <input type="input" class="xcell" readonly/>
 </span>

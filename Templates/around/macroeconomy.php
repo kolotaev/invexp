@@ -31,7 +31,7 @@
 <img src="/html/pics/icons/world.gif" alt="macro" />
 Макроэкономическое окружение
 </p>
-<form action="/usr" method="post" class="formdatagrid">
+<form action="/projects/around/save" method="post" class="formdatagrid">
 <div id="datagrid">
 
 <p class="row">
@@ -43,31 +43,31 @@
 <p class="row">
 <span>
 <input type="input" value="Темп роста цен %" class="side" readonly/>
-<input type="input" name="prise_rise_temp" value="" class="cell"/>
+<input type="input" name="around.macro.prise_rise_tempo" value="<? echo $data['prise_rise_tempo'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Курс валюты" class="side" readonly/>
-<input type="input" name="currency_rate" value="" class="cell"/>
+<input type="input" name="around.macro.currency_rate" value="<? echo $data['currency_rate'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Ставка рефинансирования" class="side" readonly/>
-<input type="input" name="refinance_rate" value="" class="cell"/>
+<input type="input" name="around.macro.refinance_rate" value="<? echo $data['refinance_rate'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="НДС" class="side" readonly/>
-<input type="input" name="nds_tax" value="" class="cell"/>
+<input type="input" name="around.macro.nds_tax" value="<? echo $data['nds_tax'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Налог на прибыль" class="side" readonly/>
-<input type="input" name="profit_tax" value="" class="cell"/>
+<input type="input" name="around.macro.profit_tax" value="<? echo $data['profit_tax'] ?>" class="cell"/>
 </span>
 </p>
 </div>

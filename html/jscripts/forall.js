@@ -31,23 +31,27 @@ $(document).ready(function () {
 // end
 
     //Actions & behaviour of cells in DataGrid
-    $("#datagrid input.cell").blur(function(){
+    $("#datagrid input.cell").blur(function () {
         var this_cell = $(this);
-        reviser(this_cell);
+        if (reviser(this_cell) == true) {
+            ajaxSend(this_cell);
+        }
     });
-    $("#datagrid input.cell").keypress(function(e){
-        if(e.keyCode == 13){
+    $("#datagrid input.cell").keypress(function (e) {
+        if (e.keyCode == 13) {
             var this_cell = $(this);
-            reviser(this_cell);
+            if (reviser(this_cell) == true) {
+                ajaxSend(this_cell);
+            }
         }
     });
     // end
 
     // Decoration of cells in DataGrid
-    $("#info #datagrid input.cell").focus(function(){
+    $("#info #datagrid input.cell").focus(function () {
         $(this).css('background-color', '#fafafa');
     });
-    $("#info #datagrid input.cell").blur(function(){
+    $("#info #datagrid input.cell").blur(function () {
         $(this).css('background-color', 'white');
     });
     // end
@@ -56,27 +60,40 @@ $(document).ready(function () {
 
 // ------------------------------- End document ready -------------------------------------------- //
 
-function reviser(cell){
+function reviser(cell) {
     var data = $(cell).val();
     var match1 = /^[1-9][0-9]*[,|\.]{0,1}[0-9]*$/.test(data);
     var match2 = /^[0]{0,1}[,|\.]{0,1}[0-9]*$/.test(data);
     if (!match1 && !match2 && data != '') {
         $(cell).attr('readonly', true);
-        LightBoxInput("Неверный формат!","Format", function(){$(cell).focus();});
-        $(cell).val('');
+        LightBoxInput("Неверный формат!", "Format", function () {
+            $(cell).focus();
+        });
+        $(cell).val(data);
+        return false;
     }
-    var action = $(cell).parents('form').attr("action");
-    var name = $(cell).attr("name");
+    else {
+        return true;
+    }
     //$(this).val(s);
 }
 // Ajax function!
-function ajaxSend(action, send_data){
-    $.get(action, send_data);
-}
+function ajaxSend(caller) {
+    var action = $(caller).parents('form').attr('action');
+    var send_data = 'cell=' + $(caller).attr('name') + '&data=' + $(caller).attr('value');
+    $.ajax({
+        url:action,
+        data:send_data,
+        dataType:"text",
+        success:function (data) {
+            $(caller).attr('value', data);
+        }
+    });
 
+}
 //end
 // Clicks Sideblock menu on page load/reload (if needed)
-function clickSideblock(num){
+function clickSideblock(num) {
     $('#firstpane div.menu_body').eq(num).css("display", "block").addClass('vis');
     $('#firstpane p.menu_head').eq(num).css({backgroundImage:"url(/html/pics/menu-minus.gif)"});
 }
@@ -96,7 +113,7 @@ function LightBox(msg, capt, callback) {
     $(".okbutton").click(function () {
         $("#info div.warningbox").remove();
         $("#veil").remove();
-        if(callback != undefined){
+        if (callback != undefined) {
             callback();
         }
     });
@@ -120,7 +137,7 @@ function LightBoxInput(msg, capt, callback) {
         $("#info div.warningbox").remove();
         $("#veil").remove();
         $('input.cell').attr('readonly', false);
-        if(callback != undefined){
+        if (callback != undefined) {
             callback();
         }
     });
@@ -143,7 +160,7 @@ function LightBoxInput(msg, capt, callback) {
  </script>
  */
 
- /*
+/*
  var d = $("div.menu_body").eq(num).hasClass('vis');
  if (!d) {
  $('#firstpane p.menu_head').eq(num).click();

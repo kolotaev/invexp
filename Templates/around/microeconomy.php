@@ -31,7 +31,7 @@
 <img src="/html/pics/icons/radiant.gif" alt="micro" />
 Микроэкономическое окружение
 </p>
-<form action="/usr" method="post" class="formdatagrid">
+<form action="/projects/around/save" method="post" class="formdatagrid">
 <div id="datagrid">
 
 <p class="row">
@@ -43,31 +43,31 @@
 <p class="row">
 <span>
 <input type="input" value="Амортизация" class="side" readonly/>
-<input type="input" name="amortization" value="" class="cell"/>
+<input type="input" name="around.micro.amortization" value="<? echo $data['amortization'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Кредит (сумма)" class="side" readonly/>
-<input type="input" name="credit_volume" value="" class="cell"/>
+<input type="input" name="around.micro.credit_volume" value="<? echo $data['credit_volume'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="% по кредиту" class="side" readonly/>
-<input type="input" name="credit_rate" value="" class="cell"/>
+<input type="input" name="around.micro.credit_rate" value="<? echo $data['credit_rate'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Период кредитования" class="side" readonly/>
-<input type="input" name="credit_term" value="" class="cell"/>
+<input type="input" name="around.micro.credit_term" value="<? echo $data['credit_term'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Собственные средства" class="side" readonly/>
-<input type="input" name="own_money" value="" class="cell"/>
+<input type="input" name="around.micro.own_money" value="<? echo $data['own_money'] ?>" class="cell"/>
 </span>
 </p>
 

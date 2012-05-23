@@ -403,6 +403,10 @@ body {
 #datagrid span {
     display: block;
 }
+#datagrid table {
+    width: 80%;
+    margin: 0 10%;
+}
 #datagrid input.cell, input.xcell, input.tophead, input.side, input.period {
     margin-left: -5px;
     margin-top: -5px;
@@ -411,7 +415,11 @@ body {
     outline: none;
     background: white;
     padding: 1px;
-    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#datagrid input.cell, input.xcell {
+    text-align: right;
 }
 
 #datagrid input.tophead {

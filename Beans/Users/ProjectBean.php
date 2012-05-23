@@ -13,7 +13,7 @@ class ProjectBean extends ProjectsBeanBase
         $description = $_REQUEST['description'];
         $user = $_SESSION['auth'];
 
-        $bones = Bones::getBones();
+        $bones = Bones::getBones($periods);
         $bones['_id'] = "$name@$user";
         $bones['name'] = $name;
         $bones['periods'] = $periods;
