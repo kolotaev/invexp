@@ -20,11 +20,11 @@ class ControllerIncome extends ControllerProjectsBase
         $profit = $this->Model->getProductProfit($num);
         $cell_data = $this->Model->getField($to);
         $data = array(
-            'caller' => array(
+            array(
                 'cell' => $to,
                 'value' => $cell_data,
             ),
-            'dependent' => array(
+            array(
                 'cell' => "income.products.sales_profit.$num",
                 'value' => $profit,),
         );

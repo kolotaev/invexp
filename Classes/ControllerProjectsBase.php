@@ -1,6 +1,5 @@
 <?php
-abstract class ControllerProjectsBase extends ControllerBase
-{
+abstract class ControllerProjectsBase extends ControllerBase {
     protected $Model; // Instance of any Bean, connected with Projects collection
 
     public function __construct() {
@@ -33,7 +32,7 @@ abstract class ControllerProjectsBase extends ControllerBase
         $this->Model->updateField($to, $new_value);
         $cell_data = $this->Model->getField($to);
         $data = array(
-            'caller' => array(
+            array(
                 'cell' => $to,
                 'value' => $cell_data,
             )

@@ -86,9 +86,8 @@ function ajaxSend(caller) {
         data:send_data,
         dataType:"json",
         success:function (data) {
-            $('#datagrid input[name="' + data.caller.cell + '"]').attr('name', data.caller.cell).val(data.caller.value);
-            if (data.dependent != undefined){
-                $('#datagrid input[name="' + data.dependent.cell + '"]').attr('name', data.dependent.cell).val(data.dependent.value);
+            for (var key in data) {
+                $('#datagrid input[name="' + data[key].cell + '"]').attr('name', data[key].cell).val(data[key].value);
             }
         }
     });
