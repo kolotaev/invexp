@@ -40,14 +40,4 @@ class ControllerIncome extends ControllerProjectsBase
         $this->template->show('income/products');
     }
 
-    public function showOther() {
-        $this->checkAuthProjectAndGo();
-        $setts = $this->getSettings($_SESSION['project']);
-        $this->template->set('n', $setts['n']);
-        $data = $this->Model->getField('income.other.*');
-        $this->template->set('data', $data);
-        $this->template->show('income/other');
-    }
-
-
 }

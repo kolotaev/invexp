@@ -31,7 +31,7 @@
 <img src="/html/pics/icons/hand.gif" alt="hands" />
     Оплата труда
 </p>
-<form action="/usr" method="post" class="formdatagrid">
+<form action="/projects/costs/save" method="post" class="formdatagrid">
 <div id="datagrid">
 
 <? echo <<<EOD
@@ -42,12 +42,12 @@
 </span>
 </p>
 EOD;
-for($i=1; $i<$n+1; $i++){
+for($i=1; $i<=$n; $i++){
 echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly/>
-<input type="input" class="cell"/>
+<input type="input" name="costs.payment.$i" value="{$data[$i]}" class="cell"/>
 </span>
 </p>
 EOD;

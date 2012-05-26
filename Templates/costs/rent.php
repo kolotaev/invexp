@@ -31,9 +31,8 @@
 <img src="/html/pics/icons/factory.gif" alt="rent" />
     Аренда и оборудование
 </p>
-
+<form action="/projects/costs/save" method="post" class="formdatagrid">
 <div id="datagrid">
-<table><tr><td><form>zekjhf</form></td><td><form>ejwhk</form></td></tr></table>
 <? echo <<<EOD
 <p class="row">
 <span>
@@ -43,20 +42,20 @@
 </span>
 </p>
 EOD;
-for($i=1; $i<$n+1; $i++){
+for($i=1; $i<=$n; $i++){
 echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly/>
-<input type="input" class="cell"/>
-<input type="input" class="cell"/>
+<input type="input" name="costs.rent.$i" value="{$rent[$i]}" class="cell"/>
+<input type="input" name="costs.equipment.$i" value="{$equipment[$i]}" class="cell"/>
 </span>
 </p>
 EOD;
 } ?>
 
 </div>
-
+</form>
 
 </div>
 <!-- END Block for calculations & info -->

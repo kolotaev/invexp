@@ -14,6 +14,10 @@ class ControllerCosts extends ControllerProjectsBase {
         $this->checkAuthProjectAndGo();
         $setts = $this->getSettings($_SESSION['project']);
         $this->template->set('n', $setts['n']);
+        $rent = $this->Model->getField('costs.rent.*');
+        $this->template->set('rent', $rent);
+        $equipment = $this->Model->getField('costs.equipment.*');
+        $this->template->set('equipment', $equipment);
         $this->template->show('costs/rent');
     }
 
@@ -21,6 +25,8 @@ class ControllerCosts extends ControllerProjectsBase {
         $this->checkAuthProjectAndGo();
         $setts = $this->getSettings($_SESSION['project']);
         $this->template->set('n', $setts['n']);
+        $data = $this->Model->getField('costs.payment.*');
+        $this->template->set('data', $data);
         $this->template->show('costs/payment');
     }
 
@@ -28,6 +34,8 @@ class ControllerCosts extends ControllerProjectsBase {
         $this->checkAuthProjectAndGo();
         $setts = $this->getSettings($_SESSION['project']);
         $this->template->set('n', $setts['n']);
+        $data = $this->Model->getField('costs.materials.*');
+        $this->template->set('data', $data);
         $this->template->show('costs/materials');
     }
 
@@ -35,6 +43,8 @@ class ControllerCosts extends ControllerProjectsBase {
         $this->checkAuthProjectAndGo();
         $setts = $this->getSettings($_SESSION['project']);
         $this->template->set('n', $setts['n']);
+        $data = $this->Model->getField('costs.adverts.*');
+        $this->template->set('data', $data);
         $this->template->show('costs/advertise');
     }
 
@@ -42,6 +52,8 @@ class ControllerCosts extends ControllerProjectsBase {
         $this->checkAuthProjectAndGo();
         $setts = $this->getSettings($_SESSION['project']);
         $this->template->set('n', $setts['n']);
+        $data = $this->Model->getField('costs.other.*');
+        $this->template->set('data', $data);
         $this->template->show('costs/other');
     }
 
