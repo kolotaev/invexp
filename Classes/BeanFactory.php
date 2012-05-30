@@ -1,7 +1,8 @@
 <?php
 
 // Todo: maybe to reduce functionality
-class BeanFactory {
+class BeanFactory
+{
 
     private $reg;
     private $type;
@@ -86,7 +87,12 @@ class BeanFactory {
             $pass = $conf['mongo']['pass'];
             $db = $conf['mongo']['db'];
 
-            $this->mongoc = new Mongo();
+            if ($pass != '' || $user != '') {
+                $this->mongoc = new Mongo("mongodb://${user}:${pass}@${host}");
+            }
+            else {
+                $this->mongoc = new Mongo();
+            }
             $this->table = $this->mongoc->$db;
             if (!$this->table)
                 throw new Exception("Can't connect to MongoDB table \"$table \"");

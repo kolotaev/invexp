@@ -1,10 +1,12 @@
 <?php
 //phpinfo();
+define('__ROOT__', dirname(dirname(__FILE__)));
+require_once __ROOT__."/settings/config.php";
 /*
 This is some service tool script.
 */
 // script
-$a = new Serv();
+$a = new Serv($config);
 
 if (@$_GET['act'] === 'drop-db') {
     $a->drop('', true);
@@ -33,12 +35,24 @@ class Serv {
 
     private $m; // Connection
     private $db; // Selected DB
-    private $dbname = "invexp"; // Name of the DB
+    private $conf;
 
-    public function __construct() {
-        $this->m = new Mongo()
-            or die ("Could not connect");
-        $this->db = $this->m->selectDB($this->dbname);
+    public function __construct($config) {
+        $this->conf = $config;
+        $host = $this->conf['mongo']['host'];
+        $user = $this->conf['mongo']['user'];
+        $pass = $this->conf['mongo']['pass'];
+        $db = $this->conf['mongo']['db'];
+
+        if ($pass != '' || $user != '') {
+            $this->m = new Mongo("mongodb://${user}:${pass}@${host}")
+                or die ("Could not connect");
+        }
+        else {
+            $this->m = new Mongo()
+                or die ("Could not connect");
+        }
+        $this->db = $this->m->selectDB($db);
     }
 
     public function __destruct() {

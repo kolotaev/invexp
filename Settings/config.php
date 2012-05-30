@@ -9,8 +9,8 @@ $config = array (
     ),
     'mongo' => array (
         'host' => 'localhost',
-        'user' => 'stub',
-        'pass' => 'stub',
+        'user' => '',
+        'pass' => '',
         'db' => 'invexp',
     )
 );
