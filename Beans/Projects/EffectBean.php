@@ -7,9 +7,7 @@ class EffectBean extends ProjectsBeanBase
         Utils::getLib('pChart');
     }
 
-    public function drawLineChart($data1,$data2=null, $label1='', $label2=''){
-        $img = "output/chart1.png";
-
+    public function drawLineChart($img_path, $data1,$data2=null, $label1='', $label2=''){
         // Dataset definition
         $DataSet = new pData;
         $DataSet->AddPoint($data1,"Serie1");
@@ -44,13 +42,11 @@ class EffectBean extends ProjectsBeanBase
         $Test->drawLegend(45,35,$b,255,255,255);
         $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf",10);
         //$Test->drawTitle(60,22,"My pretty graph",50,50,50,585);
-        $Test->Render($img);
-        return $img;
+        $Test->Render($img_path);
+        return true;
     }
 
-    public function drawBarChart($data1,$data2=null, $label1='', $label2=''){
-        $img = "output/chart2.png";
-
+    public function drawBarChart($img_path, $data1,$data2=null, $label1='', $label2=''){
         // Dataset definition
         $DataSet = new pData;
         $DataSet->AddPoint($data1,"Serie1");
@@ -86,9 +82,9 @@ class EffectBean extends ProjectsBeanBase
         $Test->drawLegend(54,54,$DataSet->GetDataDescription(),255,255,255);
         $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf",10);
         //$Test->drawTitle(50,22,"Example 12",50,50,50,585);
-        $Test->Render($img);
+        $Test->Render($img_path);
 
-    return $img;
+    return true;
     }
 
 }
