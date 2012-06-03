@@ -12,7 +12,7 @@ class ControllerEffect extends ControllerProjectsBase {
     }
 
     private function makeFolder($file){
-        $project_folder = $_SESSION['project'];
+        $project_folder = md5($_SESSION['project']);
         $trans = array("/" => "_");
         $project_folder = strtr($project_folder, $trans);
         $path = SITE_PATH . "output/";
