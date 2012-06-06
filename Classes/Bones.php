@@ -35,7 +35,8 @@ class Bones
             'products' => array(
                 'volume' => array(),
                 'price' => array(),
-                'sales_profit' => array(),
+                'nds_value' => array(),
+                'sales_profit' => array(), // without NDS-tax
             ),
             'other' => array(),
         ),
@@ -46,6 +47,7 @@ class Bones
             'payment' => array(),
             'materials' => array(),
             'adverts' => array(),
+            'organizational' => array(),
             'other' => array(),
         ),
 

@@ -34,6 +34,9 @@ class ControllerIncome extends ControllerProjectsBase
     public function showProducts() {
         $this->checkAuthProjectAndGo();
         $setts = $this->getSettings($_SESSION['project']);
+        for ($n=1; $n <= $setts['n']; $n++) {
+            $fake = $this->Model->getProductProfit($n);
+        }
         $this->template->set('n', $setts['n']);
         $data = $this->Model->getField('income.products.*');
         $this->template->set('data', $data);

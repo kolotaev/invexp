@@ -42,7 +42,7 @@
 </p>
 <p class="row">
 <span>
-<input type="input" value="Темп роста цен %" class="side" readonly/>
+<input type="input" value="Темп роста цен, %" class="side" readonly/>
 <input type="input" name="around.macro.prise_rise_tempo" value="<? echo $data['prise_rise_tempo'] ?>" class="cell"/>
 </span>
 </p>
@@ -54,19 +54,19 @@
 </p>
 <p class="row">
 <span>
-<input type="input" value="Ставка рефинансирования" class="side" readonly/>
+<input type="input" value="Ставка рефинансирования, %" class="side" readonly/>
 <input type="input" name="around.macro.refinance_rate" value="<? echo $data['refinance_rate'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="НДС" class="side" readonly/>
+<input type="input" value="НДС, %" class="side" readonly/>
 <input type="input" name="around.macro.nds_tax" value="<? echo $data['nds_tax'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Налог на прибыль" class="side" readonly/>
+<input type="input" value="Налог на прибыль, %" class="side" readonly/>
 <input type="input" name="around.macro.profit_tax" value="<? echo $data['profit_tax'] ?>" class="cell"/>
 </span>
 </p>

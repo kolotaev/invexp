@@ -13,11 +13,9 @@ class ControllerEffect extends ControllerProjectsBase {
 
     private function makeFolder($file){
         $project_folder = md5($_SESSION['project']);
-        $trans = array("/" => "_");
-        $project_folder = strtr($project_folder, $trans);
         $path = SITE_PATH . "output/";
         if(!file_exists($path . $project_folder)){
-            mkdir($path . $project_folder, 0, true);
+            mkdir($path . $project_folder, 0777, true);
         }
 
         $full = $path . $project_folder ."/" . $file . '.png';

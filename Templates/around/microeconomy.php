@@ -42,7 +42,7 @@
 </p>
 <p class="row">
 <span>
-<input type="input" value="Амортизация" class="side" readonly/>
+<input type="input" value="Амортизация (СПИ)" class="side" readonly/>
 <input type="input" name="around.micro.amortization" value="<? echo $data['amortization'] ?>" class="cell"/>
 </span>
 </p>

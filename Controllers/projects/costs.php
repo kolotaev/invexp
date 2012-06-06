@@ -48,6 +48,15 @@ class ControllerCosts extends ControllerProjectsBase {
         $this->template->show('costs/advertise');
     }
 
+    public function showOrganizational() {
+        $this->checkAuthProjectAndGo();
+        $setts = $this->getSettings($_SESSION['project']);
+        $this->template->set('n', $setts['n']);
+        $data = $this->Model->getField('costs.organizational.*');
+        $this->template->set('data', $data);
+        $this->template->show('costs/organizational');
+    }
+
     public function showOther() {
         $this->checkAuthProjectAndGo();
         $setts = $this->getSettings($_SESSION['project']);

@@ -1,5 +1,6 @@
 <?php
-class ControllerProject extends ControllerBase {
+class ControllerProject extends ControllerBase
+{
     private $Model; // Instance of ProjectBean class
 
     public function __construct() {
@@ -69,7 +70,7 @@ class ControllerProject extends ControllerBase {
     }
 
     // Fire-method
-    public function updateProject(){
+    public function updateProject() {
         $this->Model->setProjectId($_SESSION['project']);
         $this->Model->updateField('periods', $_REQUEST['nperiods']);
         $this->Model->updateField('currency1', $_REQUEST['curr1']);
@@ -99,12 +100,39 @@ class ControllerProject extends ControllerBase {
         return true;
     }
 
+    private function makeFolder($file) {
+        $project_folder = md5($_SESSION['project']);
+
+        $path = SITE_PATH . "output/";
+        if (!file_exists($path . $project_folder)) {
+            mkdir($path . $project_folder, 0, true);
+        }
+
+        $full = $path . $project_folder . "/" . $file . '.png';
+        $html = '/output/' . $project_folder . "/" . $file . '.png';
+
+        return array('full' => $full, 'html' => $html);
+    }
+
     public function remove() {
         if (isset($_SESSION['project']))
             $id = $_SESSION['project'];
         else
             $id = '';
         $this->Model->deleteProject($id);
+
+        $project_folder = md5($_SESSION['project']);
+        $path = SITE_PATH . "output/" . $project_folder;
+        if (is_dir($path)) {
+            $objects = scandir($path);
+            foreach ($objects as $object) {
+                if ($object != "." && $object != "..") {
+                    unlink($path . "/" . $object);
+                }
+            }
+            rmdir($path);
+        }
+
         unset($_SESSION['project']);
         $this->template->set('warning', 'Проект удален');
         $this->show();
