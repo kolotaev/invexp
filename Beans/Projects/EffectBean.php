@@ -7,19 +7,19 @@ class EffectBean extends ProjectsBeanBase
         Utils::getLib('pChart');
     }
 
-    public function drawLineChart($img_path, $data1,$data2=null, $label1='', $label2=''){
+    public function drawLineChart($img_path, $data){
         // Dataset definition
-        $DataSet = new pData;
-        $DataSet->AddPoint($data1,"Serie1");
-        $DataSet->AddSerie("Serie1");
-        $DataSet->SetSerieName($label1,"Serie1");
-
-        if ($data2 != null){
-            $DataSet->AddPoint($data2,"Serie2");
-            $DataSet->AddSerie("Serie2");
-            $DataSet->SetSerieName($label2,"Serie2");
+        if ($data == NULL) {
+            return false;
         }
-
+        $DataSet = new pData;
+        $i = 0;
+        foreach ($data as $key_label => $value_arr) {
+            $i++;
+            $DataSet->AddPoint($value_arr,"Serie$i");
+            $DataSet->AddSerie("Serie$i");
+            $DataSet->SetSerieName($key_label,"Serie$i");
+        }
         // Initialise the graph
         $Test = new pChart(700,230);
         $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf",10);
@@ -46,15 +46,18 @@ class EffectBean extends ProjectsBeanBase
         return true;
     }
 
-    public function drawBarChart($img_path, $data1,$data2=null, $label1='', $label2=''){
+    public function drawBarChart($img_path, $data){
         // Dataset definition
-        $DataSet = new pData;
-        $DataSet->AddPoint($data1,"Serie1");
-        $DataSet->SetSerieName($label1,"Serie1");
+        if ($data == NULL) {
+            return false;
+        }
 
-        if ($data2 != null){
-            $DataSet->AddPoint($data2,"Serie2");
-            $DataSet->SetSerieName($label2,"Serie2");
+        $DataSet = new pData;
+        $i = 0;
+        foreach ($data as $key_label => $value_arr) {
+            $i++;
+            $DataSet->AddPoint($value_arr,"Serie$i");
+            $DataSet->SetSerieName($key_label,"Serie$i");
         }
 
         $DataSet->AddAllSeries();

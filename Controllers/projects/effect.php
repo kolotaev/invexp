@@ -30,7 +30,12 @@ class ControllerEffect extends ControllerProjectsBase {
         $this->template->set('n', $setts['n']);
 
         $path = $this->makeFolder('rentable');
-        $this->Model->drawLineChart($path['full'], array(40,45,65,57, 80), array(20,32,45,40,60));
+        $data = array(
+            'dgshg' => array(23,323,32,4,43),
+            'ewewe' => array(2,33,2,4,43),
+            'rterteeeeeeeeeeeet' => array(34,23,42,4,4),
+        );
+        $this->Model->drawLineChart($path['full'], $data);
         $embed = $path['html'];
         $this->template->set('chart1',"<img src='$embed' />");
 
@@ -50,7 +55,12 @@ class ControllerEffect extends ControllerProjectsBase {
         $this->template->set('n', $setts['n']);
 
         $path = $this->makeFolder('volume');
-        $this->Model->drawBarChart($path['full'], array(280,290, 310, 360, 400), array(200,295, 390, 450, 560));
+        $data = array(
+            'dgshg' => array(23,323,32,4,43),
+            'ewewe' => array(2,33,2,4,43),
+            'rterteeeeeeeeeeeet' => array(34,23,42,4,4),
+        );
+        $this->Model->drawBarChart($path['full'], $data);
         $embed = $path['html'];
         $this->template->set('chart1',"<img src='$embed' />");
 

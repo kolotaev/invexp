@@ -44,6 +44,7 @@ class Bones
         'costs' => array(
             'rent' => array(),
             'equipment' => array(),
+            'amortization' => array(),
             'payment' => array(),
             'materials' => array(),
             'adverts' => array(),
