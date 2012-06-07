@@ -39,6 +39,7 @@
 <table>
 <tr>
 <td>
+    <span class="table-heading1">R <sub>продукции</sub></span>
 <? echo <<<EOD
 <p class="row">
 <span>
@@ -59,6 +60,7 @@ EOD;
 } ?>
 </td>
 <td>
+    <span class="table-heading1">R <sub>продаж</sub></span>
 <? echo <<<EOD
 
 <p class="row">

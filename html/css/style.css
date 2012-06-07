@@ -407,6 +407,11 @@ body {
     width: 80%;
     margin: 0 10%;
 }
+#datagrid table span.table-heading1 {
+    margin: 2px 0px 8px 0px;
+    font-style: italic;;
+    font-weight: bold;
+}
 #datagrid input.cell, input.xcell, input.tophead, input.side, input.period {
     margin-left: -5px;
     margin-top: -5px;
