@@ -1,10 +1,11 @@
 <?php
 class ControllerEffect extends ControllerProjectsBase {
 
+    private $Income;
     public function __construct() {
         parent::__construct();
         Utils::getLib('pChart');
-        $this->getModel("projects.effectbean.mg");
+        $this->getNativeModel("projects.effectbean.mg");
     }
 
     public function index() {
@@ -54,9 +55,13 @@ class ControllerEffect extends ControllerProjectsBase {
         $setts = $this->getSettings($_SESSION['project']);
         $this->template->set('n', $setts['n']);
 
+        $all_income = array();
+        for ($i=1; $i <= $setts['n']; $i++) {
+            $all_income[] = $this->Model->getAllRoughIncome($i);
+        }
         $path = $this->makeFolder('volume');
         $data = array(
-            'dgshg' => array('1'=>23,'2'=>323,'3'=>32,'4'=>4,'5'=>43),
+            'Выручка' => $all_income,
         );
         $this->Model->drawBarChart($path['full'], $data);
         $embed = $path['html'];

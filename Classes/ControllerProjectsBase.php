@@ -48,7 +48,7 @@ abstract class ControllerProjectsBase extends ControllerBase {
         return $settings;
     }
 
-    protected function getModel($from) {
+    protected function getNativeModel($from) {
         parent::getModel($this->Model, $from);
     }
 

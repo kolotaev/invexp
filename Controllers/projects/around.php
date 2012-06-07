@@ -4,7 +4,7 @@ class ControllerAround extends ControllerProjectsBase
 
     public function __construct() {
         parent::__construct();
-        $this->getModel("projects.aroundbean.mg");
+        $this->getNativeModel("projects.aroundbean.mg");
     }
 
     public function index() {

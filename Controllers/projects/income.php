@@ -4,7 +4,7 @@ class ControllerIncome extends ControllerProjectsBase
 
     public function __construct() {
         parent::__construct();
-        $this->getModel("projects.incomebean.mg");
+        $this->getNativeModel("projects.incomebean.mg");
     }
 
     public function index() {

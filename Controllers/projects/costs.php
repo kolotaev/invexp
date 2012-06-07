@@ -3,7 +3,7 @@ class ControllerCosts extends ControllerProjectsBase {
 
     public function __construct() {
         parent::__construct();
-        $this->getModel("projects.costsbean.mg");
+        $this->getNativeModel("projects.costsbean.mg");
     }
 
     public function index() {

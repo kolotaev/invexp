@@ -2,6 +2,7 @@
 
 class EffectBean extends ProjectsBeanBase
 {
+    $Income = new IncomeBean();
     public function __construct() {
         parent::__construct();
         Utils::getLib('pChart');
