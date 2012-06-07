@@ -12,14 +12,26 @@ class EffectBean extends ProjectsBeanBase
         if ($data == NULL) {
             return false;
         }
+        // Setting data Series
         $DataSet = new pData;
-        $i = 0;
+        $i = 1;
         foreach ($data as $key_label => $value_arr) {
-            $i++;
             $DataSet->AddPoint($value_arr,"Serie$i");
             $DataSet->AddSerie("Serie$i");
             $DataSet->SetSerieName($key_label,"Serie$i");
+            $i++;
         }
+        // Setting Abcisse label begins with 1
+        $labelX = array();
+        foreach ($data as $v){
+            $count = count($v);
+            for ($r=1; $r<=$count; $r++){
+                $labelX[] = $r;
+            }
+            break;
+        }
+        $DataSet->AddPoint($labelX,"Serie$i");
+        $DataSet->SetAbsciseLabelSerie("Serie$i");
         // Initialise the graph
         $Test = new pChart(700,230);
         $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf",10);
@@ -51,17 +63,26 @@ class EffectBean extends ProjectsBeanBase
         if ($data == NULL) {
             return false;
         }
-
+        // Setting Data Series
         $DataSet = new pData;
-        $i = 0;
+        $i = 1;
         foreach ($data as $key_label => $value_arr) {
-            $i++;
             $DataSet->AddPoint($value_arr,"Serie$i");
+            $DataSet->AddSerie("Serie$i");
             $DataSet->SetSerieName($key_label,"Serie$i");
+            $i++;
         }
-
-        $DataSet->AddAllSeries();
-        $DataSet->SetAbsciseLabelSerie();
+        // Setting Abcisse label begins with 1
+        $labelX = array();
+        foreach ($data as $v){
+            $count = count($v);
+            for ($r=1; $r<=$count; $r++){
+                $labelX[] = $r;
+            }
+            break;
+        }
+        $DataSet->AddPoint($labelX,"Serie$i");
+        $DataSet->SetAbsciseLabelSerie("Serie$i");
 
         // Initialise the graph
         $Test = new pChart(700,230);

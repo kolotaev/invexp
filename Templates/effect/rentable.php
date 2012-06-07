@@ -42,8 +42,8 @@
 <? echo <<<EOD
 <p class="row">
 <span>
-<input type="input" value="Период" class="period tophead" readonly />
-<input type="input" value="Сумма расходов" class="tophead" />
+<input type="input" value="Период" class="period tophead" readonly="true" />
+<input type="input" value="Сумма расходов" class="tophead" readonly="true" />
 </span>
 </p>
 EOD;
@@ -52,7 +52,7 @@ echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly/>
-<input type="input" class="cell"/>
+<input type="input" class="cell" readonly="true"/>
 </span>
 </p>
 EOD;
@@ -64,7 +64,7 @@ EOD;
 <p class="row">
 <span>
 <input type="input" value="Период" class="period tophead" readonly />
-<input type="input" value="Сумма расходов" class="tophead" />
+<input type="input" value="Сумма расходов" class="tophead" readonly="true" />
 </span>
 </p>
 EOD;
@@ -73,7 +73,7 @@ echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly/>
-<input type="input" class="cell"/>
+<input type="input" class="cell" readonly="true" />
 </span>
 </p>
 EOD;

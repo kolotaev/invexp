@@ -16,9 +16,15 @@ class IncomeBean extends ProjectsBeanBase
     public function getAllRoughIncome($num){
         $v = $this->getField("income.products.volume.$num");
         $p = $this->getField("income.products.price.$num");
-        $products_profit = $p*$v;
-        $other_profit = $this->getField("income.other.$num");
-        return $products_profit + $other_profit;
+        $products = $p*$v;
+        $other = $this->getField("income.other.$num");
+        return $products + $other;
+    }
+
+    public function getAllProfit($num){
+        $products = $this->getProductProfit($num);
+        $other = $this->getField("income.other.$num");
+        return $products + $other;
     }
 
 }

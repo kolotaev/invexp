@@ -56,9 +56,7 @@ class ControllerEffect extends ControllerProjectsBase {
 
         $path = $this->makeFolder('volume');
         $data = array(
-            'dgshg' => array(23,323,32,4,43),
-            'ewewe' => array(2,33,2,4,43),
-            'rterteeeeeeeeeeeet' => array(34,23,42,4,4),
+            'dgshg' => array('1'=>23,'2'=>323,'3'=>32,'4'=>4,'5'=>43),
         );
         $this->Model->drawBarChart($path['full'], $data);
         $embed = $path['html'];
