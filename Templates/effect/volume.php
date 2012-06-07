@@ -75,7 +75,7 @@ echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly/>
-<input type="input" class="xcell" readonly/>
+<input type="input" class="xcell" value="${all_income[$i-1]}" readonly/>
 </span>
 </p>
 EOD;
