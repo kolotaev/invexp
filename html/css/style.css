@@ -368,6 +368,13 @@ body {
     text-indent: 0px;
 }
 
+#info div.errormessage {
+    padding: 20px;
+    text-align: center;
+    text-indent: 10px;
+    line-height: 1.5em;
+}
+
 #info p.textlast {
     text-align: center;
 }

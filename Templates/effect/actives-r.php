@@ -50,7 +50,7 @@ echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly="true"/>
-<input type="input" class="cell" readonly="true"/>
+<input type="input" class="xcell" value={$activesR[$i]} readonly="true"/>
 </span>
 </p>
 EOD;

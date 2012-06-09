@@ -9,7 +9,7 @@ class ControllerEffect extends ControllerProjectsBase {
     }
 
     public function index() {
-        $this->showRentable();
+        $this->showVolume();
     }
 
     private function makeFolder($file){
@@ -43,6 +43,7 @@ class ControllerEffect extends ControllerProjectsBase {
         $embed = $path['html'];
         $this->template->set('chart1',"<img src='$embed' />");
 
+        $this->template->set('activesR', $activesR);
         $this->template->show('effect/actives-r');
     }
 
@@ -67,6 +68,8 @@ class ControllerEffect extends ControllerProjectsBase {
         $embed = $path['html'];
         $this->template->set('chart1',"<img src='$embed' />");
 
+        $this->template->set('salesR', $salesR);
+        $this->template->set('productsR', $productsR);
         $this->template->show('effect/products-r');
     }
 

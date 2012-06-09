@@ -23,7 +23,7 @@ class EffectBean extends ProjectsBeanBase
         $all_actives = $this->Around->getAllActives();
 
         if ($all_actives !== 0) {
-            return $pure_profit / $all_actives * 100;
+            return round(($pure_profit / $all_actives * 100), 2);
         }
         else {
             return 0;
@@ -37,7 +37,7 @@ class EffectBean extends ProjectsBeanBase
         $rough_income = $this->Income->getAllRoughIncome($num);
 
         if ($rough_income !== 0) {
-            return $pure_profit / $rough_income * 100;
+            return round(($pure_profit / $rough_income * 100), 2);
         }
         else {
             return 0;
@@ -52,7 +52,7 @@ class EffectBean extends ProjectsBeanBase
         $production_costs = $this->Costs->getAllProductionCosts($num);
 
         if ($production_costs !== 0) {
-            return $pure_profit / $production_costs * 100;
+            return round(($pure_profit / $production_costs * 100), 2);
         }
         else {
             return 0;

@@ -7,6 +7,8 @@ Class Router {
 
     public function __construct() {
         $this->registry = Registry::getInstance();
+        // ToDo: maybe 'cause of this setting to registry further settings should be eliminated
+        //$this->registry['template'] = new Template();
     }
 
     public function setPath($path) {
@@ -72,7 +74,9 @@ Class Router {
 
         // File available?
         if (is_readable($file) == false) {
-            die ('404 Not Found');
+            $this->registry['template']->show('errors/not-found');
+            exit;
+            //die ('404 Not Found');
         }
 
         // Include the file
@@ -85,7 +89,9 @@ Class Router {
 
         // Action available?
         if (is_callable(array($controller, $action)) == false) {
-            die ('404 Not Found');
+            $this->registry['template']->show('errors/not-found');
+            exit;
+            //die ('404 Not Found');
         }
 
         // Clear controller variable

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Ошибка!</title>
+<title>Ошибка 404!</title>
 <? include_once('html/tiles/head-basic.html'); ?>
 </head>
 
@@ -21,17 +21,16 @@
 <div id="info">
 <p class="title">
 <img src="/html/pics/icons/error.gif" alt="error" /> 
-Произошла ошибка!
+Произошла ошибка доступа!
 </p>
 
 <div class="errormessage">
 <p>
-Извините, но произошла ошибка :) Надеемся, что скоро мы ее исправим.
+Извините, но запрашиваемая Вами страница не существует
 </p>
 <p>
-Техническая информация: <br />
  <pre>
- <? echo $errormessage; ?>
+ <? echo @$errormessage; ?>
  </pre>
 </p>
 </div>
