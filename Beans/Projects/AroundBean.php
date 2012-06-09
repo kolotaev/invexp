@@ -2,6 +2,13 @@
 
 class AroundBean extends ProjectsBeanBase
 {
+    public function getAllActives() {
+        $actives = 0;
+        $actives += $this->getField('around.micro.credit_volume');
+        $actives += $this->getField('around.micro.own_money');
+        return $actives;
+    }
+
     public function calculateCredit() {
         $volume = $this->getField('around.micro.credit_volume');
         $term = (int)$this->getField('around.micro.credit_term');
@@ -42,6 +49,22 @@ class AroundBean extends ProjectsBeanBase
         else {
             for ($i = 1; $i <= $num; $i++) {
                 $this->updateField("costs.amortization.$i", 0);
+            }
+        }
+    }
+
+    // adds FSZN tax to workers' fees
+    public function calculatePayment() {
+        $tax = $this->getField('around.macro.fszn_tax');
+        $num = $this->pr_settings['n'];
+        for ($i = 1; $i <= $num; $i++) {
+            $pays = $this->getField('costs.payment');
+            $costs_main = $volume / $term;
+            $costs_percent = $volume / $term * $rate / 100;
+            $costs_total = $costs_main + $costs_percent;
+            if ($i <= $term) {
+                $this->updateField("costs.credit_payment.$i", $costs_total);
+                $this->updateField("costs.credit_payment_percent.$i", $costs_percent);
             }
         }
     }

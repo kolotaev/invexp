@@ -25,22 +25,49 @@ class ControllerEffect extends ControllerProjectsBase {
         return array('full' => $full, 'html' => $html);
     }
 
-    public function showRentable() {
+    public function showActivesR() {
         $this->checkAuthProjectAndGo();
         $setts = $this->getSettings($_SESSION['project']);
         $this->template->set('n', $setts['n']);
 
-        $path = $this->makeFolder('rentable');
+        $activesR = array();
+        for ($i=1; $i <= $setts['n']; $i++) {
+            $activesR[$i] = $this->Model->getActivesR($i);
+        }
+
+        $path = $this->makeFolder('activesR');
         $data = array(
-            'dgshg' => array(23,323,32,4,43),
-            'ewewe' => array(2,33,2,4,43),
-            'rterteeeeeeeeeeeet' => array(-34,23,42,4,4),
+            'R активов' => $activesR,
         );
         $this->Model->drawLineChart($path['full'], $data);
         $embed = $path['html'];
         $this->template->set('chart1',"<img src='$embed' />");
 
-        $this->template->show('effect/rentable');
+        $this->template->show('effect/actives-r');
+    }
+
+    public function showProductsR() {
+        $this->checkAuthProjectAndGo();
+        $setts = $this->getSettings($_SESSION['project']);
+        $this->template->set('n', $setts['n']);
+
+        $salesR = array();
+        $productsR = array();
+        for ($i=1; $i <= $setts['n']; $i++) {
+            $salesR[$i] = $this->Model->getActivesR($i);
+            $productsR[$i] = $this->Model->getProductionR($i);
+        }
+
+        $path = $this->makeFolder('productsR');
+        $data = array(
+            'R продукции' => $productsR,
+            'R продаж' => $salesR,
+        );
+        $this->Model->drawLineChart($path['full'], $data);
+        $embed = $path['html'];
+        $this->template->set('chart1',"<img src='$embed' />");
+
+        $this->template->show('effect/products-r');
     }
 
     public function showEfficiency() {

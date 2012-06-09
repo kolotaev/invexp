@@ -36,38 +36,44 @@
 
 <p class="row">
 <span>
-<input type="input" value="Показатель" class="side tophead" readonly />
-<input type="input" value="Значение" class="tophead" readonly />
+<input type="input" value="Показатель" class="side tophead" readonly="true"/>
+<input type="input" value="Значение" class="tophead" readonly="true"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Темп роста цен, %" class="side" readonly/>
+<input type="input" value="Темп роста цен, %" class="side" readonly="true"/>
 <input type="input" name="around.macro.prise_rise_tempo" value="<? echo $data['prise_rise_tempo'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Курс валюты" class="side" readonly/>
+<input type="input" value="Курс валюты" class="side" readonly="true"/>
 <input type="input" name="around.macro.currency_rate" value="<? echo $data['currency_rate'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Ставка рефинансирования, %" class="side" readonly/>
+<input type="input" value="Ставка рефинансирования, %" class="side" readonly="true"/>
 <input type="input" name="around.macro.refinance_rate" value="<? echo $data['refinance_rate'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="НДС, %" class="side" readonly/>
+<input type="input" value="НДС, %" class="side" readonly="true"/>
 <input type="input" name="around.macro.nds_tax" value="<? echo $data['nds_tax'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Налог на прибыль, %" class="side" readonly/>
+<input type="input" value="Налог на прибыль, %" class="side" readonly="true"/>
 <input type="input" name="around.macro.profit_tax" value="<? echo $data['profit_tax'] ?>" class="cell"/>
+</span>
+</p>
+<p class="row">
+<span>
+<input type="input" value="ФСЗН, %" class="side" readonly="true"/>
+<input type="input" name="around.macro.fszn_tax" value="<? echo $data['fszn_tax'] ?>" class="cell"/>
 </span>
 </p>
 </div>

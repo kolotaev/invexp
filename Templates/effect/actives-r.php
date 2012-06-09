@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Рентабельность основных показателей</title>
+<title>Рентабельность активов</title>
 <? include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -33,18 +33,15 @@
 </p>
 
 <div class="formdatagrid">
-<h3>Продукция - Продажи</h3>
+<h3>Рентабельность активов, %</h3>
 <div id="datagrid">
 <? echo $chart1; ?>
-<table>
-<tr>
-<td>
-    <span class="table-heading1">R <sub>продукции</sub></span>
+    <span class="table-heading1">R <sub>активов</sub></span>
 <? echo <<<EOD
 <p class="row">
 <span>
-<input type="input" value="Период" class="period tophead" readonly="true" />
-<input type="input" value="Сумма расходов" class="tophead" readonly="true" />
+<input type="input" value="Период" class="period tophead" readonly="true"/>
+<input type="input" value="Величина" class="tophead" readonly="true"/>
 </span>
 </p>
 EOD;
@@ -52,35 +49,12 @@ for($i=1; $i<$n+1; $i++){
 echo <<<EOD
 <p class="row">
 <span>
-<input type="input" class="period" value="$i" readonly/>
+<input type="input" class="period" value="$i" readonly="true"/>
 <input type="input" class="cell" readonly="true"/>
 </span>
 </p>
 EOD;
 } ?>
-</td>
-<td>
-    <span class="table-heading1">R <sub>продаж</sub></span>
-<? echo <<<EOD
-
-<p class="row">
-<span>
-<input type="input" value="Период" class="period tophead" readonly />
-<input type="input" value="Сумма расходов" class="tophead" readonly="true" />
-</span>
-</p>
-EOD;
-for($i=1; $i<$n+1; $i++){
-echo <<<EOD
-<p class="row">
-<span>
-<input type="input" class="period" value="$i" readonly/>
-<input type="input" class="cell" readonly="true" />
-</span>
-</p>
-EOD;
-} ?>
-</td></tr></table>
 </div>
 </div>
 

@@ -21,6 +21,7 @@ class Bones
                 'refinance_rate' => 0,
                 'nds_tax' => 0,
                 'profit_tax' => 0,
+                'fszn_tax' => 0,
             ),
             'micro' => array(
                 'amortization' => 0,
@@ -45,12 +46,12 @@ class Bones
             'rent' => array(),
             'equipment' => array(),
             'amortization' => array(),
-            'payment' => array(),
+            'payment' => array(),                             // all fees to workers, but only FOT
             'materials' => array(),
             'adverts' => array(),
             'organizational' => array(),
-            'credit_payment' => array(),
-            'credit_payment_percent' => array(),
+            'credit_payment' => array(),                    // all credit payments
+            'credit_payment_percent' => array(),           // part of all credit payments
             'other' => array(),
         ),
 

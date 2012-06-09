@@ -407,7 +407,7 @@ body {
     width: 80%;
     margin: 0 10%;
 }
-#datagrid table span.table-heading1 {
+#datagrid span.table-heading1 {
     margin: 2px 0px 8px 0px;
     font-style: italic;;
     font-weight: bold;

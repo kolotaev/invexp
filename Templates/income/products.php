@@ -37,10 +37,10 @@
 <? echo <<<EOD
 <p class="row">
 <span>
-<input type="input" value="Период" class="period tophead" readonly />
-<input type="input" value="Объем продаж" class="tophead" readonly />
-<input type="input" value="Цена ед.(с НДС)" class="tophead" readonly />
-<input type="input" value="Выручка" class="tophead" readonly />
+<input type="input" value="Период" class="period tophead" readonly="true"/>
+<input type="input" value="Объем продаж" class="tophead" readonly="true"/>
+<input type="input" value="Цена ед.(с НДС)" class="tophead" readonly="true"/>
+<input type="input" value="Выручка" class="tophead" readonly="true"/>
 </span>
 </p>
 EOD;
@@ -48,10 +48,10 @@ for($i=1; $i<=$n; $i++){
 echo <<<EOD
 <p class="row">
 <span>
-<input type="input" class="period" value="$i" readonly/>
+<input type="input" class="period" value="$i" readonly="true"/>
 <input type="input" name="income.products.volume.$i" value="{$data['volume'][$i]}" class="cell"/>
 <input type="input" name="income.products.price.$i" value="{$data['price'][$i]}" class="cell"/>
-<input type="input" name="income.products.sales_profit.$i" value="{$data['sales_profit'][$i]}" class="xcell" readonly/>
+<input type="input" name="income.products.sales_profit.$i" value="{$data['sales_profit'][$i]}" class="xcell" readonly="true"/>
 </span>
 </p>
 EOD;

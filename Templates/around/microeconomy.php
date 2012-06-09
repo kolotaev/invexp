@@ -36,37 +36,37 @@
 
 <p class="row">
 <span>
-<input type="input" value="Показатель" class="side tophead" readonly />
-<input type="input" value="Значение" class="tophead" readonly />
+<input type="input" value="Показатель" class="side tophead" readonly="true"/>
+<input type="input" value="Значение" class="tophead" readonly="true"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Амортизация (СПИ)" class="side" readonly/>
+<input type="input" value="Амортизация (СПИ)" class="side" readonly="true"/>
 <input type="input" name="around.micro.amortization" value="<? echo $data['amortization'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Кредит (сумма)" class="side" readonly/>
+<input type="input" value="Кредит (сумма)" class="side" readonly="true"/>
 <input type="input" name="around.micro.credit_volume" value="<? echo $data['credit_volume'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="% по кредиту" class="side" readonly/>
+<input type="input" value="% по кредиту" class="side" readonly="true"/>
 <input type="input" name="around.micro.credit_rate" value="<? echo $data['credit_rate'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Период кредитования" class="side" readonly/>
+<input type="input" value="Период кредитования" class="side" readonly="true"/>
 <input type="input" name="around.micro.credit_term" value="<? echo $data['credit_term'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
-<input type="input" value="Собственные средства" class="side" readonly/>
+<input type="input" value="Собственные средства" class="side" readonly="true"/>
 <input type="input" name="around.micro.own_money" value="<? echo $data['own_money'] ?>" class="cell"/>
 </span>
 </p>

@@ -37,8 +37,8 @@
 <? echo <<<EOD
 <p class="row">
 <span>
-<input type="input" value="Период" class="period tophead" readonly />
-<input type="input" value="Величина расходов" class="tophead" readonly />
+<input type="input" value="Период" class="period tophead" readonly="true"/>
+<input type="input" value="Величина расходов" class="tophead" readonly="true"/>
 </span>
 </p>
 EOD;
@@ -46,7 +46,7 @@ for($i=1; $i<=$n; $i++){
 echo <<<EOD
 <p class="row">
 <span>
-<input type="input" class="period" value="$i" readonly/>
+<input type="input" class="period" value="$i" readonly="true"/>
 <input type="input" name="costs.other.$i" value="{$data[$i]}" class="cell"/>
 </span>
 </p>

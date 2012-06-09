@@ -10,7 +10,7 @@ class IncomeBean extends ProjectsBeanBase
         $this->updateField("income.products.nds_value.$num", $nds_value);
         $profit = $v*$p - $nds_value;
         $this->updateField("income.products.sales_profit.$num", $profit);
-        return $profit;
+        return (float)$profit;
     }
 
     public function getAllRoughIncome($num){
@@ -18,13 +18,13 @@ class IncomeBean extends ProjectsBeanBase
         $p = $this->getField("income.products.price.$num");
         $products = $p*$v;
         $other = $this->getField("income.other.$num");
-        return $products + $other;
+        return (float)($products + $other);
     }
 
-    public function getAllProfit($num){
+    public function getAllNoNDSIncome($num){
         $products = $this->getProductNoNDSProfit($num);
         $other = $this->getField("income.other.$num");
-        return $products + $other;
+        return (float)($products + $other);
     }
 
 }
