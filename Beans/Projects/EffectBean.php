@@ -14,12 +14,15 @@ class EffectBean extends ProjectsBeanBase
         $this->Around = $this->getDependencyModel('projects.aroundbean.mg');
     }
 
-    public function getActivesR($num) {
+    public function getPureProfit($num) {
         $profit_tax = $this->getField('around.macro.profit_tax');
-
         $pure_profit = $this->Income->getAllNoNDSIncome($num) - $this->Costs->getAllCosts($num);
         $pure_profit -= $pure_profit * $profit_tax / 100;
+        return round($pure_profit, 2);
+    }
 
+    public function getActivesR($num) {
+        $pure_profit = $this->getPureProfit($num);
         $all_actives = $this->Around->getAllActives();
 
         if ($all_actives !== 0) {
@@ -31,9 +34,7 @@ class EffectBean extends ProjectsBeanBase
     }
 
     public function getSalesR($num) {
-        $profit_tax = $this->getField('around.macro.profit_tax');
-        $pure_profit = $this->Income->getAllNoNDSIncome($num) - $this->Costs->getAllCosts($num);
-        $pure_profit -= $pure_profit * $profit_tax / 100;
+        $pure_profit = $this->getPureProfit($num);
         $rough_income = $this->Income->getAllRoughIncome($num);
 
         if ($rough_income !== 0) {
@@ -45,10 +46,7 @@ class EffectBean extends ProjectsBeanBase
     }
 
     public function getProductionR($num) {
-        $profit_tax = $this->getField('around.macro.profit_tax');
-        $all_costs = $this->Costs->getAllCosts($num);
-        $pure_profit = $this->Income->getAllNoNDSIncome($num) - $all_costs;
-        $pure_profit -= $pure_profit * $profit_tax / 100;
+        $pure_profit = $this->getPureProfit($num);
         $production_costs = $this->Costs->getAllProductionCosts($num);
 
         if ($production_costs !== 0) {

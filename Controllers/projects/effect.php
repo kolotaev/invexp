@@ -1,7 +1,6 @@
 <?php
 class ControllerEffect extends ControllerProjectsBase {
 
-    private $Income;
     public function __construct() {
         parent::__construct();
         Utils::getLib('pChart');
@@ -87,18 +86,23 @@ class ControllerEffect extends ControllerProjectsBase {
 
         // All income
         $all_income = array();
-        $this->getModel($this->Income, "projects.incomebean.mg");
+        $pure_profit = array();
+        $Income = NULL;
+        $this->getModel($Income, "projects.incomebean.mg");
         for ($i=1; $i <= $setts['n']; $i++) {
-            $all_income[] = $this->Income->getAllRoughIncome($i);
+            $all_income[$i] = $Income->getAllRoughIncome($i);
+            $pure_profit[$i] = $this->Model->getPureProfit($i);
         }
 
         // Fill view-table
         $this->template->set('all_income', $all_income);
+        $this->template->set('pure_profit', $pure_profit);
 
         // Fill view-chart
         $path = $this->makeFolder('volume');
         $data = array(
-            'hhj' => $all_income,
+            'Выручка' => $all_income,
+            'Чистая прибыль' => $pure_profit,
         );
         $this->Model->drawBarChart($path['full'], $data);
         $embed = $path['html'];

@@ -53,7 +53,7 @@ echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly="true"/>
-<input type="input" class="xcell" readonly="true"/>
+<input type="input" class="xcell" value="${pure_profit[$i]}" readonly="true"/>
 </span>
 </p>
 EOD;
@@ -75,7 +75,7 @@ echo <<<EOD
 <p class="row">
 <span>
 <input type="input" class="period" value="$i" readonly="true"/>
-<input type="input" class="xcell" value="${all_income[$i-1]}" readonly="true"/>
+<input type="input" class="xcell" value="${all_income[$i]}" readonly="true"/>
 </span>
 </p>
 EOD;
