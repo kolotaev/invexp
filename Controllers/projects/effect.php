@@ -34,7 +34,7 @@ class ControllerEffect extends ControllerProjectsBase {
         $data = array(
             'dgshg' => array(23,323,32,4,43),
             'ewewe' => array(2,33,2,4,43),
-            'rterteeeeeeeeeeeet' => array(34,23,42,4,4),
+            'rterteeeeeeeeeeeet' => array(-34,23,42,4,4),
         );
         $this->Model->drawLineChart($path['full'], $data);
         $embed = $path['html'];

@@ -39,7 +39,7 @@ class EffectBean extends ProjectsBeanBase
         $Test->drawGraphArea(252,252,252);
         $a = $DataSet->GetData();
         $b = $DataSet->GetDataDescription();
-        $Test->drawScale($a,$b,SCALE_NORMAL,150,150,150,TRUE,0,2);
+        $Test->drawScale($a,$b,SCALE_START0,150,150,150,TRUE,0,2);
         $Test->drawGrid(4,TRUE,230,230,230,255);
 
         // Draw the line graph
@@ -91,7 +91,7 @@ class EffectBean extends ProjectsBeanBase
         //$Test->drawFilledRoundedRectangle(7,7,693,223,5,240,240,240);
         //$Test->drawRoundedRectangle(5,5,695,225,5,230,230,230);
         $Test->drawGraphArea(255,255,255,TRUE);
-        $Test->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,150,150,150,TRUE,0,2,TRUE);
+        $Test->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_START0,150,150,150,TRUE,0,2,TRUE);
         $Test->drawGrid(4,TRUE,230,230,230,50);
 
         // Draw the 0 line
