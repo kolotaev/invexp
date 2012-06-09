@@ -17,7 +17,7 @@ class ControllerIncome extends ControllerProjectsBase
         $num = preg_replace('/(.*)\.(\d*$)/', '$2', $to);
 
         $this->Model->updateField($to, $new_value);
-        $profit = $this->Model->getProductProfit($num);
+        $profit = $this->Model->getProductNoNDSProfit($num);
         $cell_data = $this->Model->getField($to);
         $data = array(
             array(
@@ -35,7 +35,7 @@ class ControllerIncome extends ControllerProjectsBase
         $this->checkAuthProjectAndGo();
         $setts = $this->getSettings($_SESSION['project']);
         for ($n=1; $n <= $setts['n']; $n++) {
-            $fake = $this->Model->getProductProfit($n);
+            $fake = $this->Model->getProductNoNDSProfit($n);
         }
         $this->template->set('n', $setts['n']);
         $data = $this->Model->getField('income.products.*');

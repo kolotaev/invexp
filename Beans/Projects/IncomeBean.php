@@ -2,7 +2,7 @@
 
 class IncomeBean extends ProjectsBeanBase
 {
-    public function getProductProfit($num){
+    public function getProductNoNDSProfit($num){
         $v = $this->getField("income.products.volume.$num");
         $p = $this->getField("income.products.price.$num");
         $nds_tax = $this->getField("around.macro.nds_tax");
@@ -22,7 +22,7 @@ class IncomeBean extends ProjectsBeanBase
     }
 
     public function getAllProfit($num){
-        $products = $this->getProductProfit($num);
+        $products = $this->getProductNoNDSProfit($num);
         $other = $this->getField("income.other.$num");
         return $products + $other;
     }

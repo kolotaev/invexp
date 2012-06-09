@@ -115,11 +115,13 @@ class ControllerProject extends ControllerBase
     }
 
     public function remove() {
-        if (isset($_SESSION['project']))
+        if (isset($_SESSION['project']) && $_SESSION['project'] !== '') {
             $id = $_SESSION['project'];
-        else
-            $id = '';
-        $this->Model->deleteProject($id);
+            $this->Model->deleteProject($id);
+        }
+        else {
+            $this->redirect('/projects/project/newProjectForm');
+        }
 
         $project_folder = md5($_SESSION['project']);
         $path = SITE_PATH . "output/" . $project_folder;

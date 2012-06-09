@@ -44,7 +44,7 @@
 <p class="row">
 <span>
 <input type="input" value="Период" class="period tophead" readonly />
-<input type="input" value="Величина" class="tophead" />
+<input type="input" value="Величина" class="tophead" readonly="true" />
 </span>
 </p>
 EOD;
@@ -66,7 +66,7 @@ EOD;
 <p class="row">
 <span>
 <input type="input" value="Период" class="period tophead" readonly />
-<input type="input" value="Величина" class="tophead"  />
+<input type="input" value="Величина" class="tophead" readonly="true" />
 </span>
 </p>
 EOD;

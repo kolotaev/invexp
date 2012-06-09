@@ -49,6 +49,7 @@ class Bones
             'materials' => array(),
             'adverts' => array(),
             'organizational' => array(),
+            'credit_payment' => array(),
             'other' => array(),
         ),
 
