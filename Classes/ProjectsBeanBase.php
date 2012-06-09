@@ -6,15 +6,25 @@ class ProjectsBeanBase extends BeanBase {
     protected $pr_settings;
 
     public function __construct() {
-        if (isset($_SESSION['project']))
+        if (isset($_SESSION['project'])) {
             $this->id = $_SESSION['project'];
+        }
     }
 
     // ToDo: this is dismiss of architecture: project's settings should be in projects collection (table)
-    // so that we can access them in a manner of connection between models (smth. like 'projects.settings.n')
-    // Populates the Bean with project settings. Is called from controller. QuickFix.
+    // so that we can access them in a manner of connection between models (smth. like this 'projects.settings.n')
+    // and maybe getDependencyModel() method solves the problem
+    // or to populate it just in constructor
+    // !!! think!
+    // **** Populates the Bean with project settings. Is called from controller. QuickFix.
     public function populateBeanWithProjectSettings($setts) {
         $this->pr_settings = $setts;
+    }
+
+    protected function getDependencyModel($model) {
+        $registry = Registry::getInstance();
+        $beanfactory = $registry['BeanFactory'];
+        return $beanfactory->build($model);
     }
 
     // sets another project to work with
