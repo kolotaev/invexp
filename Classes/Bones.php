@@ -50,6 +50,7 @@ class Bones
             'adverts' => array(),
             'organizational' => array(),
             'credit_payment' => array(),
+            'credit_payment_percent' => array(),
             'other' => array(),
         ),
 

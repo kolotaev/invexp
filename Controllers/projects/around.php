@@ -24,6 +24,11 @@ class ControllerAround extends ControllerProjectsBase
                 $this->Model->populateBeanWithProjectSettings($setts);
                 $this->Model->calculateCredit();
                 break;
+            case 'around.micro.amortization':
+                $setts = $this->getSettings($_SESSION['project']);
+                $this->Model->populateBeanWithProjectSettings($setts);
+                $this->Model->calculateAmortization();
+                break;
         }
 
         $cell_data = $this->Model->getField($to);
