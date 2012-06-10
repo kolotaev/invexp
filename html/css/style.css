@@ -225,14 +225,14 @@ body {
 
 .menu_body {
     display: none;
-    padding: 5px 10px;
+    padding: 5px 0px 5px 10px;
     background-color: rgb(216, 229, 231);
 }
 
 .menu_body  a {
     display: block;
     color: #555;
-    font-size: 15px; /* 15px was always */
+    font-size: 14px; /* 15px was always */
     font-weight: bold;
     text-decoration: none;
 }
