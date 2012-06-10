@@ -436,7 +436,7 @@ body {
 
 #datagrid input.tophead {
     text-align: center;
-    font-style: italic;
+    qfont-style: italic; /* ??????????? why !!!!!!!!!!???????? */
 }
 
 #datagrid input.side {
