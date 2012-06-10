@@ -26,14 +26,14 @@
 
 <div class="errormessage">
 <p>
-Извините, но произошла ошибка :) Надеемся, что скоро мы ее исправим.
+Извините, но произошла ошибка. Надеемся, что скоро мы ее исправим :)
 </p>
-<p>
+<div class="textmessage">
 Техническая информация: <br />
- <pre>
- <? echo $errormessage; ?>
- </pre>
-</p>
+<pre>
+<? echo $errormessage; ?>
+</pre>
+</div>
 </div>
 
 </div>

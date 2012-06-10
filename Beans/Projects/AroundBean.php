@@ -6,7 +6,7 @@ class AroundBean extends ProjectsBeanBase
         $actives = 0;
         $actives += $this->getField('around.micro.credit_volume');
         $actives += $this->getField('around.micro.own_money');
-        return $actives;
+        return (float)$actives;
     }
 
     public function calculateCredit() {
@@ -22,6 +22,10 @@ class AroundBean extends ProjectsBeanBase
                 if ($i <= $term) {
                     $this->updateField("costs.credit_payment.$i", $costs_total);
                     $this->updateField("costs.credit_payment_percent.$i", $costs_percent);
+                }
+                else {
+                    $this->updateField("costs.credit_payment.$i", 0);
+                    $this->updateField("costs.credit_payment_percent.$i", 0);
                 }
             }
         }
@@ -43,6 +47,9 @@ class AroundBean extends ProjectsBeanBase
                 $am_value = $equipment_sum / $am_term;
                 if ($i <= $am_term) {
                     $this->updateField("costs.amortization.$i", $am_value);
+                }
+                else {
+                    $this->updateField("costs.amortization.$i", 0);
                 }
             }
         }

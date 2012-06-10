@@ -38,7 +38,7 @@ class ControllerEffect extends ControllerProjectsBase {
         $data = array(
             'R активов' => $activesR,
         );
-        $this->Model->drawLineChart($path['full'], $data);
+        $this->Model->drawSingleLineChart($path['full'], $data, 125,67,222);
         $embed = $path['html'];
         $this->template->set('chart1',"<img src='$embed' />");
 
@@ -101,8 +101,8 @@ class ControllerEffect extends ControllerProjectsBase {
         // Fill view-chart
         $path = $this->makeFolder('volume');
         $data = array(
-            'Выручка' => $all_income,
             'Чистая прибыль' => $pure_profit,
+            'Выручка' => $all_income,
         );
         $this->Model->drawBarChart($path['full'], $data);
         $embed = $path['html'];
@@ -111,5 +111,26 @@ class ControllerEffect extends ControllerProjectsBase {
         $this->template->show('effect/volume');
     }
 
+    public function showKs() {
+        $this->checkAuthProjectAndGo();
+        $setts = $this->getSettings($_SESSION['project']);
+        $this->template->set('n', $setts['n']);
+
+        $PzK = array();
+        for ($i=1; $i <= $setts['n']; $i++) {
+            $PzK[$i] = $this->Model->getPzK($i);
+        }
+
+        $path = $this->makeFolder('Ks');
+        $data = array(
+            'K пз' => $PzK,
+        );
+        $this->Model->drawSingleLineChart($path['full'], $data, 45,78,98);
+        $embed = $path['html'];
+        $this->template->set('chart1',"<img src='$embed' />");
+
+        $this->template->set('PzK', $PzK);
+        $this->template->show('effect/ks');
+    }
 
 }

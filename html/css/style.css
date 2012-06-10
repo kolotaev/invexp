@@ -232,7 +232,7 @@ body {
 .menu_body  a {
     display: block;
     color: #555;
-    font-size: 15px;
+    font-size: 15px; /* 15px was always */
     font-weight: bold;
     text-decoration: none;
 }
