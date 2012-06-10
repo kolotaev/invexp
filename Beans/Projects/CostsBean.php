@@ -20,6 +20,14 @@ class CostsBean extends ProjectsBeanBase
         return (float)$costs;
     }
 
+    public function getAllCostsTotal($n) {
+        $costs = 0;
+        for ($i=1; $i<=$n; $i++) {
+            $costs += $this->getAllCosts($i);
+        }
+        return (float)$costs;
+    }
+
     public function getAllProductionCosts($num) {
         $costs = 0;
         $costs += $this->getField("costs.rent.$num");
@@ -34,6 +42,14 @@ class CostsBean extends ProjectsBeanBase
         $costs += $this->getField("costs.adverts.$num");
         $costs += $this->getField("costs.organizational.$num");
         $costs += $this->getField("costs.other.$num");
+        return (float)$costs;
+    }
+
+    public function getAllProductionCostsTotal($n) {
+        $costs = 0;
+        for ($i=1; $i<=$n; $i++) {
+            $costs += $this->getAllProductionCosts($i);
+        }
         return (float)$costs;
     }
 

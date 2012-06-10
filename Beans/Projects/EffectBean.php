@@ -23,8 +23,29 @@ class EffectBean extends ProjectsBeanBase
         return round($pure_profit, 2);
     }
 
+    public function getPureProfitTotal($n) {
+        $profit_tax = $this->getField('around.macro.profit_tax');
+        $pure_profit = $this->Income->getAllNoNDSIncomeTotal($n) - $this->Costs->getAllCostsTotal($n);
+        if ($pure_profit > 0) {
+            $pure_profit -= $pure_profit * $profit_tax / 100;
+        }
+        return round($pure_profit, 2);
+    }
+
     public function getActivesR($num) {
         $pure_profit = $this->getPureProfit($num);
+        $all_actives = $this->Around->getAllActives();
+
+        if ($all_actives !== 0.0) {
+            return round(($pure_profit / $all_actives * 100), 2);
+        }
+        else {
+            return 0;
+        }
+    }
+
+    public function getActivesRTotal($n) {
+        $pure_profit = $this->getPureProfitTotal($n);
         $all_actives = $this->Around->getAllActives();
 
         if ($all_actives !== 0.0) {
@@ -47,6 +68,18 @@ class EffectBean extends ProjectsBeanBase
         }
     }
 
+    public function getSalesRTotal($n) {
+        $pure_profit = $this->getPureProfitTotal($n);
+        $rough_income = $this->Income->getAllRoughIncomeTotal($n);
+
+        if ($rough_income !== 0) {
+            return round(($pure_profit / $rough_income * 100), 2);
+        }
+        else {
+            return 0;
+        }
+    }
+
     public function getProductionR($num) {
         $pure_profit = $this->getPureProfit($num);
         $production_costs = $this->Costs->getAllProductionCosts($num);
@@ -59,8 +92,23 @@ class EffectBean extends ProjectsBeanBase
         }
     }
 
-    public function getFnK($num) {
-        $fin_debts = $this->getField("costs.credit_payment_percent.$num");
+    public function getProductionRTotal($n) {
+        $pure_profit = $this->getPureProfitTotal($n);
+        $production_costs = $this->Costs->getAllProductionCostsTotal($n);
+
+        if ($production_costs !== 0.0) {
+            return round(($pure_profit / $production_costs * 100), 2);
+        }
+        else {
+            return 0;
+        }
+    }
+
+    public function getFnKTotal($n) {
+        $fin_debts = 0;
+        for ($i = 1; $i <= $n; $i++) {
+            $fin_debts += $this->getField("costs.credit_payment_percent.$n");
+        }
         $all_actives = $this->Around->getAllActives();
 
         if ($all_actives !== 0.0) {
@@ -75,6 +123,20 @@ class EffectBean extends ProjectsBeanBase
         $pure_profit = $this->getPureProfit($num);
         $cred_pays = (float)$this->getField("costs.credit_payment.$num");
 
+        if ($cred_pays !== 0.0) {
+            return round(($pure_profit / $cred_pays), 2);
+        }
+        else {
+            return 0;
+        }
+    }
+
+    public function getPzKTotal($n) {
+        $pure_profit = $this->getPureProfitTotal($n);
+        $cred_pays = 0;
+        for ($i = 1; $i <= $n; $i++) {
+            $cred_pays += (float)$this->getField("costs.credit_payment.$n");
+        }
         if ($cred_pays !== 0.0) {
             return round(($pure_profit / $cred_pays), 2);
         }
@@ -228,7 +290,7 @@ class EffectBean extends ProjectsBeanBase
         // Draw the line graph
         $a = $DataSet->GetData();
         $b = $DataSet->GetDataDescription();
-        $Test->setColorPalette(0,$R,$G,$B);
+        $Test->setColorPalette(0, $R, $G, $B);
         $Test->drawLineGraph($a, $b);
         $Test->drawPlotGraph($a, $b, 3, 2, 255, 255, 255);
 
@@ -240,6 +302,31 @@ class EffectBean extends ProjectsBeanBase
         //$Test->drawTitle(60,22,"My pretty graph",50,50,50,585);
         $Test->Render($img_path);
         return true;
+    }
+
+    public function drawPieChart($img_path, $data, $definition) {
+        // Dataset definition
+        $DataSet = new pData;
+        $DataSet->AddPoint(array(40, 30, 10, 15, 5), "Serie1");
+        $DataSet->AddPoint(array("Jan", "Feb", "Mar", "Apr", "May"), "Serie2");
+        $DataSet->AddAllSeries();
+        $DataSet->SetAbsciseLabelSerie("Serie2");
+
+        // Initialise the graph
+        $Test = new pChart(300, 200);
+        //$Test->loadColorPalette("Sample/softtones.txt");
+        //$Test->drawFilledRoundedRectangle(7,7,293,193,5,240,240,240);
+        //$Test->drawRoundedRectangle(5,5,295,195,5,230,230,230);
+
+        // This will draw a shadow under the pie chart
+        $Test->drawFilledCircle(122, 102, 70, 200, 200, 200);
+
+        // Draw the pie chart
+        $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf", 8);
+        $Test->drawBasicPieGraph($DataSet->GetData(), $DataSet->GetDataDescription(), 120, 100, 70, PIE_PERCENTAGE, 255, 255, 218);
+        $Test->drawPieLegend(230, 15, $DataSet->GetData(), $DataSet->GetDataDescription(), 250, 250, 250);
+
+        $Test->Render($img_path);
     }
 
 }
