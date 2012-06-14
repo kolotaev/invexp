@@ -28,6 +28,14 @@ class ProjectBean extends ProjectsBeanBase
         $this->pr->save($bones);
     }
 
+    // ToDo: to write functionality
+    public function saveDemo($login, $project, $demodata) {
+        $this->id = "$project@$login";
+        $demodata['_id'] = "$project@$login";
+        $demodata['user'] = $login;
+        $this->pr->save($demodata);
+    }
+
     public function deleteProject($id) {
         $query = array('_id' => $id);
         $this->pr->remove($query);

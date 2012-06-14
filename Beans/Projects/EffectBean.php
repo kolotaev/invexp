@@ -1,7 +1,6 @@
 <?php
 
-class EffectBean extends ProjectsBeanBase
-{
+class EffectBean extends ProjectsBeanBase {
     private $Income;
     private $Costs;
     private $Around;
@@ -60,7 +59,7 @@ class EffectBean extends ProjectsBeanBase
         $pure_profit = $this->getPureProfit($num);
         $rough_income = $this->Income->getAllRoughIncome($num);
 
-        if ($rough_income !== 0) {
+        if ($rough_income != 0) {
             return round(($pure_profit / $rough_income * 100), 2);
         }
         else {
@@ -72,7 +71,7 @@ class EffectBean extends ProjectsBeanBase
         $pure_profit = $this->getPureProfitTotal($n);
         $rough_income = $this->Income->getAllRoughIncomeTotal($n);
 
-        if ($rough_income !== 0) {
+        if ($rough_income != 0) {
             return round(($pure_profit / $rough_income * 100), 2);
         }
         else {
@@ -145,6 +144,80 @@ class EffectBean extends ProjectsBeanBase
         }
     }
 
+    public function getNPVTotal($n, $d = '') {
+        $pure_profit = $this->getPureProfitTotal($n);
+        if ($d === '') {
+            $discont = (float)$this->getField('around.micro.discont');
+        }
+        else {
+            $discont = $d;
+        }
+        $init_investments = $this->getField('around.micro.credit_volume') +
+            $this->getField('around.micro.own_money');
+        $npv = 0.0;
+        for ($i = 1; $i <= $n; $i++) {
+            $npv += $pure_profit / pow((1 + $discont / 100), $n);
+        }
+        $npv = $npv - $init_investments;
+        return round($npv, 2);
+    }
+
+    public function getVNDTotal($n) {
+        $d1 = 20;
+        $d2 = 40;
+        $NPV1 = 0.0;
+        $NPV2 = 0.0;
+        $vnd = 0.0;
+        for ($i = 1; $i <= $n; $i++) {
+            $NPV1 += $this->getNPVTotal($n, $d1);
+            $NPV2 += $this->getNPVTotal($n, $d2);
+        }
+        //$d = $NPV1 - $NPV2;
+        // Todo Why + not -  !!! should be "-" in $NPV1+$NPV2
+        if (($NPV1 + $NPV2) != 0) {
+            $vnd = $d1 / 100 + $NPV1 / ($NPV1 + $NPV2) * (($d2 - $d1) / 100);
+            return round($vnd * 100, 2);
+        }
+        else {
+            return 0;
+        }
+
+    }
+
+    public function getPITotal($n) {
+        $pure_profit = $this->getPureProfitTotal($n);
+        $discont = (float)$this->getField('around.micro.discont');
+        $init_investments = $this->getField('around.micro.credit_volume') +
+            $this->getField('around.micro.own_money');
+        $pi = 0.0;
+        if ($init_investments !== 0) {
+            for ($i = 1; $i <= $n; $i++) {
+                $pi += $pure_profit / pow((1 + $discont / 100), $n);
+            }
+            $pi = $pi / $init_investments;
+            return round($pi, 2) * 100;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    public function getPP() {
+        $n = $this->getField('periods');
+        $I = $this->getField('around.micro.credit_volume') +
+            $this->getField('around.micro.own_money');
+        $CF = 0.0;
+        for ($i = 1; $i <= $n; $i++) {
+            $CF += $this->getPureProfitTotal($n);
+        }
+        if ($CF != 0) {
+            return round($I / $CF, 2);
+        }
+        else {
+            return 0;
+        }
+    }
+
 
     public function drawLineChart($img_path, $data) {
         // Dataset definition
@@ -174,7 +247,7 @@ class EffectBean extends ProjectsBeanBase
         // Initialise the graph
         $Test = new pChart(700, 230);
         $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf", 10);
-        $Test->setGraphArea(40, 30, 680, 200);
+        $Test->setGraphArea(50, 30, 680, 200);
         $Test->drawGraphArea(252, 252, 252);
         $a = $DataSet->GetData();
         $b = $DataSet->GetDataDescription();
@@ -191,7 +264,7 @@ class EffectBean extends ProjectsBeanBase
         // Finish the graph
         $b = $DataSet->GetDataDescription();
         $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf", 8);
-        $Test->drawLegend(45, 35, $b, 255, 255, 255);
+        $Test->drawLegend(70, 35, $b, 255, 255, 255);
         $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf", 10);
         //$Test->drawTitle(60,22,"My pretty graph",50,50,50,585);
         $Test->Render($img_path);
@@ -280,7 +353,7 @@ class EffectBean extends ProjectsBeanBase
         // Initialise the graph
         $Test = new pChart(700, 230);
         $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf", 10);
-        $Test->setGraphArea(40, 30, 680, 200);
+        $Test->setGraphArea(90, 30, 680, 200);
         $Test->drawGraphArea(252, 252, 252);
         $a = $DataSet->GetData();
         $b = $DataSet->GetDataDescription();
@@ -297,7 +370,7 @@ class EffectBean extends ProjectsBeanBase
         // Finish the graph
         $b = $DataSet->GetDataDescription();
         $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf", 8);
-        $Test->drawLegend(45, 35, $b, 255, 255, 255);
+        $Test->drawLegend(100, 35, $b, 255, 255, 255);
         $Test->setFontProperties("Libs/pChart/Fonts/tahoma.ttf", 10);
         //$Test->drawTitle(60,22,"My pretty graph",50,50,50,585);
         $Test->Render($img_path);
@@ -307,8 +380,8 @@ class EffectBean extends ProjectsBeanBase
     public function drawPieChart($img_path, $data, $definition) {
         // Dataset definition
         $DataSet = new pData;
-        $DataSet->AddPoint(array(40, 30, 10, 15, 5), "Serie1");
-        $DataSet->AddPoint(array("Jan", "Feb", "Mar", "Apr", "May"), "Serie2");
+        $DataSet->AddPoint($data, "Serie1");
+        $DataSet->AddPoint($definition, "Serie2");
         $DataSet->AddAllSeries();
         $DataSet->SetAbsciseLabelSerie("Serie2");
 

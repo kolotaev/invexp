@@ -1768,9 +1768,14 @@
           {
            if ( isset($Data[$Key][$ColName]))
             $PieSum = $PieSum + $Data[$Key][$ColName]; $iValues[] = $Data[$Key][$ColName]; $iLabels[] = $Data[$Key][$DataDescription["Position"]];
+
           }
         }
       }
+
+     // Egor fix
+     if ($PieSum == 0) $PieSum = 0.0001;
+     // End egor fix
 
      /* Validate serie */
      if ( $Series != 1 )

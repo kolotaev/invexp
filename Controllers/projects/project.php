@@ -44,6 +44,23 @@ class ControllerProject extends ControllerBase
         $this->template->set('project_ids', $project_ids);
     }
 
+    // ToDo: to write functionality
+    public function demo() {
+        $this->checkAuthAndGo();
+        $login = $_SESSION['auth'];
+
+        require_once('serv/demo.php');
+
+        $s = $this->Model->getAllFields('demo@a');
+
+            $this->Model->saveDemo($login, 'demo', $demodata);
+
+
+        $_SESSION['project'] = 'demo';
+        $this->template->set('project_name', "demo");
+        $this->template->show('project/project-main');
+    }
+
     public function newProjectForm() {
         $this->checkAuthAndGo();
         $this->template->show('project/new-project');

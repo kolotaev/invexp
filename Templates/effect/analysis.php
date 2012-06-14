@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Показатели эффективности проекта</title>
+<title>Анализ эффективности проекта</title>
 <? include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -28,30 +28,20 @@
 <div id="info">
 
 <p class="title">
-<img src="/html/pics/icons/classify.gif" alt="effect" />
-    Эффективность проекта
+<img src="/html/pics/icons/radiant.gif" alt="effect" />
+    Анализ проекта
 </p>
     <form action="#" method="post" class="formdatagrid">
         <div id="datagrid">
 
-            <p class="row">
-<span>
-<input type="input" value="Показатель" class="side tophead" readonly="true"/>
-<input type="input" value="Значение" class="tophead" readonly="true"/>
-</span>
-            </p>
-            <p class="row">
-<span>
-<input type="input" value="Заемные средства" class="side" readonly="true"/>
-<input type="input"  value="<? echo $data['credit_money'] ?>" readonly="true" class="xcell"/>
-</span>
-            </p>
-            <p class="row">
-<span>
-<input type="input" value="Собственные средства" class="side" readonly="true"/>
-<input type="input"  value="<? echo $data['own_money'] ?>" readonly="true" class="xcell"/>
-</span>
-            </p>
+<div class="analysis">
+    <?
+    if ($is_effective)
+        echo "Результат: проект эффективен.";
+    else
+        echo "Результат: проект неэффективен."
+    ?>
+</div>
             <p class="row">
 <span>
 <input type="input" value="ЧДД" class="side" readonly="true"/>
@@ -74,24 +64,6 @@
 <span>
 <input type="input" value="ВНД, %" class="side" readonly="true"/>
 <input type="input"  value="<? echo $data['vnd'] ?>" readonly="true" class="xcell"/>
-</span>
-            </p>
-            <p class="row">
-<span>
-<input type="input" value="Рентабельность активов, %" class="side" readonly="true"/>
-<input type="input"  value="<? echo $data['Ractives'] ?>" readonly="true" class="xcell"/>
-</span>
-        </p>
-            <p class="row">
-<span>
-<input type="input" value="Рентабельность продаж, %" class="side" readonly="true"/>
-<input type="input"  value="<? echo $data['Rsales'] ?>" readonly="true" class="xcell"/>
-</span>
-            </p>
-            <p class="row">
-<span>
-<input type="input" value="Рентабельность продукции, %" class="side" readonly="true"/>
-<input type="input"  value="<? echo $data['Rproduction'] ?>" readonly="true" class="xcell"/>
 </span>
             </p>
 

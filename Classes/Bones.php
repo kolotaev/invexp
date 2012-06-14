@@ -29,6 +29,7 @@ class Bones
                 'credit_rate' => 0,
                 'credit_term' => 0,
                 'own_money' => 0,
+                'discont' => 0,
             ),
         ),
 

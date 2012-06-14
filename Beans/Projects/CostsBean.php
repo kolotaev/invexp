@@ -20,6 +20,14 @@ class CostsBean extends ProjectsBeanBase
         return (float)$costs;
     }
 
+    public function getOneCostTotal($field_array) {
+        $cost = 0;
+        foreach ($field_array as $i) {
+            $cost += $i;
+        }
+        return (float)$cost;
+    }
+
     public function getAllCostsTotal($n) {
         $costs = 0;
         for ($i=1; $i<=$n; $i++) {

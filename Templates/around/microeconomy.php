@@ -70,6 +70,12 @@
 <input type="input" name="around.micro.own_money" value="<? echo $data['own_money'] ?>" class="cell"/>
 </span>
 </p>
+<p class="row">
+<span>
+<input type="input" value="Ставка дисконтирования, %" class="side" readonly="true"/>
+<input type="input" name="around.micro.discont" value="<? echo $data['discont'] ?>" class="cell"/>
+</span>
+</p>
 
 </div>
 </form>

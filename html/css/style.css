@@ -397,6 +397,14 @@ body {
     margin: 0% 25%;
 }
 
+#info .analysis {
+    margin: 20px 0px;
+    font-size: 17px;
+    color: rgb(82, 136, 143);
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
 /* DataGrid for Ajax */
 #info .formdatagrid  {
     border: 1px solid rgb(141, 184, 190);

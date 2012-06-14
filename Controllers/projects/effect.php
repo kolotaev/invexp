@@ -75,8 +75,104 @@ class ControllerEffect extends ControllerProjectsBase {
     public function showEfficiency() {
         $this->checkAuthProjectAndGo();
         $setts = $this->getSettings($_SESSION['project']);
-        $this->template->set('n', $setts['n']);
+        $n = $setts['n'];
+
+        $data = array();
+        $data['own_money'] = $this->Model->getField('around.micro.own_money');
+        $data['credit_money'] = $this->Model->getField('around.micro.credit_volume');
+        $data['npv'] = $this->Model->getNPVTotal($n);
+        $data['pp'] = $this->Model->getPP();
+        $data['pi'] = $this->Model->getPITotal($n);
+        $data['vnd'] = $this->Model->getVNDTotal($n);
+        $data['Ractives'] = $this->Model->getActivesRTotal($n);
+        $data['Rsales'] = $this->Model->getSalesRTotal($n);
+        $data['Rproduction'] = $this->Model->getProductionRTotal($n);
+
+        $this->template->set('data', $data);
         $this->template->show('effect/efficiency');
+    }
+
+    public function showAnalysis() {
+        $this->checkAuthProjectAndGo();
+        $setts = $this->getSettings($_SESSION['project']);
+        $n = $setts['n'];
+
+        $data = array();
+        $data['npv'] = $this->Model->getNPVTotal($n);
+        $data['pp'] = $this->Model->getPP();
+        $data['pi'] = $this->Model->getPITotal($n);
+        $data['vnd'] = $this->Model->getVNDTotal($n);
+
+        if ($data['npv'] > 0 && $data['pi'] > 100){
+            $is_effective = true;
+        }
+        else {
+            $is_effective = false;
+        }
+
+        $this->template->set('data', $data);
+        $this->template->set('is_effective', $is_effective);
+        $this->template->show('effect/analysis');
+    }
+
+    public function showCostsStructure() {
+        $this->checkAuthProjectAndGo();
+
+        $Costs = NULL;
+        $this->getModel($Costs, "projects.costsbean.mg");
+
+        $data = array(
+             $Costs->getOneCostTotal($this->Model->getField('costs.rent.*')),
+             $Costs->getOneCostTotal($this->Model->getField('costs.equipment.*')),
+             $Costs->getOneCostTotal($this->Model->getField('costs.payment.*')),
+             $Costs->getOneCostTotal($this->Model->getField('costs.materials.*')),
+             $Costs->getOneCostTotal($this->Model->getField('costs.adverts.*')),
+             $Costs->getOneCostTotal($this->Model->getField('costs.organizational.*')),
+             $Costs->getOneCostTotal($this->Model->getField('costs.credit_payment.*')),
+             $Costs->getOneCostTotal($this->Model->getField('costs.other.*')),
+        );
+
+        $definition = array(
+            'Аренда',
+            'Оборуд.',
+            'З/П',
+            'Матер.',
+            'Рекл.',
+            'Организ.',
+            'Кредит',
+            'Проч.',
+        );
+
+        $path = $this->makeFolder('costs');
+        $this->Model->drawPieChart($path['full'], $data, $definition);
+        $embed = $path['html'];
+        $this->template->set('chart1',"<img src='$embed' />");
+
+        $this->template->show('effect/costs-structure');
+    }
+
+    public function showIncomeStructure() {
+        $this->checkAuthProjectAndGo();
+
+        $Income = NULL;
+        $this->getModel($Income, "projects.incomebean.mg");
+
+        $data = array(
+            $Income->getOneRoughIncomeTotal($this->Model->getField('income.products.sales_profit.*')),
+            $Income->getOneRoughIncomeTotal($this->Model->getField('income.other.*')),
+        );
+
+        $definition = array(
+            'Продукц.',
+            'Прочее',
+        );
+
+        $path = $this->makeFolder('income');
+        $this->Model->drawPieChart($path['full'], $data, $definition);
+        $embed = $path['html'];
+        $this->template->set('chart1',"<img src='$embed' />");
+
+        $this->template->show('effect/income-structure');
     }
 
     public function showVolume() {
@@ -131,6 +227,60 @@ class ControllerEffect extends ControllerProjectsBase {
 
         $this->template->set('PzK', $PzK);
         $this->template->show('effect/ks');
+    }
+
+    public function showNPV() {
+        $this->checkAuthProjectAndGo();
+        $setts = $this->getSettings($_SESSION['project']);
+        $this->template->set('n', $setts['n']);
+
+        $NPV = array();
+        for ($i=1; $i <= $setts['n']; $i++) {
+            $NPV[$i] = $this->Model->getNPVTotal($i);
+            $VND[$i] = $this->Model->getVNDTotal($i);
+        }
+
+        $path = $this->makeFolder('npv');
+        $data = array(
+            'ЧДД' => $NPV,
+        );
+        $this->Model->drawSingleLineChart($path['full'], $data, 247,2,2);
+        $embed = $path['html'];
+        $this->template->set('chart1',"<img src='$embed' />");
+
+        $path = $this->makeFolder('vnd');
+        $data = array(
+            'ВНД' => $VND,
+        );
+        $this->Model->drawSingleLineChart($path['full'], $data, 60,173,31);
+        $embed = $path['html'];
+        $this->template->set('chart2',"<img src='$embed' />");
+
+        $this->template->set('NPV', $NPV);
+        $this->template->set('VND', $VND);
+        $this->template->show('effect/npv');
+    }
+
+    public function showPI() {
+        $this->checkAuthProjectAndGo();
+        $setts = $this->getSettings($_SESSION['project']);
+        $this->template->set('n', $setts['n']);
+
+        $NPV = array();
+        for ($i=1; $i <= $setts['n']; $i++) {
+            $PI[$i] = $this->Model->getPITotal($i);
+        }
+
+        $path = $this->makeFolder('pi');
+        $data = array(
+            'PI' => $PI,
+        );
+        $this->Model->drawSingleLineChart($path['full'], $data, 247,2,2);
+        $embed = $path['html'];
+        $this->template->set('chart1',"<img src='$embed' />");
+
+        $this->template->set('PI', $PI);
+        $this->template->show('effect/pi');
     }
 
 }

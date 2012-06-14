@@ -21,6 +21,14 @@ class IncomeBean extends ProjectsBeanBase
         return (float)($products + $other);
     }
 
+    public function getOneRoughIncomeTotal($field_array) {
+        $inc = 0;
+        foreach ($field_array as $i) {
+            $inc += $i;
+        }
+        return (float)$inc;
+    }
+
     public function getAllRoughIncomeTotal($n) {
         $products = 0;
         $other = 0;
