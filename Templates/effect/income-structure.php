@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Структура доходов</title>
-    <? include_once('html/tiles/head-basic.html'); ?>
+    <?php include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -15,10 +15,10 @@
 <body>
 <!-- Wrapper till footer -->
 <div id="wrapper">
-<? include_once('html/tiles/header.html'); ?>
+<?php include_once('html/tiles/header.html'); ?>
 <!-- Container for side and main -->
 <div id="container">
-<? include_once('html/tiles/sideblock.html'); ?>
+<?php include_once('html/tiles/sideblock.html'); ?>
 
 <!-- Main area. The top level -->
 
@@ -36,7 +36,7 @@
 <h3>Диаграмма структуры доходов</h3>
 
 <div id="datagrid">
-<? echo $chart1; ?>
+<?php echo $chart1; ?>
 
 </div>
 </div>
@@ -50,6 +50,6 @@
 </div>
 <!-- END Wrapper till footer -->
 
-<? include_once('html/tiles/footer.html'); ?>
+<?php include_once('html/tiles/footer.html'); ?>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><? echo "- $project_name -" ?></title>
-<? include_once('html/tiles/head-basic.html'); ?>
+<title><?php echo "- $project_name -" ?></title>
+<?php include_once('html/tiles/head-basic.html'); ?>
     <style type="text/css">
         .form a img {
             margin: 20px;
@@ -13,10 +13,10 @@
 <body>
 <!-- Wrapper till footer -->
 <div id="wrapper">
-<? include_once('html/tiles/header.html'); ?>
+<?php include_once('html/tiles/header.html'); ?>
 <!-- Container for side and main -->
 <div id="container">
-<? include_once('html/tiles/sideblock.html'); ?>
+<?php include_once('html/tiles/sideblock.html'); ?>
 
 <!-- Main area. The top level -->
 
@@ -26,7 +26,7 @@
 <div id="info">
 <p class="title">
 <img src="/html/pics/icons/propeller.gif" alt="preface" />
-<? echo "\" $project_name  \"" ?>
+<?php echo "\" $project_name  \"" ?>
 </p>
 <div class="form">
 <div class="lastrow">
@@ -50,6 +50,6 @@
 </div>
 <!-- END Wrapper till footer -->
 
-<? include_once('html/tiles/footer.html'); ?>
+<?php include_once('html/tiles/footer.html'); ?>
 </body>
 </html>

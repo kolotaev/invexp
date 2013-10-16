@@ -2,16 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Регистрация пользователя</title>
-<? include_once('html/tiles/head-basic.html'); ?>
+<?php include_once('html/tiles/head-basic.html'); ?>
 </head>
 
 <body>
 <!-- Wrapper till footer -->
 <div id="wrapper">
-<? include_once('html/tiles/header.html'); ?>
+<?php include_once('html/tiles/header.html'); ?>
 <!-- Container for side and main -->
 <div id="container">
-<? include_once('html/tiles/sideblock.html'); ?>
+<?php include_once('html/tiles/sideblock.html'); ?>
 
 <!-- Main area. The top level -->
 
@@ -24,7 +24,7 @@
 Зарегистрируйтесь в приложении
 </p>
 
-hgjhgjhgjhg <? echo $name; ?>
+hgjhgjhgjhg <?php echo $name; ?>
 
 </div>
 <!-- END Block for calculations & info -->
@@ -35,6 +35,6 @@ hgjhgjhgjhg <? echo $name; ?>
 </div>
 <!-- END Wrapper till footer -->
 
-<? include_once('html/tiles/footer.html'); ?>
+<?php include_once('html/tiles/footer.html'); ?>
 </body>
 </html>

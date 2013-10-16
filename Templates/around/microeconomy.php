@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Микроэкономическое окружение</title>
-<? include_once('html/tiles/head-basic.html'); ?>
+<?php include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -15,10 +15,10 @@
 <body>
 <!-- Wrapper till footer -->
 <div id="wrapper">
-<? include_once('html/tiles/header.html'); ?>
+<?php include_once('html/tiles/header.html'); ?>
 <!-- Container for side and main -->
 <div id="container">
-<? include_once('html/tiles/sideblock.html'); ?>
+<?php include_once('html/tiles/sideblock.html'); ?>
 
 <!-- Main area. The top level -->
 
@@ -43,37 +43,37 @@
 <p class="row">
 <span>
 <input type="input" value="Амортизация (СПИ)" class="side" readonly="true"/>
-<input type="input" name="around.micro.amortization" value="<? echo $data['amortization'] ?>" class="cell"/>
+<input type="input" name="around.micro.amortization" value="<?php echo $data['amortization'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Кредит (сумма)" class="side" readonly="true"/>
-<input type="input" name="around.micro.credit_volume" value="<? echo $data['credit_volume'] ?>" class="cell"/>
+<input type="input" name="around.micro.credit_volume" value="<?php echo $data['credit_volume'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="% по кредиту" class="side" readonly="true"/>
-<input type="input" name="around.micro.credit_rate" value="<? echo $data['credit_rate'] ?>" class="cell"/>
+<input type="input" name="around.micro.credit_rate" value="<?php echo $data['credit_rate'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Период кредитования" class="side" readonly="true"/>
-<input type="input" name="around.micro.credit_term" value="<? echo $data['credit_term'] ?>" class="cell"/>
+<input type="input" name="around.micro.credit_term" value="<?php echo $data['credit_term'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Собственные средства" class="side" readonly="true"/>
-<input type="input" name="around.micro.own_money" value="<? echo $data['own_money'] ?>" class="cell"/>
+<input type="input" name="around.micro.own_money" value="<?php echo $data['own_money'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Ставка дисконтирования, %" class="side" readonly="true"/>
-<input type="input" name="around.micro.discont" value="<? echo $data['discont'] ?>" class="cell"/>
+<input type="input" name="around.micro.discont" value="<?php echo $data['discont'] ?>" class="cell"/>
 </span>
 </p>
 
@@ -89,6 +89,6 @@
 </div>
 <!-- END Wrapper till footer -->
 
-<? include_once('html/tiles/footer.html'); ?>
+<?php include_once('html/tiles/footer.html'); ?>
 </body>
 </html>

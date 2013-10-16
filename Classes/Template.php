@@ -43,7 +43,7 @@ Class Template {
 
     // ToDo: Remove it. it's obsolete
     // Shows warning box on the page (in the paticular template
-    // type <? echo $warning_box; > inside the $(document).ready(function() { }
+    // type <?php echo $warning_box; > inside the $(document).ready(function() { }
     public function warningBox($msg) {
         $this->vars['warning_box'] = <<<EOD
 $("body").append('<div id="veil"></div>');

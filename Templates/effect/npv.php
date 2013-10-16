@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>ЧДД - ВНД</title>
-    <? include_once('html/tiles/head-basic.html'); ?>
+    <?php include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -15,10 +15,10 @@
 <body>
 <!-- Wrapper till footer -->
 <div id="wrapper">
-<? include_once('html/tiles/header.html'); ?>
+<?php include_once('html/tiles/header.html'); ?>
 <!-- Container for side and main -->
 <div id="container">
-<? include_once('html/tiles/sideblock.html'); ?>
+<?php include_once('html/tiles/sideblock.html'); ?>
 
 <!-- Main area. The top level -->
 
@@ -38,9 +38,9 @@
 
 <div id="datagrid">
 <p>
-<? echo $chart1; ?>
+<?php echo $chart1; ?>
 <span class="table-heading1">Чистый дисконтированный доход</sub></span>
-<? echo <<<EOD
+<?php echo <<<EOD
 <p class="row">
 <span>
 <input type="input" value="Период" class="period tophead" readonly="true"/>
@@ -60,9 +60,9 @@ EOD;
 } ?>
 </p>
     <p>
-        <? echo $chart2; ?>
+        <?php echo $chart2; ?>
         <span class="table-heading1">Внутренняя норма доходности, %</sub></span>
-        <? echo <<<EOD
+        <?php echo <<<EOD
 <p class="row">
 <span>
 <input type="input" value="Период" class="period tophead" readonly="true"/>
@@ -93,6 +93,6 @@ EOD;
 </div>
 <!-- END Wrapper till footer -->
 
-<? include_once('html/tiles/footer.html'); ?>
+<?php include_once('html/tiles/footer.html'); ?>
 </body>
 </html>

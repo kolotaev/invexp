@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Кабинет пользователя</title>
-<? include_once('html/tiles/head-basic.html'); ?>
+<?php include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         function changeEmail(){
             var capture = '<div class="capture">E-mail</div>';
@@ -52,10 +52,10 @@
 <body>
 <!-- Wrapper till footer -->
 <div id="wrapper">
-<? include_once('html/tiles/header.html'); ?>
+<?php include_once('html/tiles/header.html'); ?>
 <!-- Container for side and main -->
 <div id="container">
-<? include_once('html/tiles/sideblock.html'); ?>
+<?php include_once('html/tiles/sideblock.html'); ?>
 
 <!-- Main area. The top level -->
 
@@ -71,17 +71,17 @@
 <table class="cabinetinfotable">
 <tr>
 <td class="lab">Логин</td>
-<td class="inp-left"><? echo @$login; ?></td>
+<td class="inp-left"><?php echo @$login; ?></td>
 </tr>
 <tr>
 <td class="lab">E-mail</td>
-<td class="inp-left"><? echo @$email; ?></td>
+<td class="inp-left"><?php echo @$email; ?></td>
 </tr>
 <tr>
 <td class="lab">Проекты</td>
 <td class="inp-left">
 <ol>
-    <?
+    <?php
     if (empty($projects)) echo "Проектов пока нет";
     else {
         foreach ($projects as $key => $pr){
@@ -96,7 +96,7 @@
 </tr>
 <tr>
 <td class="lab">Файлы</td>
-<td class="inp-left"><? echo @$files; ?></td>
+<td class="inp-left"><?php echo @$files; ?></td>
 </tr>
 </table>
     <form action="/projects/project/open" method="post">
@@ -119,6 +119,6 @@
 </div>
 <!-- END Wrapper till footer -->
 
-<? include_once('html/tiles/footer.html'); ?>
+<?php include_once('html/tiles/footer.html'); ?>
 </body>
 </html>

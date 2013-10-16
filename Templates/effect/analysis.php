@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Анализ эффективности проекта</title>
-<? include_once('html/tiles/head-basic.html'); ?>
+<?php include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -15,10 +15,10 @@
 <body>
 <!-- Wrapper till footer -->
 <div id="wrapper">
-<? include_once('html/tiles/header.html'); ?>
+<?php include_once('html/tiles/header.html'); ?>
 <!-- Container for side and main -->
 <div id="container">
-<? include_once('html/tiles/sideblock.html'); ?>
+<?php include_once('html/tiles/sideblock.html'); ?>
 
 <!-- Main area. The top level -->
 
@@ -35,7 +35,7 @@
         <div id="datagrid">
 
 <div class="analysis">
-    <?
+    <?php
     if ($is_effective)
         echo "Результат: проект эффективен.";
     else
@@ -45,25 +45,25 @@
             <p class="row">
 <span>
 <input type="input" value="ЧДД" class="side" readonly="true"/>
-<input type="input"  value="<? echo $data['npv'] ?>" readonly="true" class="xcell"/>
+<input type="input"  value="<?php echo $data['npv'] ?>" readonly="true" class="xcell"/>
 </span>
             </p>
             <p class="row">
 <span>
 <input type="input" value="Срок окупаемости, пер." class="side" readonly="true"/>
-<input type="input"  value="<? echo $data['pp'] ?>" readonly="true" class="xcell"/>
+<input type="input"  value="<?php echo $data['pp'] ?>" readonly="true" class="xcell"/>
 </span>
             </p>
             <p class="row">
 <span>
 <input type="input" value="Индекс рентабельности, %" class="side" readonly="true"/>
-<input type="input"  value="<? echo $data['pi'] ?>" readonly="true" class="xcell"/>
+<input type="input"  value="<?php echo $data['pi'] ?>" readonly="true" class="xcell"/>
 </span>
             </p>
             <p class="row">
 <span>
 <input type="input" value="ВНД, %" class="side" readonly="true"/>
-<input type="input"  value="<? echo $data['vnd'] ?>" readonly="true" class="xcell"/>
+<input type="input"  value="<?php echo $data['vnd'] ?>" readonly="true" class="xcell"/>
 </span>
             </p>
 
@@ -79,6 +79,6 @@
 </div>
 <!-- END Wrapper till footer -->
 
-<? include_once('html/tiles/footer.html'); ?>
+<?php include_once('html/tiles/footer.html'); ?>
 </body>
 </html>

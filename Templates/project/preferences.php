@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Настройки проекта</title>
-<? include_once('html/tiles/head-basic.html'); ?>
+<?php include_once('html/tiles/head-basic.html'); ?>
 <script type="text/javascript">
 $(document).ready(function() {
 
@@ -21,8 +21,8 @@ $(document).ready(function() {
 			else { $(".nperiodsaddon").text(""); periods_ok = true; }
 	});
 
-    $("#curr1 [value='<? echo $data['currency1'] ?>']").attr("selected", "selected");
-    $("#curr2 [value='<? echo $data['currency2'] ?>']").attr("selected", "selected");
+    $("#curr1 [value='<?php echo $data['currency1'] ?>']").attr("selected", "selected");
+    $("#curr2 [value='<?php echo $data['currency2'] ?>']").attr("selected", "selected");
 
     // clicks the sideblock menu
     clickSideblock(0);
@@ -33,10 +33,10 @@ $(document).ready(function() {
 <body>
 <!-- Wrapper till footer -->
 <div id="wrapper">
-<? include_once('html/tiles/header.html'); ?>
+<?php include_once('html/tiles/header.html'); ?>
 <!-- Container for side and main -->
 <div id="container">
-<? include_once('html/tiles/sideblock.html'); ?>
+<?php include_once('html/tiles/sideblock.html'); ?>
 
 <!-- Main area. The top level -->
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
 <table class="common">
 <tr>
 <td class="lab"><label for="nperiods">Число периодов</label></td>
-<td class="inp"><input type="input" id="nperiods" value="<?echo $data['periods']?>" name="nperiods" maxlength="2" readonly="true"/></td>
+<td class="inp"><input type="input" id="nperiods" value="<?phpecho $data['periods']?>" name="nperiods" maxlength="2" readonly="true"/></td>
 <td class="nperiodsaddon warn"></td>
 </tr>
 <tr>
@@ -83,7 +83,7 @@ $(document).ready(function() {
 <td class="lab"><label for="description">Описание проекта</label></td>
 
 <td class="inp"><textarea rows="5" cols="5" id="description" name="description">
-<? echo $data['description'] ?>
+<?php echo $data['description'] ?>
 </textarea></td>
 <td class="descriptionaddon warn"></td>
 </tr>
@@ -103,6 +103,6 @@ $(document).ready(function() {
 </div>
 <!-- END Wrapper till footer -->
 
-<? include_once('html/tiles/footer.html'); ?>
+<?php include_once('html/tiles/footer.html'); ?>
 </body>
 </html>

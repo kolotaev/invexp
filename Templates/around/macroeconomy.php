@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Макроэкономическое окружение</title>
-<? include_once('html/tiles/head-basic.html'); ?>
+<?php include_once('html/tiles/head-basic.html'); ?>
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -15,10 +15,10 @@
 <body>
 <!-- Wrapper till footer -->
 <div id="wrapper">
-<? include_once('html/tiles/header.html'); ?>
+<?php include_once('html/tiles/header.html'); ?>
 <!-- Container for side and main -->
 <div id="container">
-<? include_once('html/tiles/sideblock.html'); ?>
+<?php include_once('html/tiles/sideblock.html'); ?>
 
 <!-- Main area. The top level -->
 
@@ -43,37 +43,37 @@
 <p class="row">
 <span>
 <input type="input" value="Темп роста цен, %" class="side" readonly="true"/>
-<input type="input" name="around.macro.prise_rise_tempo" value="<? echo $data['prise_rise_tempo'] ?>" class="cell"/>
+<input type="input" name="around.macro.prise_rise_tempo" value="<?php echo $data['prise_rise_tempo'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Курс валюты" class="side" readonly="true"/>
-<input type="input" name="around.macro.currency_rate" value="<? echo $data['currency_rate'] ?>" class="cell"/>
+<input type="input" name="around.macro.currency_rate" value="<?php echo $data['currency_rate'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Ставка рефинансирования, %" class="side" readonly="true"/>
-<input type="input" name="around.macro.refinance_rate" value="<? echo $data['refinance_rate'] ?>" class="cell"/>
+<input type="input" name="around.macro.refinance_rate" value="<?php echo $data['refinance_rate'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="НДС, %" class="side" readonly="true"/>
-<input type="input" name="around.macro.nds_tax" value="<? echo $data['nds_tax'] ?>" class="cell"/>
+<input type="input" name="around.macro.nds_tax" value="<?php echo $data['nds_tax'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="Налог на прибыль, %" class="side" readonly="true"/>
-<input type="input" name="around.macro.profit_tax" value="<? echo $data['profit_tax'] ?>" class="cell"/>
+<input type="input" name="around.macro.profit_tax" value="<?php echo $data['profit_tax'] ?>" class="cell"/>
 </span>
 </p>
 <p class="row">
 <span>
 <input type="input" value="ФСЗН, %" class="side" readonly="true"/>
-<input type="input" name="around.macro.fszn_tax" value="<? echo $data['fszn_tax'] ?>" class="cell"/>
+<input type="input" name="around.macro.fszn_tax" value="<?php echo $data['fszn_tax'] ?>" class="cell"/>
 </span>
 </p>
 </div>
@@ -88,6 +88,6 @@
 </div>
 <!-- END Wrapper till footer -->
 
-<? include_once('html/tiles/footer.html'); ?>
+<?php include_once('html/tiles/footer.html'); ?>
 </body>
 </html>
