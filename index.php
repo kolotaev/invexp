@@ -1,7 +1,7 @@
 <?php
 
-require_once "classes/autoloader.php";
-require_once "settings/config.php";
+require_once "Classes/Autoloader.php";
+require_once "Settings/config.php";
 
 error_reporting(E_ALL);
 
