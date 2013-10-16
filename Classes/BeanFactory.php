@@ -43,11 +43,11 @@ class BeanFactory
         // define type and class of a required model
         $this->type = array_pop($params);
         $this->class = $params[count($params) - 1];
-
+        $params = array_map('ucfirst', $params);
         $params = implode('.', $params);
         $class_name = str_replace('.', DIRSEP, $params);
 
-        $filename = strtolower($class_name) . '.php';
+        $filename = str_replace('bean', 'Bean', $class_name) . '.php';
         $file = SITE_PATH . 'Beans' . DIRSEP . $filename;
 
         // include the file

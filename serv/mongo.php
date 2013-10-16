@@ -1,7 +1,7 @@
 <?php
 //phpinfo();
 define('__ROOT__', dirname(dirname(__FILE__)));
-require_once __ROOT__."/settings/config.php";
+require_once __ROOT__."/Settings/config.php";
 /*
 This is some service tool script.
 */

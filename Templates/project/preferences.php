@@ -53,7 +53,7 @@ $(document).ready(function() {
 <table class="common">
 <tr>
 <td class="lab"><label for="nperiods">Число периодов</label></td>
-<td class="inp"><input type="input" id="nperiods" value="<?phpecho $data['periods']?>" name="nperiods" maxlength="2" readonly="true"/></td>
+<td class="inp"><input type="input" id="nperiods" value="<?php echo $data['periods']?>" name="nperiods" maxlength="2" readonly="true"/></td>
 <td class="nperiodsaddon warn"></td>
 </tr>
 <tr>
