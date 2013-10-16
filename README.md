@@ -7,21 +7,27 @@ ___
 
 * You now need to create an Apache virtual host for the application
 * Model classes
+
 ``` html
+
 All classes for DB should be written like this: Mongo.Users.Fired.mng
 Where
- 'Fired' is table (entity)
- '.mng' is 'extension' (the type of data model, e.g. xml, mysql,mongodb etc.)
- 'Mongo.Users' are directories and subdirectories
+'Fired' is table (entity)
+'.mng' is 'extension' (the type of data model, e.g. xml, mysql,mongodb etc.)
+'Mongo.Users' are directories and subdirectories
+
 ```
+
 * Controller classes
+
 ``` html
- All classes for DB should be written like this:
- /user/register/checkLogin
- Where
- 'checkLogin' is the function of a controller called to execute
- 'register' is the class of the controller (it originally named 'ControllerRegister' so the last word is taken)
- '/user/../../' are directories and subdirectories within "Controllers" directory
+
+All classes for DB should be written like this: /user/register/checkLogin
+Where
+'checkLogin' is the function of a controller called to execute
+'register' is the class of the controller (it originally named 'ControllerRegister' so the last word is taken)
+'/user/../../' are directories and subdirectories within "Controllers" directory
+
 ```
 
 *Other Info and Credentials*
