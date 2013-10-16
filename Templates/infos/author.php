@@ -70,7 +70,7 @@ Source:
 </p>
 <p>
 <img src="/html/pics/icons/github-icon.jpg" alt="github" /> 
-<a href="https://github.com/invexp/invexp/zipball/master"> Скачать приложение </a>
+<a href="https://github.com/kolotaev/invexp/zipball/master"> Скачать приложение </a>
 </p>
 
 </div> 
