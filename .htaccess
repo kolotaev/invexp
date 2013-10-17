@@ -6,3 +6,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
 
 DirectoryIndex index.html index.php
+
+AddDefaultCharset UTF-8
