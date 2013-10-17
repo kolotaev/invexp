@@ -29,6 +29,15 @@ Where
 '/user/../../' are directories and subdirectories within "Controllers" directory
 ```
 
+*Installation*
+
+1. Create a virtual host on your Apache webserver.
+2. Copy all project files into www root directory.
+3. Install MongoDB. See official manual [here](http://docs.mongodb.org/manual/installation/).
+5. Install mongodb extension for your PHP if you still ain't got it. Instruction is [here](http://docs.mongodb.org/ecosystem/drivers/php/).
+5. Go to name_of_your_virtual_host/serv/mongo.php and create database and collections.
+6. Enjoy the app.
+
 *Other Info and Credentials*
 ``` html
 Author: Egor Kolotaev
